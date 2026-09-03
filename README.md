@@ -29,5 +29,3 @@ CNAME                             Custom domain for GitHub Pages
 - `assets/js/calculator.js` was not included in the files recovered from
   Slack, so the calculators on `calculator.html` render but do not compute.
   The page needs the original file.
-- The pages carry `og:url` and `hello@` addresses on `jalihr.live`, which is
-  not a registered domain. They should point at `jalihr.org`.
