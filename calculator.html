@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculators | JaliHR</title>
+  <meta name="description" content="Four tools that show you exactly what a broken HRIS, and unaddressed employee financial stress, are costing your organisation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/calculator.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+</head>
+<body class="page-fade">
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="JaliHR home">
+        <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#0E4A38"/>
+          <text x="7" y="27" font-size="22" font-family="Georgia,serif" fill="white" font-weight="bold">J</text>
+        </svg>
+        <span class="nav__wordmark">JaliHR</span>
+      </a>
+      <div class="nav__spacer"></div>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="calculator.html" class="active">Calculators</a></li>
+        <li><a href="financial-wellness-report.html">Research</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://meetings-eu1.hubspot.com/vidah" class="nav__cta" target="_blank" rel="noopener">Book a call</a>
+        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav__mobile" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="calculator.html">Calculators</a>
+      <a href="financial-wellness-report.html">Research</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="https://meetings-eu1.hubspot.com/vidah" class="nav__cta" target="_blank" rel="noopener">Book a call</a>
+    </nav>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════
+     LANDING HUB
+     ══════════════════════════════════════════════ -->
+<div id="calc-hub">
+
+  <header class="calc-hero" aria-labelledby="calc-hero-title">
+    <div class="container">
+      <div class="calc-hero__content">
+        <p class="calc-hero__eyebrow">Calculators</p>
+        <h1 class="calc-hero__title" id="calc-hero-title">
+          What is your HRIS<br>actually costing you?
+        </h1>
+        <p class="calc-hero__sub">
+          Four tools. Three answer questions about your HR technology spend. The fourth checks whether employee financial stress is quietly costing you.
+          Enter your numbers, share your details, and get a result you can take to your leadership team.
+        </p>
+      </div>
+      <div class="calc-hero__graphic" aria-hidden="true">
+        <div class="hero-cost-orb">
+          <div class="hero-cost-orb__ring hero-cost-orb__ring--1"></div>
+          <div class="hero-cost-orb__ring hero-cost-orb__ring--2"></div>
+          <div class="hero-cost-orb__ring hero-cost-orb__ring--3"></div>
+          <div class="hero-cost-orb__core">
+            <span class="hero-cost-orb__label">annual waste</span>
+            <span class="hero-cost-orb__value" id="hero-counter">$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section calc-cards-section" aria-label="Choose a calculator">
+    <div class="container">
+      <div class="calc-cards-grid">
+
+        <button class="calc-card" data-open="calc-negotiate">
+          <div class="calc-card__accent calc-card__accent--1"></div>
+          <div class="calc-card__number">01</div>
+          <div class="calc-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h2 class="calc-card__title">HRIS Quote<br>Sense-Check</h2>
+          <p class="calc-card__desc">Got a vendor quote? Enter the headline number, your headcount, and the original ask. Our negotiator reviews it and comes back to you.</p>
+          <div class="calc-card__meta">
+            <span class="calc-card__tag">2 min</span>
+            <span class="calc-card__tag">Negotiation</span>
+          </div>
+          <div class="calc-card__cta">Run this calculator <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </button>
+
+        <button class="calc-card calc-card--featured" data-open="calc-waste">
+          <div class="calc-card__accent calc-card__accent--2"></div>
+          <div class="calc-card__badge">Most used</div>
+          <div class="calc-card__number">02</div>
+          <div class="calc-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h2 class="calc-card__title">System Cost<br>Waste</h2>
+          <p class="calc-card__desc">How much of your HRIS licence are you actually using? Four inputs. One hard number. The money you are paying for a system that is not working.</p>
+          <div class="calc-card__meta">
+            <span class="calc-card__tag">3 min</span>
+            <span class="calc-card__tag">Hard cost</span>
+          </div>
+          <div class="calc-card__cta">Run this calculator <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </button>
+
+        <button class="calc-card" data-open="calc-full">
+          <div class="calc-card__accent calc-card__accent--3"></div>
+          <div class="calc-card__number">03</div>
+          <div class="calc-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h2 class="calc-card__title">Full HRIS<br>Cost Analysis</h2>
+          <p class="calc-card__desc">System cost waste, HR labour time, and operational leakage. Three sections. One executive-ready PDF report.</p>
+          <div class="calc-card__meta">
+            <span class="calc-card__tag">8 min</span>
+            <span class="calc-card__tag">Full analysis</span>
+            <span class="calc-card__tag">PDF report</span>
+          </div>
+          <div class="calc-card__cta">Run this calculator <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </button>
+
+        <a class="calc-card" href="financial-wellness-diagnostic.html" style="grid-column:1/-1;text-decoration:none;color:inherit">
+          <div class="calc-card__accent" style="background:linear-gradient(90deg,var(--emerald) 0%,var(--sage) 100%)"></div>
+          <div class="calc-card__badge">New</div>
+          <div class="calc-card__number">04</div>
+          <div class="calc-card__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h2 class="calc-card__title">Financial Wellness<br>Diagnostic</h2>
+          <p class="calc-card__desc">Does your company have a financial wellness problem? Seven questions, the same ones we asked 89 employers, and an honest verdict, including "no". Built from JaliHR's 2026 study.</p>
+          <div class="calc-card__meta">
+            <span class="calc-card__tag">2 min</span>
+            <span class="calc-card__tag">7 questions</span>
+            <span class="calc-card__tag">Honest verdict</span>
+          </div>
+          <div class="calc-card__cta">Run the diagnostic <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </a>
+
+      </div>
+      <div class="calc-trust-strip">
+        <span>Your data stays in your browser.</span>
+        <span class="calc-trust-sep">·</span>
+        <span>No result is shared without your consent.</span>
+        <span class="calc-trust-sep">·</span>
+        <span>All currency in USD.</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     CALCULATOR 1 — HRIS NEGOTIATION
+     ══════════════════════════════════════════════ -->
+<div id="calc-negotiate" class="calc-view" hidden>
+
+  <div class="calc-view__bar">
+    <div class="container">
+      <button class="calc-back-btn" data-back>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All calculators
+      </button>
+      <div class="calc-view__bar-meta">
+        <span class="calc-view__bar-num">01</span>
+        <div>
+          <h1 class="calc-view__bar-title">HRIS Quote Sense-Check</h1>
+          <p class="calc-view__bar-sub">Share the numbers. Our negotiator will review and come back to you.</p>
+        </div>
+      </div>
+      <div class="cflow-steps" id="neg-steps">
+        <div class="cflow-step cflow-step--active" id="neg-ind-1"><span class="cflow-step__dot">1</span><span class="cflow-step__label">Your quote</span></div>
+        <div class="cflow-step-line"></div>
+        <div class="cflow-step" id="neg-ind-2"><span class="cflow-step__dot">2</span><span class="cflow-step__label">Your details</span></div>
+        <div class="cflow-step-line"></div>
+        <div class="cflow-step" id="neg-ind-3"><span class="cflow-step__dot">3</span><span class="cflow-step__label">Done</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="cflow-panel cflow-panel--active" id="neg-step-1">
+    <div class="calc-split">
+      <div class="calc-split__form">
+        <div class="cform-head">
+          <h2>Tell us about the deal</h2>
+          <p>We need enough detail to review whether the vendor is overcharging and where we can push back.</p>
+        </div>
+        <form id="neg-form" novalidate>
+          <div class="cform-fields">
+            <div class="cform-field cform-field--full">
+              <label for="neg-hris-name">Which HRIS are you evaluating or renewing?</label>
+              <input type="text" id="neg-hris-name" placeholder="e.g. BambooHR, Sage People, Workday, Factorial" autocomplete="off" />
+              <p class="cform-hint">Enter the vendor name</p>
+            </div>
+            <div class="cform-field">
+              <label for="neg-employees">Employees to be licensed</label>
+              <div class="cfinput cfinput--suffix"><input type="number" id="neg-employees" min="1" placeholder="e.g. 500" /><span>employees</span></div>
+            </div>
+            <div class="cform-field">
+              <label for="neg-quoted-price">Current quoted price (per employee / month)</label>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="neg-quoted-price" min="0" step="0.01" placeholder="e.g. 4.50" /></div>
+              <p class="cform-hint">The offer on the table right now</p>
+            </div>
+            <div class="cform-field">
+              <label for="neg-first-price">Vendor's first quoted price (per employee / month)</label>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="neg-first-price" min="0" step="0.01" placeholder="e.g. 7.00" /></div>
+              <p class="cform-hint">The original ask before any negotiation</p>
+            </div>
+          </div>
+          <div class="cform-actions">
+            <button type="submit" class="btn btn--emerald btn--lg">
+              Continue <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--dark">
+          <div class="cside-card__label">How this works</div>
+          <div class="cside-steps-list">
+            <div class="cside-step"><span>1</span><p>You enter the vendor name, headcount, current price, and what they originally asked.</p></div>
+            <div class="cside-step"><span>2</span><p>Share your contact details so we can reach you.</p></div>
+            <div class="cside-step"><span>3</span><p>Our HRIS negotiation specialist reviews your deal and comes back with a recommendation within one business day.</p></div>
+          </div>
+          <div class="cside-card__divider"></div>
+          <div class="cside-stat">
+            <div class="cside-stat__num">50%</div>
+            <div class="cside-stat__label">reduction in HRIS cost secured for Zembo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: HubSpot gate -->
+  <div class="cflow-panel" id="neg-step-2">
+    <div class="calc-split">
+      <div class="calc-split__form">
+        <div class="cform-head">
+          <h2>Send this to our negotiator.</h2>
+          <p>Our HRIS negotiation specialist will review your deal and come back with recommendations.</p>
+        </div>
+        <div id="hs-form-negotiate"></div>
+      </div>
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--dark">
+          <div class="cside-card__label">Your deal summary</div>
+          <div class="cside-summary-hris" id="neg-display-hris">--</div>
+          <div class="cside-row"><span>Employees</span><strong id="neg-display-employees">--</strong></div>
+          <div class="cside-row"><span>Current quoted price</span><strong id="neg-display-quoted">--</strong></div>
+          <div class="cside-row"><span>First ask</span><strong id="neg-display-first">--</strong></div>
+          <div class="cside-card__divider"></div>
+          <div class="cside-row cside-row--highlight"><span>Annual gap to close</span><strong id="neg-display-gap">--</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Confirmation -->
+  <div class="cflow-panel" id="neg-step-3">
+    <div class="calc-split calc-split--confirm">
+      <div class="cresult-confirm">
+        <div class="cresult-confirm__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <h2>Our negotiator will be in touch.</h2>
+        <p>We have your deal summary. Expect to hear from us within one business day with our recommendations on where you can push back.</p>
+        <a href="https://meetings-eu1.hubspot.com/vidah" class="btn btn--emerald" target="_blank" rel="noopener">Book a call now instead</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     CALCULATOR 2 — SYSTEM COST WASTE
+     ══════════════════════════════════════════════ -->
+<div id="calc-waste" class="calc-view" hidden>
+
+  <div class="calc-view__bar">
+    <div class="container">
+      <button class="calc-back-btn" data-back>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All calculators
+      </button>
+      <div class="calc-view__bar-meta">
+        <span class="calc-view__bar-num">02</span>
+        <div>
+          <h1 class="calc-view__bar-title">System Cost Waste</h1>
+          <p class="calc-view__bar-sub">How much of your HRIS licence are you actually getting value from?</p>
+        </div>
+      </div>
+      <div class="cflow-steps">
+        <div class="cflow-step cflow-step--active" id="waste-ind-1"><span class="cflow-step__dot">1</span><span class="cflow-step__label">Your numbers</span></div>
+        <div class="cflow-step-line"></div>
+        <div class="cflow-step" id="waste-ind-2"><span class="cflow-step__dot">2</span><span class="cflow-step__label">Unlock result</span></div>
+        <div class="cflow-step-line"></div>
+        <div class="cflow-step" id="waste-ind-3"><span class="cflow-step__dot">3</span><span class="cflow-step__label">Your result</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="cflow-panel cflow-panel--active" id="waste-step-1">
+    <div class="calc-split">
+      <div class="calc-split__form">
+        <div class="cform-head">
+          <h2>Your HRIS licence</h2>
+          <p>Four numbers. We calculate exactly how much of your licence spend is delivering zero value.</p>
+        </div>
+        <form id="waste-form" novalidate>
+          <div class="cform-fields">
+            <div class="cform-field">
+              <label for="waste-headcount">Employees licensed on your HRIS</label>
+              <div class="cfinput cfinput--suffix"><input type="number" id="waste-headcount" min="1" placeholder="e.g. 5000" /><span>employees</span></div>
+              <p class="cform-hint">Active seats on the system</p>
+            </div>
+            <div class="cform-field">
+              <label for="waste-licence-cost">Licence cost per employee / month (USD)</label>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="waste-licence-cost" min="0" step="0.01" placeholder="e.g. 1.20" /></div>
+              <p class="cform-hint">What you pay per person each month</p>
+            </div>
+            <div class="cform-field cform-field--full">
+              <label for="waste-config-score">How fully configured is the system? <span class="clabel-range">(1 = barely set up &nbsp;·&nbsp; 10 = fully configured)</span></label>
+              <div class="cfscore-wrap">
+                <div class="cfscore-track">
+                  <input type="range" id="waste-config-score" min="1" max="10" value="5" class="cfscore-range" />
+                  <div class="cfscore-ticks" aria-hidden="true">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                  </div>
+                </div>
+                <div class="cfscore-badge"><span id="waste-config-val">5</span><span class="cfscore-denom">/10</span></div>
+              </div>
+              <p class="cform-hint">Honest score of system configuration depth</p>
+            </div>
+            <div class="cform-field cform-field--full">
+              <label for="waste-adoption-score">How actively are employees using it? <span class="clabel-range">(1 = no one uses it &nbsp;·&nbsp; 10 = full adoption)</span></label>
+              <div class="cfscore-wrap">
+                <div class="cfscore-track">
+                  <input type="range" id="waste-adoption-score" min="1" max="10" value="5" class="cfscore-range" />
+                  <div class="cfscore-ticks" aria-hidden="true">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                  </div>
+                </div>
+                <div class="cfscore-badge"><span id="waste-adoption-val">5</span><span class="cfscore-denom">/10</span></div>
+              </div>
+              <p class="cform-hint">Day-to-day employee and manager adoption rate</p>
+            </div>
+          </div>
+          <div class="cform-actions">
+            <button type="submit" class="btn btn--emerald btn--lg">
+              See my result <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--dark cside-card--live" id="waste-live-card">
+          <div class="cside-card__label">Live estimate</div>
+          <div class="cside-live-total" id="waste-live-cost">
+            <span class="cside-live-total__placeholder">Enter your numbers</span>
+          </div>
+          <div class="cside-card__label" style="margin-top:1.5rem">per year wasted on your HRIS licence</div>
+          <div class="cside-card__divider"></div>
+          <div class="cside-row"><span>Effective utilisation</span><strong id="waste-live-util">--</strong></div>
+          <div class="cside-row"><span>Annual licence spend</span><strong id="waste-live-spend">--</strong></div>
+          <div class="cside-card__divider"></div>
+          <div class="cside-formula">
+            <div class="cside-formula__title">What this means</div>
+            <div class="cside-formula__body">
+              Most organisations pay for 100% of a system but use 40–60% of it. The rest is money leaving the business every month with nothing to show for it.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Gate -->
+  <div class="cflow-panel" id="waste-step-2">
+    <div class="calc-split">
+      <div class="calc-split__form">
+        <div class="cform-head">
+          <h2>Your result is ready.</h2>
+          <p>Enter your details and we will show you the full breakdown, and what you can do about it.</p>
+        </div>
+        <div id="hs-form-waste"></div>
+      </div>
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--dark">
+          <div class="cside-card__label">Your annual system cost waste</div>
+          <div class="cside-blur-wrap">
+            <div class="cside-blur-num" id="waste-gate-num">$000,000</div>
+            <div class="cside-blur-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Share your details to unlock</span>
+            </div>
+          </div>
+          <div class="cside-card__divider"></div>
+          <p class="cside-card__note">This is the portion of your licence fee that delivers zero operational value. Share your details to see the full breakdown and what is recoverable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Result -->
+  <div class="cflow-panel" id="waste-step-3">
+    <div class="calc-split calc-split--result">
+      <div class="calc-split__form calc-split__form--result">
+        <div id="waste-result-breakdown"></div>
+        <div id="waste-result-insight"></div>
+      </div>
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--hero">
+          <div class="cside-card__label">Annual system cost waste</div>
+          <div class="cside-result-total" id="waste-result-total">$0</div>
+          <div class="cside-card__divider"></div>
+          <div class="cresult-cta-card">
+            <h3>JaliHR can recover that.</h3>
+            <p>We configure and optimise HRIS platforms for growing employers. Most clients see measurable waste reduction within 90 days.</p>
+            <a href="https://meetings-eu1.hubspot.com/vidah" class="btn btn--white" target="_blank" rel="noopener">Book a call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     CALCULATOR 3 — FULL HRIS COST
+     ══════════════════════════════════════════════ -->
+<div id="calc-full" class="calc-view" hidden>
+
+  <div class="calc-view__bar">
+    <div class="container">
+      <button class="calc-back-btn" data-back>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All calculators
+      </button>
+      <div class="calc-view__bar-meta">
+        <span class="calc-view__bar-num">03</span>
+        <div>
+          <h1 class="calc-view__bar-title">Full HRIS Cost Analysis</h1>
+          <p class="calc-view__bar-sub">System cost + HR labour time + operational leakage. The complete picture.</p>
+        </div>
+      </div>
+      <div class="cflow-steps">
+        <div class="cflow-step cflow-step--active" id="full-ind-1"><span class="cflow-step__dot">1</span><span class="cflow-step__label">Your numbers</span></div>
+        <div class="cflow-step-line"></div>
+        <div class="cflow-step" id="full-ind-2"><span class="cflow-step__dot">2</span><span class="cflow-step__label">Unlock report</span></div>
+        <div class="cflow-step-line"></div>
+        <div class="cflow-step" id="full-ind-3"><span class="cflow-step__dot">3</span><span class="cflow-step__label">Full report</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="cflow-panel cflow-panel--active" id="full-step-1">
+    <div class="calc-split">
+      <div class="calc-split__form">
+        <form id="full-form" novalidate>
+
+          <!-- Section A -->
+          <div class="cform-section">
+            <div class="cform-section__badge">Section A</div>
+            <h2 class="cform-section__title">System Cost Waste</h2>
+            <p class="cform-section__sub">Hard cash: licence paid, value not received.</p>
+          </div>
+          <div class="cform-fields">
+            <div class="cform-field">
+              <label for="full-headcount">Employees licensed on your HRIS</label>
+              <div class="cfinput cfinput--suffix"><input type="number" id="full-headcount" min="1" placeholder="e.g. 5000" /><span>employees</span></div>
+            </div>
+            <div class="cform-field">
+              <label for="full-licence-cost">Licence cost per employee / month (USD)</label>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-licence-cost" min="0" step="0.01" placeholder="e.g. 1.20" /></div>
+            </div>
+            <div class="cform-field cform-field--full">
+              <label for="full-config-score">System configuration depth <span class="clabel-range">(1 = barely set up &nbsp;·&nbsp; 10 = fully configured)</span></label>
+              <div class="cfscore-wrap">
+                <div class="cfscore-track">
+                  <input type="range" id="full-config-score" min="1" max="10" value="5" class="cfscore-range" />
+                  <div class="cfscore-ticks" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+                </div>
+                <div class="cfscore-badge"><span id="full-config-val">5</span><span class="cfscore-denom">/10</span></div>
+              </div>
+            </div>
+            <div class="cform-field cform-field--full">
+              <label for="full-adoption-score">Employee adoption rate <span class="clabel-range">(1 = no one uses it &nbsp;·&nbsp; 10 = full adoption)</span></label>
+              <div class="cfscore-wrap">
+                <div class="cfscore-track">
+                  <input type="range" id="full-adoption-score" min="1" max="10" value="5" class="cfscore-range" />
+                  <div class="cfscore-ticks" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+                </div>
+                <div class="cfscore-badge"><span id="full-adoption-val">5</span><span class="cfscore-denom">/10</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section B -->
+          <div class="cform-section cform-section--divider">
+            <div class="cform-section__badge">Section B</div>
+            <h2 class="cform-section__title">HR Labour Waste</h2>
+            <p class="cform-section__sub">Real staff time spent on manual workarounds a working HRIS would eliminate.</p>
+          </div>
+          <div class="cform-fields">
+            <div class="cform-field">
+              <label for="full-hr-count">Number of HR staff</label>
+              <div class="cfinput cfinput--suffix"><input type="number" id="full-hr-count" min="0" placeholder="e.g. 3" /><span>people</span></div>
+            </div>
+            <div class="cform-field">
+              <label for="full-hr-salary">Average annual salary for HR staff (USD)</label>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-hr-salary" min="0" placeholder="e.g. 10000" /></div>
+            </div>
+            <div class="cform-field cform-field--full">
+              <label for="full-hr-workaround-pct">% of HR staff time on manual workarounds</label>
+              <div class="cfinput cfinput--suffix" style="max-width:320px"><input type="number" id="full-hr-workaround-pct" min="0" max="100" placeholder="e.g. 40" /><span>%</span></div>
+              <p class="cform-hint">Time a working HRIS would give back</p>
+            </div>
+            <div class="cform-field">
+              <label for="full-sup-count">Number of supervisors / line managers</label>
+              <div class="cfinput cfinput--suffix"><input type="number" id="full-sup-count" min="0" placeholder="e.g. 200" /><span>people</span></div>
+            </div>
+            <div class="cform-field">
+              <label for="full-sup-salary">Average annual salary for supervisors (USD)</label>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-sup-salary" min="0" placeholder="e.g. 5000" /></div>
+            </div>
+            <div class="cform-field cform-field--full">
+              <label for="full-sup-hr-pct">% of supervisor time spent on HR admin</label>
+              <div class="cfinput cfinput--suffix" style="max-width:320px"><input type="number" id="full-sup-hr-pct" min="0" max="100" placeholder="e.g. 20" /><span>%</span></div>
+              <p class="cform-hint">Leave requests, manual approvals, spreadsheet chasing</p>
+            </div>
+          </div>
+
+          <!-- Section C -->
+          <div class="cform-section cform-section--divider">
+            <div class="cform-section__badge">Section C</div>
+            <h2 class="cform-section__title">Leaky Gaps</h2>
+            <p class="cform-section__sub">Operational losses a functioning HRIS would close. Enter what applies and leave blank if not relevant.</p>
+          </div>
+          <div class="cform-fields cform-fields--c">
+            <div class="cform-field-c">
+              <label for="full-fraud">Known fraud losses</label>
+              <p class="cform-hint-c">Ghost employees, shift manipulation, expense fraud</p>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-fraud" min="0" placeholder="Annual USD" /></div>
+            </div>
+            <div class="cform-field-c">
+              <label for="full-payroll-errors">Payroll errors</label>
+              <p class="cform-hint-c">Overpayments, underpayments, reconciliation costs</p>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-payroll-errors" min="0" placeholder="Annual USD" /></div>
+            </div>
+            <div class="cform-field-c">
+              <label for="full-recruit-fees">Wasted recruitment fees</label>
+              <p class="cform-hint-c">Bad hires due to poor onboarding or no preboarding</p>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-recruit-fees" min="0" placeholder="Annual USD" /></div>
+            </div>
+            <div class="cform-field-c">
+              <label for="full-compliance">Compliance fines and penalties</label>
+              <p class="cform-hint-c">Labour law, tax, audit findings</p>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-compliance" min="0" placeholder="Annual USD" /></div>
+            </div>
+            <div class="cform-field-c">
+              <label for="full-overtime">Avoidable overtime costs</label>
+              <p class="cform-hint-c">Poor scheduling, no visibility on attendance</p>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-overtime" min="0" placeholder="Annual USD" /></div>
+            </div>
+            <div class="cform-field-c">
+              <label for="full-other">Other quantifiable losses</label>
+              <p class="cform-hint-c">Any direct cost you can attribute to HRIS failure</p>
+              <div class="cfinput cfinput--prefix cfinput--currency"><input type="number" id="full-other" min="0" placeholder="Annual USD" /></div>
+            </div>
+          </div>
+
+          <div class="cform-actions">
+            <button type="submit" class="btn btn--emerald btn--lg">
+              Get my full report <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="cform-actions-note">Sections B and C are optional. Include what you know.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sticky running total panel -->
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--dark cside-card--sticky">
+          <div class="cside-card__label">Running total</div>
+          <div class="cside-live-total" id="full-live-total-display">
+            <span class="cside-live-total__placeholder">Fill in Section A to start</span>
+          </div>
+          <div class="cside-card__label" style="margin-top:1rem">per year, total HRIS cost</div>
+          <div class="cside-card__divider"></div>
+          <div class="cside-row"><span>Section A: System cost</span><strong id="full-live-a">--</strong></div>
+          <div class="cside-row"><span>Section B: Labour waste</span><strong id="full-live-b">--</strong></div>
+          <div class="cside-row"><span>Section C: Leaky gaps</span><strong id="full-live-c">--</strong></div>
+          <div class="cside-card__divider"></div>
+          <div class="cside-formula">
+            <div class="cside-formula__title">Sections B and C are optional</div>
+            <div class="cside-formula__body">Fill in what you know. The more sections you complete, the more complete the picture for your leadership team.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Gate -->
+  <div class="cflow-panel" id="full-step-2">
+    <div class="calc-split">
+      <div class="calc-split__form">
+        <div class="cform-head">
+          <h2>Your report is ready.</h2>
+          <p>Share your details to unlock the full breakdown and a one-page PDF you can take straight to your leadership team.</p>
+        </div>
+        <div id="hs-form-full"></div>
+      </div>
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--dark">
+          <div class="cside-card__label">Total annual HRIS cost</div>
+          <div class="cside-blur-wrap">
+            <div class="cside-blur-num" id="full-gate-num">$000,000</div>
+            <div class="cside-blur-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Share your details to unlock</span>
+            </div>
+          </div>
+          <div class="cside-card__divider"></div>
+          <div id="full-gate-preview"></div>
+          <p class="cside-card__note" style="margin-top:1rem">The full breakdown and a one-page executive PDF are waiting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Full result -->
+  <div class="cflow-panel" id="full-step-3">
+    <div class="calc-split calc-split--result">
+      <div class="calc-split__form calc-split__form--result">
+        <div id="full-result-sections"></div>
+        <div id="full-result-insight"></div>
+      </div>
+      <div class="calc-split__panel">
+        <div class="cside-card cside-card--hero cside-card--sticky">
+          <div class="cside-card__label">Total annual HRIS cost</div>
+          <div class="cside-result-total" id="full-result-total">$0</div>
+          <div class="cside-card__divider"></div>
+          <div class="cresult-cta-card">
+            <h3>JaliHR can save you that money by making your HRIS work.</h3>
+            <p>We fix broken HRIS implementations for growing employers. Our fee is structured as a share of recoverable waste. You keep the majority.</p>
+            <a href="https://meetings-eu1.hubspot.com/vidah" class="btn btn--white" target="_blank" rel="noopener">Book a call</a>
+          </div>
+          <div class="cside-card__divider"></div>
+          <button class="btn btn--outline-white" id="full-download-btn" type="button">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download executive PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="#1F7A5E"/>
+            <text x="6" y="24" font-size="20" font-family="Georgia,serif" fill="white" font-weight="bold">J</text>
+          </svg>
+          <span class="footer__wordmark">JaliHR</span>
+        </div>
+        <p class="footer__tagline">HR technology and negotiation. Negotiate, Acquire, Rescue.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Pages</p>
+        <ul class="footer__links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="calculator.html">Calculators</a></li>
+        <li><a href="financial-wellness-report.html">Research</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <ul class="footer__links" role="list">
+          <li><a href="https://meetings-eu1.hubspot.com/vidah" target="_blank" rel="noopener">Book a call</a></li>
+          <li><a href="mailto:hello@jalihr.live">hello@jalihr.live</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 JaliHR. Kampala, Uganda.</p>
+      <p class="footer__copy">Built for growing employers.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/calculator.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

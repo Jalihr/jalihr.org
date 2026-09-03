@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Employee Financial Stress: What 89 Employers Told Us | JaliHR Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>" />
+<style>
+  :root{
+    --emerald:#0E4A38; --emerald-mid:#1F7A5E; --emerald-dark:#08372A;
+    --sage:#84B59F; --sage-mid:#5E997E; --sage-light:#C9DDD0; --sage-vl:#E8F0EB;
+    --cream:#F7F5F0; --cream-dark:#EBE7DC; --border:#E5E7EB; --white:#FFFFFF;
+    --charcoal:#2B2F33; --charcoal-soft:#475056; --charcoal-light:#6B7280;
+    --red:#B0322C; --amber:#C68B1F;
+    --font-display:'Georgia','Times New Roman',serif;
+    --font-body:'Inter','Helvetica Neue',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);line-height:1.6;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;font-weight:700;text-wrap:balance}
+  a{color:var(--emerald-mid);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+
+  .nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);z-index:50}
+  .nav__in{display:flex;align-items:center;gap:16px;height:64px}
+  .nav__logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--charcoal)}
+  .nav__logo:hover{text-decoration:none}
+  .nav__links{display:flex;gap:26px;margin-left:34px}
+  .nav__links a{color:var(--charcoal-soft);font-size:.95rem;font-weight:500}
+  .nav__links a:hover{color:var(--emerald);text-decoration:none}
+  @media(max-width:920px){.nav__links{display:none}}
+
+  .nav__spacer{flex:1}
+  .nav__cta{background:var(--emerald);color:var(--white);padding:9px 18px;border-radius:10px;font-size:.95rem;font-weight:600}
+  .nav__cta:hover{background:var(--emerald-dark);text-decoration:none}
+
+  .hero{background:var(--emerald);color:var(--white);padding:90px 0 64px}
+  .hero .eyebrow{color:var(--sage);text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:600;margin-bottom:22px}
+  .hero h1{color:var(--white);font-size:clamp(2.1rem,1.1rem+3.4vw,3.8rem);letter-spacing:-1px;margin-bottom:24px;max-width:1000px}
+  .hero p.lede{color:var(--sage-light);font-size:1.2rem;max-width:720px}
+  .hero .meta{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding-top:28px;border-top:1px solid rgba(255,255,255,.16)}
+  .hero .meta .n{font-family:var(--font-display);font-size:2.4rem;font-weight:700;line-height:1}
+  .hero .meta .l{color:var(--sage);font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+
+  section.block{padding:84px 0}
+  section.alt{background:var(--cream)}
+  .kicker{text-transform:uppercase;letter-spacing:3px;font-size:.8rem;font-weight:700;color:var(--sage-mid);margin-bottom:16px}
+  h2.sec{font-size:clamp(2rem,1.2rem+2.6vw,3.1rem);color:var(--emerald);letter-spacing:-.8px;margin-bottom:20px;max-width:900px}
+  p.body{color:var(--charcoal-soft);font-size:1.12rem;max-width:760px}
+  p.body strong{color:var(--charcoal)}
+  p.body + p.body{margin-top:14px}
+  .takeaway{font-family:var(--font-display);font-size:1.3rem;color:var(--emerald);border-left:4px solid var(--sage);padding:6px 0 6px 20px;margin-top:28px;max-width:820px}
+
+  /* two-column landscape grids */
+  .grid2{display:grid;grid-template-columns:minmax(320px,5fr) minmax(380px,7fr);gap:56px;align-items:center}
+  .grid2.rev{grid-template-columns:minmax(380px,7fr) minmax(320px,5fr)}
+
+  /* question cards */
+  .qgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:40px}
+  .qcard{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px 22px}
+  .qcard .qn{font-family:var(--font-display);font-weight:700;color:var(--sage-mid);font-size:1.4rem}
+  .qcard h4{font-family:var(--font-display);font-size:1.12rem;color:var(--emerald);margin:10px 0 6px}
+  .qcard p{color:var(--charcoal-soft);font-size:.92rem;line-height:1.5}
+
+  /* charts */
+  .chart{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:34px}
+  section.alt .chart{box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .chart h3{font-family:var(--font-display);font-size:1.3rem;color:var(--emerald);margin-bottom:4px}
+  .chart .chsub{color:var(--charcoal-light);font-size:.88rem;margin-bottom:26px}
+
+  /* horizontal bars */
+  .bar{display:grid;grid-template-columns:200px 1fr 60px;gap:14px;align-items:center;margin-bottom:15px}
+  .bar:last-child{margin-bottom:0}
+  .bar .lab{font-size:.95rem;color:var(--charcoal);font-weight:500;text-align:right}
+  .bar .trk{background:var(--sage-vl);border-radius:8px;height:30px;overflow:hidden}
+  .bar .fil{height:100%;background:var(--emerald-mid);border-radius:8px}
+  .bar .fil.deep{background:var(--emerald)}
+  .bar .fil.warn{background:var(--red)}
+  .bar .fil.amber{background:var(--amber)}
+  .bar .fil.sage{background:var(--sage-mid)}
+  .bar .val{font-family:var(--font-display);font-weight:700;color:var(--emerald);font-size:1.15rem}
+  .bar .val.warn{color:var(--red)}
+
+  /* donut */
+  .donutwrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+  .donut{flex:0 0 240px}
+  .dleg{flex:1;min-width:240px}
+  .dleg .row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.98rem}
+  .dleg .row:last-child{border-bottom:none}
+  .dleg .sw{width:14px;height:14px;border-radius:4px;flex:0 0 14px}
+  .dleg .pc{margin-left:auto;font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--emerald)}
+
+  /* grouped columns */
+  .cols{display:flex;gap:8%;align-items:flex-end;height:260px;padding:0 8px;margin-top:10px}
+  .cgrp{flex:1;display:flex;gap:10px;align-items:flex-end;height:100%;position:relative}
+  .col{flex:1;border-radius:8px 8px 0 0;position:relative}
+  .col.red{background:var(--red)}
+  .col.amb{background:var(--amber)}
+  .col.em{background:var(--emerald-mid)}
+  .col.deep{background:var(--emerald)}
+  .col .v{position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--charcoal)}
+  .col.red .v{color:var(--red)}
+  .col.amb .v{color:var(--amber)}
+  .cxl{display:flex;gap:8%;padding:14px 8px 0;border-top:2px solid var(--border);margin-top:0}
+  .cxl div{flex:1;text-align:center;font-size:.88rem;color:var(--charcoal-soft);font-weight:500;line-height:1.35}
+  .legend{display:flex;gap:24px;margin-top:22px;font-size:.86rem;color:var(--charcoal-soft);flex-wrap:wrap}
+  .legend .sw{display:inline-block;width:13px;height:13px;border-radius:4px;margin-right:7px;vertical-align:-2px}
+
+  /* distribution strip */
+  .dist{display:flex;height:64px;border-radius:14px;overflow:hidden;margin-top:10px}
+  .dist div{display:grid;place-items:center;color:var(--white);font-family:var(--font-display);font-weight:700;font-size:1.15rem}
+  .dxl{display:flex;margin-top:14px;gap:0}
+  .dxl div{font-size:.85rem;color:var(--charcoal-soft);line-height:1.4;padding:0 8px}
+  .brace{display:flex;margin-top:18px}
+  .brace .b{border-top:3px solid var(--red);padding-top:10px;text-align:center;color:var(--red);font-weight:600;font-size:.95rem}
+
+  /* quotes */
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  .q{background:var(--sage-vl);border-left:3px solid var(--emerald-mid);border-radius:0 14px 14px 0;padding:22px 24px;font-size:1.05rem;color:var(--charcoal)}
+  section.alt .q{background:var(--white)}
+  .q .src{display:block;margin-top:10px;color:var(--charcoal-light);font-size:.8rem;letter-spacing:.3px}
+
+  .pull{background:var(--emerald-dark);color:var(--white);border-radius:22px;padding:46px;margin-top:40px}
+  .pull p{font-family:var(--font-display);font-size:clamp(1.3rem,1rem+1.2vw,1.8rem);line-height:1.35;color:var(--white);max-width:980px}
+  .pull .src{display:block;margin-top:16px;color:var(--sage);font-size:.9rem;font-family:var(--font-body)}
+
+  /* driver strip (finding 3) */
+  .drivers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:40px;background:var(--white)}
+  .drv{padding:38px 34px;border-right:1px solid var(--border)}
+  .drv:last-child{border-right:none}
+  .drv .n{font-family:var(--font-display);font-size:3.4rem;font-weight:700;color:var(--emerald);line-height:1}
+  .drv h4{font-family:var(--font-display);font-size:1.3rem;color:var(--charcoal);margin:14px 0 10px}
+  .drv p{color:var(--charcoal-soft);font-size:.98rem}
+  .drv .qq{margin-top:16px;color:var(--emerald-mid);font-style:italic;font-size:.95rem;border-left:3px solid var(--sage-light);padding-left:14px}
+
+  /* conclusion */
+  .conc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .conc .c{background:var(--white);border-top:5px solid var(--red);border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .conc .c h4{font-family:var(--font-display);color:var(--charcoal);font-size:1.25rem;margin-bottom:8px}
+  .conc .c p{color:var(--charcoal-soft);font-size:1rem}
+  .conc .c .n{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:12px}
+
+  /* recommendation: full-width green */
+  .reco{background:var(--emerald);color:var(--white);padding:96px 0}
+  .reco .kicker{color:var(--sage)}
+  .reco h2{color:var(--white);font-size:clamp(2rem,1.2rem+2.8vw,3.3rem);letter-spacing:-.8px;margin-bottom:22px;max-width:1000px}
+  .reco p.lede{color:var(--sage-light);font-size:1.18rem;max-width:780px;margin-bottom:10px}
+  .acc{margin-top:48px;border-top:1px solid rgba(255,255,255,.18)}
+  .acc details{border-bottom:1px solid rgba(255,255,255,.18)}
+  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:26px 4px;font-family:var(--font-display);font-size:clamp(1.15rem,1rem+.8vw,1.55rem);font-weight:700;color:var(--white)}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary .tick{flex:0 0 34px;height:34px;width:34px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--sage);display:grid;place-items:center;font-size:1rem}
+  .acc summary .plus{margin-left:auto;flex:0 0 28px;color:var(--sage);font-family:var(--font-body);font-size:1.6rem;font-weight:400;transition:transform .2s;line-height:1}
+  .acc details[open] summary .plus{transform:rotate(45deg)}
+  .acc .acc-body{padding:0 4px 30px 58px;color:var(--sage-light);font-size:1.05rem;max-width:900px}
+  .reco .btn{display:inline-block;background:var(--white);color:var(--emerald);padding:17px 36px;border-radius:12px;font-weight:600;font-size:1.1rem;margin-top:44px}
+  .reco .btn:hover{background:var(--cream);text-decoration:none}
+
+  footer{background:var(--charcoal);color:#aeb6ba;padding:38px 0;font-size:.85rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer .disc{max-width:640px;color:#8b9499}
+
+  @media(max-width:980px){
+    .grid2,.grid2.rev{grid-template-columns:1fr;gap:34px}
+    .qgrid{grid-template-columns:1fr 1fr}
+    .drivers{grid-template-columns:1fr}
+    .drv{border-right:none;border-bottom:1px solid var(--border)}
+    .drv:last-child{border-bottom:none}
+    .conc{grid-template-columns:1fr}
+    .hero .meta{grid-template-columns:1fr 1fr}
+    .quotes{grid-template-columns:1fr}
+    .bar{grid-template-columns:1fr;gap:5px}
+    .bar .lab{text-align:left}
+    .bar .val{order:-1}
+    .wrap{padding:0 22px}
+    section.block{padding:56px 0}
+    .acc .acc-body{padding-left:4px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__logo" href="index.html">
+      <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#0E4A38"/><text x="7" y="27" font-size="22" font-family="Georgia,serif" fill="white" font-weight="bold">J</text></svg>
+      <span>JaliHR</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="calculator.html">Calculators</a>
+      <a href="financial-wellness-report.html">Research</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <div class="nav__spacer"></div>
+    <a class="nav__cta" href="https://meetings-eu1.hubspot.com/vidah" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">JaliHR Research · Employee Financial Wellness, East Africa 2026</p>
+    <h1>Employee financial stress is costing companies good people. In half of them, leadership does not consider it a problem.</h1>
+    <p class="lede">A study of 89 East African employers: 65 HR leaders surveyed, 24 interviewed in depth. These are the findings.</p>
+    <div class="meta">
+      <div><div class="n">89</div><div class="l">Employers studied</div></div>
+      <div><div class="n">36%</div><div class="l">Lost a good employee</div></div>
+      <div><div class="n">51%</div><div class="l">Leadership disengaged</div></div>
+      <div><div class="n">52%</div><div class="l">Field advance requests monthly</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SETTING THE BAR -->
+<section class="block">
+  <div class="wrap">
+    <p class="kicker">What we set out to answer</p>
+    <h2 class="sec">We knew financial stress was in the workplace. We wanted to know how bad.</h2>
+    <p class="body">Every HR leader fields the same requests: the advance, the loan, the quiet conversation before payday. What has been missing is measurement. So we asked 89 employers five questions.</p>
+    <div class="qgrid">
+      <div class="qcard"><div class="qn">01</div><h4>How widespread?</h4><p>Edge case, or a monthly operating condition?</p></div>
+      <div class="qcard"><div class="qn">02</div><h4>What is driving it?</h4><p>Debt, salaries, growth, or something else?</p></div>
+      <div class="qcard"><div class="qn">03</div><h4>What are employers doing?</h4><p>And is any of it working?</p></div>
+      <div class="qcard"><div class="qn">04</div><h4>Is leadership engaged?</h4><p>Or is HR carrying this alone?</p></div>
+      <div class="qcard"><div class="qn">05</div><h4>What is it costing?</h4><p>In people, HR time, and company money.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDING 1 -->
+<section class="block alt">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <p class="kicker">Finding 01</p>
+        <h2 class="sec">It is a monthly operating condition.</h2>
+        <p class="body"><strong>72% of HR leaders report a live financial-stress pain point every single month.</strong> Half field a steady stream of advance and loan requests. This is not occasional. It is part of the payroll cycle.</p>
+        <p class="takeaway">We were right. Financial stress is real, and it is on HR's desk every month.</p>
+      </div>
+      <div class="chart">
+        <h3>The biggest monthly pain point, normalised</h3>
+        <div class="chsub">Share of HR leaders reporting each pain</div>
+        <div class="bar"><div class="lab">Fielding advance &amp; loan requests</div><div class="trk"><div class="fil deep" style="width:87%"></div></div><div class="val">26%</div></div>
+        <div class="bar"><div class="lab">Staff broke before the next payday</div><div class="trk"><div class="fil" style="width:70%"></div></div><div class="val">21%</div></div>
+        <div class="bar"><div class="lab">Employee over-indebtedness</div><div class="trk"><div class="fil" style="width:70%"></div></div><div class="val">21%</div></div>
+        <div class="bar"><div class="lab">Salaries stretched thin, no growth</div><div class="trk"><div class="fil sage" style="width:63%"></div></div><div class="val">19%</div></div>
+        <div class="bar"><div class="lab">Visible stress hurting productivity</div><div class="trk"><div class="fil sage" style="width:30%"></div></div><div class="val">9%</div></div>
+        <div class="bar"><div class="lab">Other</div><div class="trk"><div class="fil sage" style="width:13%"></div></div><div class="val">4%</div></div>
+      </div>
+    </div>
+    <div class="quotes">
+      <div class="q">"Salary is paid at month end and the money all goes out for debts. They start begging or foregoing meals. It affects their productivity and it pains me so much."<span class="src">HR manager, 201–500 staff</span></div>
+      <div class="q">"Employees start complaining of brokeness two weeks into payment, then looking forward to the next pay day."<span class="src">HR lead, 51–100 staff</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDING 2 -->
+<section class="block">
+  <div class="wrap">
+    <div class="grid2 rev">
+      <div class="chart">
+        <h3>How employers handle employee financial stress</h3>
+        <div class="chsub">Share of employers by current approach</div>
+        <div class="donutwrap">
+          <div class="donut">
+            <svg viewBox="0 0 42 42" width="240" height="240" role="img" aria-label="Programme share donut chart">
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#E8F0EB" stroke-width="7"/>
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#0E4A38" stroke-width="7" stroke-dasharray="32 68" stroke-dashoffset="25"/>
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#1F7A5E" stroke-width="7" stroke-dasharray="19 81" stroke-dashoffset="-7"/>
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#C68B1F" stroke-width="7" stroke-dasharray="18 82" stroke-dashoffset="-26"/>
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#5E997E" stroke-width="7" stroke-dasharray="15 85" stroke-dashoffset="-44"/>
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#B0322C" stroke-width="7" stroke-dasharray="15 85" stroke-dashoffset="-59"/>
+              <circle cx="21" cy="21" r="15.915" fill="none" stroke="#84B59F" stroke-width="7" stroke-dasharray="1 99" stroke-dashoffset="-74"/>
+              <text x="21" y="19.5" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="7" fill="#0E4A38">66%</text>
+              <text x="21" y="24" text-anchor="middle" font-family="Inter,sans-serif" font-size="2" fill="#6B7280">RUN A FORMAL</text>
+              <text x="21" y="26.8" text-anchor="middle" font-family="Inter,sans-serif" font-size="2" fill="#6B7280">PROGRAMME</text>
+            </svg>
+          </div>
+          <div class="dleg">
+            <div class="row"><span class="sw" style="background:#0E4A38"></span>Bank loan partnership<span class="pc">32%</span></div>
+            <div class="row"><span class="sw" style="background:#1F7A5E"></span>Salary advance programme<span class="pc">19%</span></div>
+            <div class="row"><span class="sw" style="background:#C68B1F"></span>Case by case, no programme<span class="pc">18%</span></div>
+            <div class="row"><span class="sw" style="background:#5E997E"></span>Internal loans / SACCO<span class="pc">15%</span></div>
+            <div class="row"><span class="sw" style="background:#B0322C"></span>Nothing formal<span class="pc">15%</span></div>
+            <div class="row"><span class="sw" style="background:#84B59F"></span>Microfinance partner<span class="pc">1%</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="kicker">Finding 02</p>
+        <h2 class="sec">Two thirds already run a programme.</h2>
+        <p class="body">This is not a story of neglect. Most employers built something: a bank partnership, an advance scheme, a SACCO. Only 15% do nothing at all.</p>
+        <p class="takeaway">So the problem should be shrinking. It is not.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDING 2B: PERSISTENCE -->
+<section class="block alt">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <p class="kicker">Finding 02 · continued</p>
+        <h2 class="sec">The problem persists despite the programmes.</h2>
+        <p class="body">Among employers <strong>with a programme in place</strong>, most still report monthly financial stress, and most still field advance requests. Several told us they run a loan programme, then answered the advance question with a monthly count anyway. The programme exists. The requests never stopped.</p>
+        <p class="body">One employer runs loan programmes with four banks and described demand the programmes still cannot meet.</p>
+        <p class="takeaway">As currently structured, these programmes are not solving the problem. They sit beside it.</p>
+      </div>
+      <div class="chart">
+        <h3>Employers with a programme who still report financial stress</h3>
+        <div class="chsub">% of each group still reporting a monthly pain / still fielding advance requests</div>
+        <div class="cols">
+          <div class="cgrp"><div class="col red" style="height:93%"><span class="v">93%</span></div><div class="col amb" style="height:73%"><span class="v">73%</span></div></div>
+          <div class="cgrp"><div class="col red" style="height:76%"><span class="v">76%</span></div><div class="col amb" style="height:48%"><span class="v">48%</span></div></div>
+          <div class="cgrp"><div class="col red" style="height:75%"><span class="v">75%</span></div><div class="col amb" style="height:67%"><span class="v">67%</span></div></div>
+        </div>
+        <div class="cxl"><div>Salary advance programme</div><div>Bank loan partnership</div><div>Internal loans / SACCO</div></div>
+        <div class="legend"><span><span class="sw" style="background:var(--red)"></span>Still report monthly financial stress</span><span><span class="sw" style="background:var(--amber)"></span>Still field advance requests</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDING 3: CAUSES -->
+<section class="block">
+  <div class="wrap">
+    <p class="kicker">Finding 03</p>
+    <h2 class="sec">What is driving it: debt, thin salaries, and the month-end gap.</h2>
+    <p class="body">Underneath the monthly pain, HR leaders named the same three drivers again and again. They compound: a thin salary forces borrowing, unstructured borrowing eats the next salary, the gap widens, and the advance request lands on HR's desk.</p>
+    <div class="drivers">
+      <div class="drv">
+        <div class="n">21%</div>
+        <h4>Over-indebtedness</h4>
+        <p>Salaries spoken for before they land, often by money lenders at punishing rates.</p>
+        <div class="qq">"One credit, many debits."</div>
+      </div>
+      <div class="drv">
+        <div class="n">19%</div>
+        <h4>Salaries stretched thin</h4>
+        <p>Incomes that no longer cover living costs, with no growth path in sight.</p>
+        <div class="qq">"Their salary will never be enough."</div>
+      </div>
+      <div class="drv">
+        <div class="n">21%</div>
+        <h4>The month-end gap</h4>
+        <p>Money runs out before the month does. Then the countdown to payday begins.</p>
+        <div class="qq">"Broke two weeks in."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDING 4: LEADERSHIP -->
+<section class="block alt">
+  <div class="wrap">
+    <p class="kicker">Finding 04</p>
+    <h2 class="sec">HR is carrying this alone.</h2>
+    <p class="body">In <strong>51% of companies, leadership has either never discussed employee financial stress or does not see it as a problem.</strong> Only a quarter treat it as a business problem.</p>
+
+    <div class="chart" style="margin-top:36px">
+      <h3>How senior management views employee financial stress</h3>
+      <div class="chsub">Distribution of leadership positions</div>
+      <div class="dist">
+        <div style="flex:27;background:#B0322C">27%</div>
+        <div style="flex:24;background:#C4574F">24%</div>
+        <div style="flex:23;background:#C68B1F">23%</div>
+        <div style="flex:26;background:#0E4A38">26%</div>
+      </div>
+      <div class="dxl">
+        <div style="flex:27">Never been discussed</div>
+        <div style="flex:24">"We pay a salary and expect work"</div>
+        <div style="flex:23">An HR problem</div>
+        <div style="flex:26">A business problem</div>
+      </div>
+      <div class="brace"><div class="b" style="flex:51">51% · leadership disengaged</div><div style="flex:49"></div></div>
+    </div>
+
+    <div class="grid2" style="margin-top:48px">
+      <div>
+        <h2 class="sec" style="font-size:clamp(1.5rem,1rem+1.6vw,2.1rem)">Is leadership quiet because nothing is happening? No.</h2>
+        <p class="body">Where leadership is disengaged, <strong>85% of HR leaders still report live monthly financial stress</strong>, and nearly half still field advance requests every month. The stress is there. It just never reaches the leadership agenda.</p>
+      </div>
+      <div>
+        <h2 class="sec" style="font-size:clamp(1.5rem,1rem+1.6vw,2.1rem)">Why it looks handled from the top.</h2>
+        <p class="body"><strong>59% of disengaged-leadership companies run a programme anyway</strong>, usually a bank loan or internal advances. Leadership sees a line item that works. HR lives a queue that never shortens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDING 5: THE COST -->
+<section class="block">
+  <div class="wrap">
+    <p class="kicker">Finding 05</p>
+    <h2 class="sec">The cost: it is already taking good people.</h2>
+    <p class="body">Asked bluntly: in the last 12 months, has the company lost a good employee partly because of a financial problem the company could not solve? <strong>36% said yes. Another 20% could not rule it out. Fewer than half could say no.</strong></p>
+
+    <div class="grid2" style="margin-top:44px">
+      <div class="chart">
+        <h3>Lost a good employee, by programme in place</h3>
+        <div class="chsub">% answering yes within each group</div>
+        <div class="cols">
+          <div class="cgrp"><div class="col red" style="height:92%"><span class="v">69%</span></div></div>
+          <div class="cgrp"><div class="col red" style="height:63%;opacity:.85"><span class="v">47%</span></div></div>
+          <div class="cgrp"><div class="col amb" style="height:41%"><span class="v">31%</span></div></div>
+          <div class="cgrp"><div class="col amb" style="height:33%"><span class="v">25%</span></div></div>
+          <div class="cgrp"><div class="col em" style="height:29%"><span class="v">22%</span></div></div>
+        </div>
+        <div class="cxl"><div>Nothing formal</div><div>Case by case</div><div>SACCO</div><div>Advance programme</div><div>Bank partnership</div></div>
+      </div>
+      <div>
+        <h2 class="sec" style="font-size:clamp(1.5rem,1rem+1.6vw,2.1rem)">Programmes help. They do not stop it.</h2>
+        <p class="body">Doing nothing carries a 69% loss rate, three times that of a bank partnership. Formal programmes clearly reduce the bleeding.</p>
+        <p class="body">And still: even with the best available programme, <strong>more than one in five employers lost a good employee anyway</strong>, and nearly half could not rule it out.</p>
+      </div>
+    </div>
+
+    <div class="grid2 rev" style="margin-top:56px">
+      <div class="chart">
+        <h3>Lost a good employee, by leadership engagement</h3>
+        <div class="chsub">% answering yes within each group</div>
+        <div class="bar"><div class="lab">Calls it a business problem</div><div class="trk"><div class="fil warn" style="width:100%"></div></div><div class="val warn">45%</div></div>
+        <div class="bar"><div class="lab">Calls it an HR problem</div><div class="trk"><div class="fil amber" style="width:78%"></div></div><div class="val">35%</div></div>
+        <div class="bar"><div class="lab">Disengaged</div><div class="trk"><div class="fil amber" style="width:71%"></div></div><div class="val">32%</div></div>
+      </div>
+      <div>
+        <h2 class="sec" style="font-size:clamp(1.5rem,1rem+1.6vw,2.1rem)">Read this one honestly. Engagement is bought with resignations.</h2>
+        <p class="body">The companies taking this most seriously have lost the most people, because that is what made them take it seriously. Leadership starts calling it a business problem <strong>after</strong> it costs them someone good.</p>
+        <p class="body">The disengaged half are not safe. A third have already lost someone. They are earlier on the same path, not on a different one.</p>
+      </div>
+    </div>
+
+    <div class="pull">
+      <p>"Honestly, I would rather just replace people than build a programme to solve this."</p>
+      <span class="src">A CEO, in one of our interviews. At a 36% loss rate and rising, that maths stops working.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="block alt">
+  <div class="wrap">
+    <p class="kicker">Conclusion</p>
+    <h2 class="sec">Financial wellness, as it runs today, is not working.</h2>
+    <p class="body">Employers are not ignoring the problem. Two thirds built something. The programmes were simply not structured to absorb the demand, and the bill is being paid in three currencies.</p>
+    <div class="conc">
+      <div class="c"><div class="n">56%</div><h4>People</h4><p>More than half of employers cannot say financial stress has not cost them a good employee this year. 36% are certain it has.</p></div>
+      <div class="c"><div class="n">52%</div><h4>HR time</h4><p>Half of HR teams field advance and loan requests every month, and nearly half still process them by hand.</p></div>
+      <div class="c"><div class="n">52%</div><h4>Company money</h4><p>Through advances, internal loans, and case-by-case help, half of employers are lending their own cash. The company has quietly become a lender, with none of a lender's protections.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATION: FULL-WIDTH GREEN -->
+<section class="reco">
+  <div class="wrap">
+    <p class="kicker">Our recommendation</p>
+    <h2>Workplace banking: tie the salary to the employee's financial life, and take the company out of the lending business.</h2>
+    <p class="lede">Connect salaries to regulated financial services, so credit, savings, and investment run through payroll under enforced affordability rules, with the money and the risk carried by regulated institutions, not the employer.</p>
+    <p class="lede">Done properly, it runs without the company feeling it, while materially changing how secure employees are with their money. Tap any line for more.</p>
+
+    <div class="acc">
+      <details>
+        <summary><span class="tick">✓</span>Enforces affordability on debt<span class="plus">+</span></summary>
+        <div class="acc-body">A hard cap on the share of net pay that can go to repayments, checked in real time against actual salary and existing obligations before any loan is approved. Access never becomes over-indebtedness, which is the failure mode HR leaders fear most.</div>
+      </details>
+      <details>
+        <summary><span class="tick">✓</span>Encourages good financial behaviour<span class="plus">+</span></summary>
+        <div class="acc-body">Savings and investment run through the same payroll rail as credit, and purpose-driven borrowing (school fees, medical bills) is priced cheaper than cash. The structure nudges people toward building, not just borrowing.</div>
+      </details>
+      <details>
+        <summary><span class="tick">✓</span>Adds zero work to HR<span class="plus">+</span></summary>
+        <div class="acc-body">Deductions, remittance, and reconciliation are handled by the rail, not by your team. No spreadsheets, no month-end queue, no chasing repayments. The advance conversation leaves HR's desk entirely.</div>
+      </details>
+      <details>
+        <summary><span class="tick">✓</span>Brings zero liability and zero capital cost<span class="plus">+</span></summary>
+        <div class="acc-body">Regulated lenders carry the money and the credit risk. The company never guarantees a loan, never funds one, and never collects on one. If an employee defaults, that is the lender's business, not the employer's.</div>
+      </details>
+      <details>
+        <summary><span class="tick">✓</span>Absorbs the advance-request queue<span class="plus">+</span></summary>
+        <div class="acc-body">Employees get regulated access to credit on their own terms instead of asking HR for help. The monthly stream of advance requests, the one pain HR leaders named most, finally has somewhere to go.</div>
+      </details>
+      <details>
+        <summary><span class="tick">✓</span>Gives leadership a programme that needs no defending<span class="plus">+</span></summary>
+        <div class="acc-body">No budget line. No balance-sheet risk. No added headcount. The pitch to a CEO is one sentence: it costs nothing, risks nothing, and the talent leak slows. The management objection mostly answers itself.</div>
+      </details>
+    </div>
+
+    <a class="btn" href="workplace-banking-options.html">See what is available</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff;font-family:var(--font-display)">JaliHR</strong> · People analytics &amp; HR advisory</div>
+    <div class="disc">Based on a 2026 study of 89 East African employers: 65 HR leaders surveyed and 24 employers interviewed in depth. Data used in aggregate and anonymised.</div>
+  </div>
+</footer>
+
+</body>
+</html>

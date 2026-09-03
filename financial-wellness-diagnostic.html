@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Does Your Company Have a Financial Wellness Problem? | JaliHR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>" />
+<style>
+  :root{
+    --emerald:#0E4A38; --emerald-mid:#1F7A5E; --emerald-dark:#08372A;
+    --sage:#84B59F; --sage-mid:#5E997E; --sage-light:#C9DDD0; --sage-vl:#E8F0EB;
+    --cream:#F7F5F0; --border:#E5E7EB; --white:#FFFFFF;
+    --charcoal:#2B2F33; --charcoal-soft:#475056; --charcoal-light:#6B7280;
+    --font-display:'Georgia','Times New Roman',serif;
+    --font-body:'Inter','Helvetica Neue',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.12;font-weight:700;text-wrap:balance}
+  a{color:var(--emerald-mid);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+
+  .nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);z-index:50}
+  .nav__in{display:flex;align-items:center;gap:16px;height:64px;max-width:1180px;margin:0 auto;padding:0 48px}
+  .nav__logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--charcoal)}
+  .nav__logo:hover{text-decoration:none}
+  .nav__links{display:flex;gap:26px;margin-left:34px}
+  .nav__links a{color:var(--charcoal-soft);font-size:.95rem;font-weight:500}
+  .nav__links a:hover{color:var(--emerald);text-decoration:none}
+  @media(max-width:920px){.nav__links{display:none}}
+  .nav__spacer{flex:1}
+  .nav__cta{background:var(--emerald);color:var(--white);padding:9px 18px;border-radius:10px;font-size:.95rem;font-weight:600}
+  .nav__cta:hover{background:var(--emerald-dark);text-decoration:none}
+
+  /* intro */
+  .intro{background:var(--emerald);color:var(--white);padding:110px 0 95px}
+  .intro .eyebrow{color:var(--sage);text-transform:uppercase;letter-spacing:4px;font-size:.78rem;font-weight:600;margin-bottom:26px}
+  .intro h1{color:var(--white);font-size:clamp(2.2rem,1.2rem+3.4vw,3.8rem);letter-spacing:-1.2px;margin:0 0 24px;max-width:820px}
+  .intro p{color:var(--sage-light);font-size:1.2rem;max-width:580px;margin:0 0 42px}
+  .btn{display:inline-block;background:var(--white);color:var(--emerald);padding:16px 36px;border-radius:14px;font-weight:600;font-size:1.05rem;border:none;cursor:pointer;font-family:var(--font-body)}
+  .btn:hover{background:var(--cream);text-decoration:none}
+  .btn.solid{background:var(--emerald);color:var(--white)}
+  .btn.solid:hover{background:var(--emerald-dark)}
+  .tlink{display:inline-block;margin-left:26px;color:var(--emerald);font-weight:600;font-size:1.02rem;background:none;border:none;cursor:pointer;font-family:var(--font-body)}
+  .tlink:hover{color:var(--emerald-dark)}
+
+  /* quiz */
+  .quiz{padding:100px 0 120px;display:none}
+  .quiz.on{display:block}
+  .qcol{max-width:760px}
+  .prog{font-size:.8rem;text-transform:uppercase;letter-spacing:3px;color:var(--sage-mid);font-weight:600;margin-bottom:24px}
+  .qtext{font-size:clamp(1.7rem,1rem+2.4vw,2.6rem);color:var(--emerald);letter-spacing:-.8px;margin:0 0 48px}
+  .opts{max-width:640px;border-top:1px solid var(--border)}
+  .optbtn{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--border);padding:23px 8px;font-family:var(--font-body);font-size:1.1rem;color:var(--charcoal);cursor:pointer;transition:background .15s,padding-left .15s}
+  .optbtn:hover{background:var(--sage-vl);padding-left:18px}
+  .backrow{max-width:640px;margin-top:32px}
+  .backbtn{background:none;border:none;color:var(--charcoal-light);font-size:.92rem;cursor:pointer;font-family:var(--font-body)}
+  .backbtn:hover{color:var(--charcoal)}
+
+  /* gate */
+  .gate{display:none;padding:100px 0 120px}
+  .gate.on{display:block}
+  .gate .eyebrow{text-transform:uppercase;letter-spacing:4px;font-size:.78rem;font-weight:600;color:var(--sage-mid);margin-bottom:24px}
+  .gate h2{font-size:clamp(2rem,1.1rem+3vw,3.2rem);color:var(--emerald);letter-spacing:-1px;margin:0 0 20px;max-width:720px}
+  .gate p{color:var(--charcoal-soft);font-size:1.16rem;max-width:600px;margin:0 0 44px}
+  .gateform{max-width:720px;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--white)}
+  .gateform iframe{display:block;width:100%;height:620px;border:none}
+  .gatefoot{max-width:720px;margin-top:26px}
+  .gatefoot button{background:none;border:none;color:var(--charcoal-light);font-size:.95rem;cursor:pointer;font-family:var(--font-body);text-decoration:underline;text-underline-offset:3px}
+  .gatefoot button:hover{color:var(--emerald)}
+
+  /* verdict */
+  .verdict{display:none}
+  .verdict.on{display:block}
+  .vhero{padding:110px 0 85px}
+  .vhero.hot{background:var(--emerald);color:var(--white)}
+  .vhero .eyebrow{text-transform:uppercase;letter-spacing:4px;font-size:.78rem;font-weight:600;margin-bottom:24px;color:var(--sage-mid)}
+  .vhero.hot .eyebrow{color:var(--sage)}
+  .vhero h2{font-size:clamp(2.1rem,1.2rem+3.2vw,3.5rem);letter-spacing:-1.2px;color:var(--emerald);max-width:860px;margin:0 0 22px}
+  .vhero.hot h2{color:var(--white)}
+  .vhero p{font-size:1.2rem;color:var(--charcoal-soft);max-width:640px}
+  .vhero.hot p{color:var(--sage-light)}
+  .vbody{padding:85px 0 115px}
+  .vbody .lead{font-size:1.16rem;color:var(--charcoal-soft);max-width:700px;margin:0 0 56px}
+  .spec{max-width:820px;border-top:1px solid var(--border)}
+  .spec .row{display:grid;grid-template-columns:260px 1fr;gap:32px;padding:24px 4px;border-bottom:1px solid var(--border);align-items:baseline}
+  .spec .lab{font-size:.8rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--sage-mid);font-weight:600}
+  .spec .val{color:var(--charcoal);font-size:1.08rem}
+  .spec .val .sub{display:block;color:var(--charcoal-light);font-size:.95rem;margin-top:3px}
+  .ctarow{margin-top:58px}
+  .retake{margin-top:44px}
+  .retake button{background:none;border:none;color:var(--charcoal-light);font-size:.92rem;cursor:pointer;font-family:var(--font-body)}
+  .retake button:hover{color:var(--charcoal)}
+
+  footer{background:var(--charcoal);color:#aeb6ba;padding:40px 0;font-size:.85rem}
+  footer .fwrap{max-width:1180px;margin:0 auto;padding:0 48px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer .disc{max-width:620px;color:#8b9499}
+
+  @media(max-width:760px){
+    .wrap,.nav__in,footer .fwrap{padding:0 22px}
+    .intro{padding:74px 0 64px}
+    .quiz,.gate{padding:64px 0 84px}
+    .vhero{padding:74px 0 56px}
+    .vbody{padding:56px 0 76px}
+    .spec .row{grid-template-columns:1fr;gap:6px;padding:20px 0}
+    .tlink{display:block;margin:24px 0 0}
+    .gateform iframe{height:680px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="index.html">
+      <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#0E4A38"/><text x="7" y="27" font-size="22" font-family="Georgia,serif" fill="white" font-weight="bold">J</text></svg>
+      <span>JaliHR</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="calculator.html">Calculators</a>
+      <a href="financial-wellness-report.html">Research</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <div class="nav__spacer"></div>
+    <a class="nav__cta" href="https://meetings-eu1.hubspot.com/vidah" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="intro" id="intro">
+  <div class="wrap">
+    <p class="eyebrow">JaliHR · The Diagnostic</p>
+    <h1>Does your company have a financial wellness problem?</h1>
+    <p>Seven questions, two minutes. The same questions we asked 89 employers. You will get an honest answer, including "no".</p>
+    <button class="btn" onclick="startQuiz()">Start the diagnostic</button>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz" id="quiz">
+  <div class="wrap">
+    <div class="qcol">
+      <p class="prog" id="prog">Question 1 of 7</p>
+      <h2 class="qtext" id="qtext"></h2>
+      <div class="opts" id="opts"></div>
+      <div class="backrow"><button class="backbtn" id="backbtn" onclick="goBack()">← Back</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- GATE -->
+<section class="gate" id="gate">
+  <div class="wrap">
+    <p class="eyebrow">One last step</p>
+    <h2>Your result is ready.</h2>
+    <p>Tell us where to send it. Submit, and your result appears right here.</p>
+    <div class="gateform">
+      <iframe id="leadframe" src="https://2ghna9.share-eu1.hsforms.com/2pwi5aX3bSDe5hWZG9925Aw" title="Get your diagnostic result"></iframe>
+    </div>
+    <div class="gatefoot"><button onclick="showVerdict()">I have submitted the form, show my result</button></div>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<section class="verdict" id="verdict">
+  <div class="vhero" id="vhero">
+    <div class="wrap">
+      <p class="eyebrow" id="veyebrow"></p>
+      <h2 id="vtitle"></h2>
+      <p id="vsub"></p>
+    </div>
+  </div>
+  <div class="vbody">
+    <div class="wrap">
+      <p class="lead" id="vlead"></p>
+      <div class="spec" id="vspec"></div>
+      <div class="ctarow" id="vcta"></div>
+      <div class="retake"><button onclick="restart()">Retake the diagnostic</button></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fwrap">
+    <div><strong style="color:#fff;font-family:var(--font-display)">JaliHR</strong> · People analytics &amp; HR advisory</div>
+    <div class="disc">Your answers stay in your browser until you choose to submit the form. Based on JaliHR's 2026 study of 89 East African employers.</div>
+  </div>
+</footer>
+
+<script>
+const QUESTIONS = [
+  {
+    key:'size',
+    text:'How many employees do you have?',
+    opts:[
+      {label:'Under 50', val:'s'},
+      {label:'50 to 200', val:'m'},
+      {label:'201 to 1,000', val:'l'},
+      {label:'Over 1,000', val:'xl'}
+    ]
+  },
+  {
+    key:'advances',
+    text:'How many salary advance or loan requests does HR field in a typical month?',
+    opts:[
+      {label:'None, or almost none', val:0},
+      {label:'A few, 1 to 5', val:1},
+      {label:'6 to 15', val:2},
+      {label:'16 to 30', val:3},
+      {label:'More than 30', val:4}
+    ]
+  },
+  {
+    key:'pain',
+    text:'What is the biggest financial-stress pain you deal with each month?',
+    opts:[
+      {label:'Fielding salary advance and loan requests', val:'requests'},
+      {label:'Staff going broke before the next payday', val:'broke'},
+      {label:'Employee over-indebtedness', val:'debt'},
+      {label:'Salaries stretched thin, no growth', val:'salary'},
+      {label:'Visible stress hurting productivity', val:'visible'},
+      {label:'None of these, honestly', val:'none'}
+    ]
+  },
+  {
+    key:'lost',
+    text:'In the last 12 months, have you lost a good employee partly because of a financial problem the company could not solve?',
+    opts:[
+      {label:'Yes', val:'yes'},
+      {label:'Not sure, possibly', val:'maybe'},
+      {label:'No', val:'no'}
+    ]
+  },
+  {
+    key:'programme',
+    text:'How does the company currently handle employee financial stress?',
+    opts:[
+      {label:'A loan partnership with a bank', val:'bank'},
+      {label:'A formal salary advance programme', val:'advance'},
+      {label:'Internal loans or a company SACCO', val:'sacco'},
+      {label:'Case by case, no formal programme', val:'case'},
+      {label:'Nothing formal', val:'none'}
+    ]
+  },
+  {
+    key:'mgmt',
+    text:'How does senior management see employee financial stress?',
+    opts:[
+      {label:'As a business problem', val:'business'},
+      {label:'As an HR problem', val:'hr'},
+      {label:'It has never been discussed', val:'never'},
+      {label:'"We pay a salary and expect work"', val:'pay'}
+    ]
+  },
+  {
+    key:'blocker',
+    text:'If a solution gave your employees regulated bank loans repaid through payroll, at zero cost and zero liability to the company, what would stop you from implementing it?',
+    opts:[
+      {label:'Nothing. Bring it on', val:'nothing'},
+      {label:'Getting management to yes', val:'mgmt'},
+      {label:'Worries about liability, admin, or over-indebtedness', val:'risk'},
+      {label:'We prefer financial education over credit access', val:'education'},
+      {label:'We do not want loans in our workplace', val:'noloans'}
+    ]
+  }
+];
+
+let step = 0;
+const answers = {};
+
+function startQuiz(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('quiz').classList.add('on');
+  step = 0;
+  render();
+  window.scrollTo({top:0});
+}
+
+function render(){
+  const q = QUESTIONS[step];
+  document.getElementById('prog').textContent = 'Question ' + (step+1) + ' of ' + QUESTIONS.length;
+  document.getElementById('qtext').textContent = q.text;
+  const box = document.getElementById('opts');
+  box.innerHTML = '';
+  q.opts.forEach(o=>{
+    const b = document.createElement('button');
+    b.className = 'optbtn';
+    b.textContent = o.label;
+    b.onclick = ()=>{ answers[q.key]=o.val; next(); };
+    box.appendChild(b);
+  });
+  document.getElementById('backbtn').style.visibility = step===0 ? 'hidden':'visible';
+}
+
+function next(){
+  if(step < QUESTIONS.length-1){ step++; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else { showGate(); }
+}
+function goBack(){ if(step>0){ step--; render(); } }
+
+function showGate(){
+  document.getElementById('quiz').classList.remove('on');
+  document.getElementById('gate').classList.add('on');
+  window.scrollTo({top:0});
+}
+
+// Auto-advance when the HubSpot form reports a submission
+window.addEventListener('message', function(e){
+  if(e.data && e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormSubmitted'){
+    showVerdict();
+  }
+});
+
+function restart(){
+  document.getElementById('verdict').classList.remove('on');
+  document.getElementById('gate').classList.remove('on');
+  document.getElementById('intro').style.display='block';
+  for(const k in answers) delete answers[k];
+  window.scrollTo({top:0});
+}
+
+function showVerdict(){
+  document.getElementById('quiz').classList.remove('on');
+  document.getElementById('gate').classList.remove('on');
+  const v = computeVerdict();
+  const hero = document.getElementById('vhero');
+  hero.className = 'vhero' + (v.hot ? ' hot':'');
+  document.getElementById('veyebrow').textContent = v.eyebrow;
+  document.getElementById('vtitle').textContent = v.title;
+  document.getElementById('vsub').textContent = v.sub;
+  document.getElementById('vlead').textContent = v.lead;
+  const spec = document.getElementById('vspec');
+  spec.innerHTML = '';
+  v.rows.forEach(r=>{
+    const d = document.createElement('div'); d.className='row';
+    d.innerHTML = '<div class="lab">'+r[0]+'</div><div class="val">'+r[1]+(r[2]?'<span class="sub">'+r[2]+'</span>':'')+'</div>';
+    spec.appendChild(d);
+  });
+  document.getElementById('vcta').innerHTML = v.cta;
+  document.getElementById('verdict').classList.add('on');
+  window.scrollTo({top:0});
+}
+
+function computeVerdict(){
+  const a = answers;
+  const PHELA = 'https://2g4at8.share-eu1.hsforms.com/2OL-RSTXtTAqxPRl3VYAoPQ';
+  const TALK = 'https://meetings-eu1.hubspot.com/vidah';
+  const OPTIONS = 'workplace-banking-options.html';
+  const REPORT = 'financial-wellness-report.html';
+
+  // Culture exit first, regardless of score
+  if(a.blocker==='noloans' || a.blocker==='education'){
+    const rows = [
+      ['Your position','Financial skills first, credit second','A quarter of the employers we studied feel the same'],
+      ['What fits you','Financial education and a savings-first programme','Workplace lending into a culture that opposes it fails, and it should'],
+      ['Worth knowing','Savings can also run through payroll','Same rail, no credit involved, if you ever want the automation without the lending']
+    ];
+    return {
+      hot:false,
+      eyebrow:'An honest answer',
+      title:'Workplace lending is not your fit. And that is fine.',
+      sub:'You were clear about your culture. We will not argue with it.',
+      lead:'Here is what we would actually suggest, and what we would not.',
+      rows,
+      cta:'<a class="btn solid" href="'+TALK+'" target="_blank" rel="noopener">Talk to us about education &amp; savings</a><a class="tlink" href="'+REPORT+'">Read the findings →</a>'
+    };
+  }
+
+  // Score the signals
+  let score = 0;
+  const adv = a.advances;
+  if(adv===2) score+=1;
+  if(adv>=3) score+=2;
+  if(a.lost==='yes') score+=2;
+  if(a.lost==='maybe') score+=1;
+  if(a.pain && a.pain!=='none') score+=1;
+  const disengaged = (a.mgmt==='never'||a.mgmt==='pay');
+  if(disengaged) score+=1;
+  const hasProg = ['bank','advance','sacco'].includes(a.programme);
+  const progNotWorking = hasProg && (adv>=2 || a.lost!=='no');
+  if(progNotWorking) score+=1;
+
+  // Build "what you told us" rows
+  const rows = [];
+
+  const painRow = {
+    requests:['Your monthly pain','Fielding advance and loan requests','The most named pain in the study, by far'],
+    broke:['Your monthly pain','Staff broke before the next payday','"Broke by the 10th." The study heard it unprompted, again and again'],
+    debt:['Your monthly pain','Employee over-indebtedness','"One credit, many debits." The driver behind a fifth of reported pains'],
+    salary:['Your monthly pain','Salaries stretched thin, no growth','The driver that forces the borrowing in the first place'],
+    visible:['Your monthly pain','Visible stress hurting productivity','The cost that never makes a P&amp;L line']
+  }[a.pain];
+  if(painRow) rows.push(painRow);
+
+  if(adv>=2) rows.push(['The advance queue', advLabel(adv)+' requests land on HR every month','In the study, half of HR teams live this']);
+  else rows.push(['The advance queue','Light today','Few or no monthly requests reaching HR']);
+
+  if(a.lost==='yes') rows.push(['The cost','You have already lost a good employee to a financial problem','36% of employers studied said the same']);
+  else if(a.lost==='maybe') rows.push(['The cost','You cannot rule out that it has cost you someone','One in five employers studied sat in the same uncertainty']);
+  else rows.push(['The cost','No known losses yet','Fewer than half of employers studied could say this']);
+
+  if(a.programme==='bank') rows.push(['Your programme','A bank partnership is in place', progNotWorking ? 'It is real, but it is not absorbing the demand. The fix is to make it bigger, not replace it':'The strongest foundation in the study. Phela runs it as-is and grows it']);
+  if(a.programme==='advance') rows.push(['Your programme','A salary advance programme is in place', progNotWorking ? 'In the study, advance programmes had the highest rate of still-unresolved stress. The company is also the lender here':'Note: the company is the lender here, with its own money']);
+  if(a.programme==='sacco') rows.push(['Your programme','Internal loans or a SACCO', 'Phela can power it: your internal programme becomes a financial wellness tool, the automation without the admin']);
+  if(a.programme==='case') rows.push(['Your programme','Case by case','In the study, nearly half of case-by-case employers had lost a good employee']);
+  if(a.programme==='none') rows.push(['Your programme','Nothing formal yet','In the study, this group had the highest loss rate: 69%']);
+
+  if(disengaged) rows.push(['Leadership','Not yet at the table','In the study, leadership usually engages only after losing someone']);
+  else if(a.mgmt==='business') rows.push(['Leadership','Already calls it a business problem','You have the hardest part: a leadership that is listening']);
+  else rows.push(['Leadership','Sees it as an HR matter','Closer than most. The numbers above are what move it to a business problem']);
+
+  const presold = a.blocker==='nothing';
+  const unwilling = (disengaged || a.blocker==='mgmt') && !presold;
+
+  if(score>=3 && unwilling){
+    rows.push(['The six-month case','Track three numbers every month: advance requests, HR hours spent, and exits with a financial thread','Put them beside the findings report. By month six the cost is undeniable, and the ask is zero-cost, zero-liability']);
+    return {
+      hot:true,
+      eyebrow:'The verdict',
+      title:'The problem is real. Your barrier is upstairs.',
+      sub:'You cannot fix this without leadership. So build the case that moves them.',
+      lead:'In the study, leadership engaged only after a resignation forced it. You can beat that timeline: six months of your own numbers, beside the findings, makes the decision easy. We will help you build it.',
+      rows,
+      cta:'<a class="btn solid" href="'+TALK+'" target="_blank" rel="noopener">Talk to us, we will help you build the case</a><a class="tlink" href="'+REPORT+'">Use the findings →</a>'
+    };
+  }
+
+  if(score>=3){
+    return {
+      hot:true,
+      eyebrow:'The verdict',
+      title:'Yes. You have a live financial wellness problem, and it is already costing you.',
+      sub: presold ? 'And you said nothing would stop you. So here is the direct line.' : 'Here is what you told us, next to what 89 employers showed us.',
+      lead:'This is the same pattern the study found: real stress, real cost, and a structure that is not absorbing it. The fix exists and it costs the company nothing.',
+      rows,
+      cta:'<a class="btn solid" href="'+PHELA+'" target="_blank" rel="noopener">Meet with Phela</a><a class="tlink" href="'+OPTIONS+'">See all three options →</a>'
+    };
+  }
+  if(score>=1){
+    return {
+      hot:false,
+      eyebrow:'The verdict',
+      title:'Early signs. You are on the same path, just earlier.',
+      sub:'Not a crisis today. The study suggests it does not stay that way on its own.',
+      lead:'In the study, employers with exactly your profile were one resignation away from calling this a business problem. The advantage of being early is that fixing it costs nothing and nobody is grieving a departure yet.',
+      rows,
+      cta:'<a class="btn solid" href="'+OPTIONS+'">See the options</a><a class="tlink" href="'+TALK+'" target="_blank" rel="noopener">Talk to us →</a>'
+    };
+  }
+  return {
+    hot:false,
+    eyebrow:'An honest answer',
+    title:'No acute problem today.',
+    sub:'We said you would get an honest answer. This is it.',
+    lead:'Light advance traffic, no known losses, and nothing in your answers suggesting hidden strain. Bookmark the findings, and rerun this if the advance requests start climbing.',
+    rows,
+    cta:'<a class="btn solid" href="'+REPORT+'">Read the findings</a><a class="tlink" href="'+TALK+'" target="_blank" rel="noopener">Talk to us anyway →</a>'
+  };
+}
+
+function advLabel(v){
+  return v===2 ? '6 to 15' : v===3 ? '16 to 30' : 'More than 30';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Workplace Banking: The Options | JaliHR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>" />
+<style>
+  :root{
+    --emerald:#0E4A38; --emerald-mid:#1F7A5E; --emerald-dark:#08372A;
+    --sage:#84B59F; --sage-mid:#5E997E; --sage-light:#C9DDD0; --sage-vl:#E8F0EB;
+    --cream:#F7F5F0; --border:#E5E7EB; --white:#FFFFFF;
+    --charcoal:#2B2F33; --charcoal-soft:#475056; --charcoal-light:#6B7280;
+    --font-display:'Georgia','Times New Roman',serif;
+    --font-body:'Inter','Helvetica Neue',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--charcoal);background:var(--white);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.1;font-weight:700;text-wrap:balance}
+  a{color:var(--emerald-mid);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+
+  .nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);z-index:50}
+  .nav__in{display:flex;align-items:center;gap:16px;height:64px}
+  .nav__logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--charcoal)}
+  .nav__logo:hover{text-decoration:none}
+  .nav__links{display:flex;gap:26px;margin-left:34px}
+  .nav__links a{color:var(--charcoal-soft);font-size:.95rem;font-weight:500}
+  .nav__links a:hover{color:var(--emerald);text-decoration:none}
+  @media(max-width:920px){.nav__links{display:none}}
+
+  .nav__spacer{flex:1}
+  .nav__cta{background:var(--emerald);color:var(--white);padding:9px 18px;border-radius:10px;font-size:.95rem;font-weight:600}
+  .nav__cta:hover{background:var(--emerald-dark);text-decoration:none}
+
+  /* hero */
+  .hero{background:var(--emerald);color:var(--white);padding:120px 0 100px}
+  .hero .eyebrow{color:var(--sage);text-transform:uppercase;letter-spacing:4px;font-size:.78rem;font-weight:600;margin-bottom:28px}
+  .hero h1{color:var(--white);font-size:clamp(2.4rem,1.3rem+3.8vw,4.2rem);letter-spacing:-1.5px;margin:0 0 26px;max-width:880px}
+  .hero p{color:var(--sage-light);font-size:1.22rem;max-width:620px}
+  .hero p a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+
+  /* shared section rhythm */
+  section.opt{padding:120px 0}
+  section.opt.tint{background:var(--cream)}
+  section.opt.reco{background:var(--sage-vl)}
+  .opthead{max-width:820px;margin:0 0 56px}
+  .kicker{text-transform:uppercase;letter-spacing:4px;font-size:.78rem;font-weight:600;color:var(--sage-mid);margin-bottom:20px}
+  h2.name{font-size:clamp(2.2rem,1.2rem+3vw,3.6rem);color:var(--emerald);letter-spacing:-1.2px;margin-bottom:24px}
+  .opthead p{color:var(--charcoal-soft);font-size:1.18rem}
+  .opthead p + p{margin-top:14px}
+
+  /* spec list */
+  .spec{max-width:840px;border-top:1px solid var(--border)}
+  .reco .spec,.tint .spec{border-color:rgba(14,74,56,.12)}
+  .spec .row{display:grid;grid-template-columns:280px 1fr;gap:32px;padding:24px 4px;border-bottom:1px solid var(--border);align-items:baseline}
+  .reco .spec .row,.tint .spec .row{border-color:rgba(14,74,56,.12)}
+  .spec .lab{font-size:.8rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--sage-mid);font-weight:600}
+  .spec .val{color:var(--charcoal);font-size:1.1rem}
+  .spec .val .sub{display:block;color:var(--charcoal-light);font-size:.95rem;margin-top:3px}
+
+  /* ctas */
+  .ctarow{margin-top:52px}
+  .btn{display:inline-block;background:var(--emerald);color:var(--white);padding:16px 36px;border-radius:14px;font-weight:600;font-size:1.05rem}
+  .btn:hover{background:var(--emerald-dark);text-decoration:none}
+  .tlink{display:inline-block;margin-left:28px;color:var(--emerald);font-weight:600;font-size:1.02rem}
+  .tlink:hover{color:var(--emerald-dark)}
+
+  /* comparison: words, apple-style */
+  .cmp{padding:130px 0}
+  .cmp .opthead{margin-bottom:64px}
+  table.cmpt{border-collapse:collapse;width:100%;font-size:1rem}
+  table.cmpt th,table.cmpt td{padding:22px 26px;text-align:center;border-bottom:1px solid var(--border);vertical-align:top}
+  table.cmpt thead th{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--charcoal);border-bottom:2px solid var(--charcoal);padding-bottom:18px}
+  table.cmpt thead th .sub{display:block;font-family:var(--font-body);font-weight:500;font-size:.78rem;color:var(--charcoal-light);margin-top:6px;text-transform:uppercase;letter-spacing:2px}
+  table.cmpt thead th.ph{color:var(--emerald)}
+  table.cmpt thead th.ph .sub{color:var(--sage-mid)}
+  table.cmpt tbody th{font-family:var(--font-body);font-weight:500;color:var(--charcoal-light);text-align:left;font-size:.95rem;width:240px;padding-left:0}
+  table.cmpt td{color:var(--charcoal-soft);font-weight:400}
+  table.cmpt td.ph{color:var(--emerald);font-weight:600;background:linear-gradient(to bottom,rgba(232,240,235,.55),rgba(232,240,235,.55))}
+  table.cmpt tbody tr:last-child th,table.cmpt tbody tr:last-child td{border-bottom:none}
+
+  /* the hill */
+  .hill{background:var(--cream);padding:120px 0}
+  .hill h2{font-size:clamp(2rem,1.2rem+2.6vw,3.2rem);color:var(--emerald);letter-spacing:-1px;margin-bottom:26px;max-width:840px}
+  .hill p{color:var(--charcoal-soft);font-size:1.18rem;max-width:680px}
+  .hill p + p{margin-top:18px}
+  .hill p strong{color:var(--charcoal)}
+
+  /* cta band */
+  .ctaband{background:var(--emerald);color:var(--white);padding:110px 0}
+  .ctaband .kicker{color:var(--sage)}
+  .ctaband h2{color:var(--white);font-size:clamp(2rem,1.2rem+2.8vw,3.3rem);letter-spacing:-1px;margin:0 0 22px;max-width:820px}
+  .ctaband p{color:var(--sage-light);font-size:1.18rem;max-width:600px;margin:0 0 44px}
+  .ctaband .btn{background:var(--white);color:var(--emerald)}
+  .ctaband .btn:hover{background:var(--cream)}
+  .ctaband .tlink{color:var(--white)}
+  .ctaband .tlink:hover{color:var(--sage-light)}
+
+  footer{background:var(--charcoal);color:#aeb6ba;padding:40px 0;font-size:.85rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  footer .disc{max-width:620px;color:#8b9499}
+
+  @media(max-width:880px){
+    .wrap{padding:0 24px}
+    .hero{padding:90px 0 76px}
+    section.opt,.cmp,.hill,.ctaband{padding:80px 0}
+    .spec .row{grid-template-columns:1fr;gap:6px;padding:20px 0}
+    table.cmpt{font-size:.9rem}
+    table.cmpt th,table.cmpt td{padding:16px 10px}
+    table.cmpt tbody th{width:auto}
+    .tlink{display:block;margin:22px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__logo" href="index.html">
+      <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#0E4A38"/><text x="7" y="27" font-size="22" font-family="Georgia,serif" fill="white" font-weight="bold">J</text></svg>
+      <span>JaliHR</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="calculator.html">Calculators</a>
+      <a href="financial-wellness-report.html">Research</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <div class="nav__spacer"></div>
+    <a class="nav__cta" href="https://meetings-eu1.hubspot.com/vidah" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">JaliHR · The Options</p>
+    <h1>Three ways to bring workplace banking to your people.</h1>
+    <p>Each one clears the bar <a href="financial-wellness-report.html">the study</a> set: no cost, no liability, no lending your own money. Here is each, plainly, so you can decide.</p>
+  </div>
+</section>
+
+<!-- OPTION 1: POWER -->
+<section class="opt" id="power">
+  <div class="wrap">
+    <div class="opthead">
+      <p class="kicker">Option 01 · Direct lender</p>
+      <h2 class="name">Power.</h2>
+      <p>Power lends to employees directly, with insurance alongside. The company pays nothing and guarantees nothing. Automation for HR is in development, so deductions add some work today.</p>
+    </div>
+    <div class="spec">
+      <div class="row"><div class="lab">Products</div><div class="val">Loans and insurance</div></div>
+      <div class="row"><div class="lab">Loan pricing</div><div class="val">6% per month</div></div>
+      <div class="row"><div class="lab">Cost to the company</div><div class="val">None</div></div>
+      <div class="row"><div class="lab">Employer liability</div><div class="val">None</div></div>
+      <div class="row"><div class="lab">Work for HR</div><div class="val">Some today<span class="sub">Automation is on their roadmap</span></div></div>
+    </div>
+    <div class="ctarow">
+      <a class="btn" href="https://yourpower.io" target="_blank" rel="noopener">Visit yourpower.io</a>
+      <a class="tlink" href="mailto:florentina@m-power.io">Email Power →</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 2: PHELA -->
+<section class="opt reco" id="phela">
+  <div class="wrap">
+    <div class="opthead">
+      <p class="kicker">Option 02 · Bank-led rail · JaliHR's recommendation</p>
+      <h2 class="name">Phela.</h2>
+      <p>Regulated banks lend at bank rates. Employees repay through payroll, hard-capped so access never becomes over-indebtedness. Savings and investment run on the same rail.</p>
+      <p>The company carries nothing and does nothing. It simply works.</p>
+    </div>
+    <div class="spec">
+      <div class="row"><div class="lab">Products</div><div class="val">Loans, savings, investment, insurance<span class="sub">Through multiple banks. Your employees choose.</span></div></div>
+      <div class="row"><div class="lab">Loan pricing</div><div class="val">Bank rates<span class="sub">If a bank lends at 1.6% a month, your people get 1.6%. If it is 2%, that is it.</span></div></div>
+      <div class="row"><div class="lab">Affordability</div><div class="val">Hard-capped at 28% of net pay<span class="sub">Checked in real time, before any loan</span></div></div>
+      <div class="row"><div class="lab">Your bank programme</div><div class="val">It stays, and it grows<span class="sub">Phela runs your existing programme on the rail. No programme yet? You get the banks already on it.</span></div></div>
+      <div class="row"><div class="lab">Your SACCO &amp; internal loans</div><div class="val">Phela powers them too<span class="sub">Your internal programmes become a financial wellness tool: the automation, without the admin</span></div></div>
+      <div class="row"><div class="lab">Cost, liability, work for HR</div><div class="val">None, none, none</div></div>
+      <div class="row"><div class="lab">Payroll</div><div class="val">Agnostic<span class="sub">Switch payroll providers and the benefit moves with you</span></div></div>
+    </div>
+    <div class="ctarow">
+      <a class="btn" href="https://2g4at8.share-eu1.hsforms.com/2OL-RSTXtTAqxPRl3VYAoPQ" target="_blank" rel="noopener">Meet with Phela</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 3: PAYROLL-LED -->
+<section class="opt" id="payroll-led">
+  <div class="wrap">
+    <div class="opthead">
+      <p class="kicker">Option 03 · Payroll-led</p>
+      <h2 class="name">SeamlessHR &amp; Workpay.</h2>
+      <p>For companies already running SeamlessHR or Workpay. If you are considering this route and you are not on either platform, talk to Phela above.</p>
+      <p>These work much like Phela, with one difference we can speak to: Phela gives your employees multiple lenders to choose from. For what each platform offers today, ask them directly.</p>
+    </div>
+    <div class="spec">
+      <div class="row"><div class="lab">On SeamlessHR</div><div class="val"><a href="mailto:enock@seamlesshr.com">enock@seamlesshr.com</a><span class="sub">Ask what financial wellness options are live on your plan</span></div></div>
+      <div class="row"><div class="lab">On Workpay</div><div class="val"><a href="mailto:pauline.rogito@myworkpay.com">pauline.rogito@myworkpay.com</a><span class="sub">Same question, same directness</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="cmp tint">
+  <div class="wrap">
+    <div class="opthead">
+      <p class="kicker">Side by side</p>
+      <h2 class="name">Compare the three.</h2>
+    </div>
+    <table class="cmpt">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Power<span class="sub">Direct lender</span></th>
+          <th class="ph">Phela<span class="sub">Recommended</span></th>
+          <th>SeamlessHR · Workpay<span class="sub">Payroll-led</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Products</th><td>Loans, insurance</td><td class="ph">Loans, savings, investment, insurance</td><td>Ask your provider</td></tr>
+        <tr><th>Loan pricing</th><td>6% per month</td><td class="ph">Bank rates</td><td>Ask your provider</td></tr>
+        <tr><th>Cost to the company</th><td>None</td><td class="ph">None</td><td>Ask your provider</td></tr>
+        <tr><th>Employer liability</th><td>None</td><td class="ph">None</td><td>Ask your provider</td></tr>
+        <tr><th>Work for HR</th><td>Some, automation in development</td><td class="ph">None</td><td>Ask your provider</td></tr>
+        <tr><th>Affordability caps</th><td>Ask Power</td><td class="ph">Hard cap at 28% of net pay</td><td>Ask your provider</td></tr>
+        <tr><th>Portable across payrolls</th><td>Yes</td><td class="ph">Yes</td><td>Tied to the platform</td></tr>
+        <tr><th>Grows your existing bank programme</th><td>No</td><td class="ph">Yes</td><td>Ask your provider</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- THE HILL -->
+<section class="hill">
+  <div class="wrap">
+    <p class="kicker">To be clear</p>
+    <h2>We recommend nothing outside these three.</h2>
+    <p>We have looked at the rest. They are either expensive, will not solve the problem, or are genuinely not a good option for your employees. This is a hill we are happy to die on.</p>
+    <p><strong>If none of the three are available to you,</strong> run an internal salary loans programme. It is work, and it is your money, but it is honest help while you get there.</p>
+    <p><strong>And if your leadership believes staff need financial skills, not easier credit,</strong> respect that. Start with education and savings. Credit into a culture that opposes it fails, and it should.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ctaband">
+  <div class="wrap">
+    <p class="kicker">Not sure which fits?</p>
+    <h2>Check your company, or just ask us.</h2>
+    <p>Run the diagnostic on your own numbers, or bring us your setup and we will tell you straight, including if the answer is "none of them yet".</p>
+    <a class="btn" href="financial-wellness-diagnostic.html">Run a diagnostic on your company</a>
+    <a class="tlink" href="https://meetings-eu1.hubspot.com/vidah" target="_blank" rel="noopener">Talk to us →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff;font-family:var(--font-display)">JaliHR</strong> · People analytics &amp; HR advisory</div>
+    <div class="disc">JaliHR works with Phela and may earn a referral. That is why every option here is named, linked, and priced, so you can judge for yourself.</div>
+  </div>
+</footer>
+
+</body>
+</html>
