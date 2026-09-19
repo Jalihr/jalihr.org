@@ -1,0 +1,21 @@
+/* Shared top navigation — mirrors index.html's nav-row exactly, with
+   .nav and .btn renamed to avoid clashing with style.css's own classes. */
+:root {
+  --gnav-em-800: #0E4A38;
+  --gnav-on-em: #FFFFFF;
+  --gnav-hairline: rgba(255,255,255,.12);
+}
+.band { background: var(--gnav-em-800); color: var(--gnav-on-em); }
+.wrap-wide { max-width: 1660px; margin: 0 auto; padding: 0 clamp(28px,5vw,88px); }
+.nav-row { display: flex; align-items: center; gap: 30px; height: 76px; border-bottom: 1px solid var(--gnav-hairline); }
+.nav-row .brand { font-family: 'Gelasio', Georgia, serif; font-weight: 700; font-size: 21px; letter-spacing: -.2px; color: #fff; text-decoration: none; }
+.gnav-links { display: flex; align-items: center; gap: 4px; }
+.gnav-links a { height: 40px; display: flex; align-items: center; padding: 0 14px; border-radius: 9px; font-size: 14px; font-weight: 500; color: rgba(255,255,255,.72); text-decoration: none; transition: .15s; }
+.gnav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+.gnav-links a[aria-current] { color: #fff; }
+.nav-cta { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.gnav-btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; height: 42px; padding: 0 20px; border-radius: 11px; font: 500 14px/1 'Inter', sans-serif; border: 1px solid transparent; cursor: pointer; white-space: nowrap; text-decoration: none; transition: .15s; }
+.gnav-btn.b-white { background: #fff; color: var(--gnav-em-800); }
+.gnav-btn.b-white:hover { background: #EAF3EE; }
+.gnav-btn.b-plain { color: #fff; }
+.gnav-btn.b-plain:hover { background: rgba(255,255,255,.08); }
