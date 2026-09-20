@@ -1,114 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — JaliHR</title>
-  <meta name="description" content="The story behind JaliHR, and the team building it." />
-  <meta property="og:title" content="About — JaliHR" />
-  <meta property="og:description" content="The story behind JaliHR, and the team building it." />
-  <meta property="og:url" content="https://jalihr.org/about.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Gelasio:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/nav.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>" />
-</head>
-<body class="page-fade">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About JaliHR</title>
+<meta name="description" content="JaliHR was founded in Australia by HR people, for HR people. Read our story, mission, vision and values.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Gelasio:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Tokens copied from the home page so the two pages stay in step. */
+:root{
+  --em-900:#0A3628;
+  --em-800:#0E4A38;
+  --em-600:#14604A;
+  --em-500:#1B7357;
+  --em-300:#4FAE8C;
+  --em-200:#8FC8B0;
+  --ochre:#D9A441;
 
-<!-- NAV -->
+  --wash:#E8F1EC;
+  --grey:#EEF1F3;
+  --surface:#FFFFFF;
+  --line-2:#E3E6E8;
+  --line-3:#D8DDE0;
+  --ink:#1A1D1F;
+  --ink-2:#4A5157;
+  --ink-muted:#8D949A;
+  --accent:#0E4A38;
+
+  --on-em:#FFFFFF;
+  --on-em-soft:#C2D9CE;
+  --on-card-soft:#9FC2B2;
+  --hairline:rgba(255,255,255,.12);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#FFFFFF;font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+h1,h2,h3,h4,h5{margin:0;font-weight:600}
+p{margin:0}
+a{text-decoration:none;color:inherit}
+svg{display:block}
+a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-offset:3px;border-radius:10px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.wrap-wide{max-width:1660px;margin:0 auto;padding:0 clamp(28px,5vw,88px)}
+.band{background:var(--em-800);color:var(--on-em)}
+.serif{font-family:'Gelasio',Georgia,serif}
+
+/* ---------------- nav (same as home) ---------------- */
+.nav-row{display:flex;align-items:center;gap:30px;height:76px;border-bottom:1px solid var(--hairline)}
+.brand{font-family:'Gelasio',Georgia,serif;font-weight:700;font-size:21px;letter-spacing:-.2px;color:#fff}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{height:40px;display:flex;align-items:center;padding:0 14px;border-radius:9px;font-size:14px;font-weight:500;color:rgba(255,255,255,.72);transition:.15s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav a[aria-current]{color:#fff}
+.nav-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:42px;padding:0 20px;border-radius:11px;font:500 14px/1 'Inter',sans-serif;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:.15s}
+.b-white{background:#fff;color:var(--em-800)}
+.b-white:hover{background:#EAF3EE}
+.b-outline{border-color:rgba(255,255,255,.38);color:#fff}
+.b-outline:hover{background:rgba(255,255,255,.08)}
+.b-plain{color:#fff}
+.b-plain:hover{background:rgba(255,255,255,.08)}
+.btn-lg{height:50px;padding:0 26px;font-size:15px}
+
+/* ---------------- hero ---------------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:clamp(48px,6vw,96px);align-items:center;padding:74px 0 86px}
+.hero h1{font-family:'Gelasio',Georgia,serif;font-size:clamp(46px,4.3vw,66px);line-height:1.05;letter-spacing:-1.6px;text-wrap:balance;max-width:17ch}
+.hero .lede{margin-top:24px;font-size:17.5px;line-height:1.62;color:var(--on-em-soft);max-width:54ch}
+.hero .cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+
+/* the order form cover, carried onto the site: a dot field in the top right
+   with ochre crosses, and quiet arcs rising from the bottom left */
+.illo{position:relative;width:560px;aspect-ratio:560/540;align-self:end;margin-bottom:-86px;
+  /* arcs rise from the band's bottom edge, as they rise from the page edge on the cover;
+     the left side dissolves so there is no hard box edge beside the headline */
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 22%);
+          mask-image:linear-gradient(to right,transparent,#000 22%)}
+.illo svg{width:100%;height:100%;overflow:hidden}
+.arc{stroke:rgba(255,255,255,.14);stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1;
+     animation:draw 1.6s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+.arc-soft{stroke:rgba(255,255,255,.08)}
+.pl{opacity:0;animation:appear .5s ease forwards;animation-delay:var(--d,0s)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes appear{to{opacity:1}}
+
+/* ---------------- shared section type ---------------- */
+.label{font-size:13.5px;font-weight:500;color:var(--accent);margin-bottom:14px}
+.h2{font-family:'Gelasio',Georgia,serif;font-size:44px;line-height:1.1;letter-spacing:-1.1px;text-wrap:balance}
+
+/* ---------------- story ---------------- */
+.story{background:var(--grey);padding:112px 0}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:start}
+.story .h2{max-width:13ch}
+.story-body p{font-size:16.5px;line-height:1.7;color:var(--ink-2);max-width:56ch}
+.story-body p + p{margin-top:20px}
+
+/* ---------------- mission and vision ---------------- */
+.purpose{padding:108px 0 112px}
+.purpose-grid{display:grid;grid-template-columns:1fr 1fr}
+.purpose-item{padding:0 56px 0 0}
+.purpose-item + .purpose-item{padding:0 0 0 56px;border-left:1px solid var(--hairline)}
+.purpose-item .label{color:var(--em-200)}
+.purpose-item blockquote{margin:0;font-family:'Gelasio',Georgia,serif;font-size:clamp(28px,2.5vw,36px);line-height:1.2;letter-spacing:-.7px;color:#fff;text-wrap:balance;max-width:24ch}
+.purpose-item p{margin-top:22px;font-size:16px;line-height:1.66;color:var(--on-em-soft);max-width:44ch}
+
+/* ---------------- values ---------------- */
+.values{background:var(--grey);padding:112px 0}
+.values-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:end;margin-bottom:48px}
+.values-head p{font-size:16px;line-height:1.6;color:var(--ink-muted);max-width:44ch}
+.vlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-3)}
+.vrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;padding:30px 0;border-bottom:1px solid var(--line-3)}
+.vrow h3{font-family:'Gelasio',Georgia,serif;font-size:25px;letter-spacing:-.4px;line-height:1.2;color:var(--ink)}
+.vrow p{font-size:16px;line-height:1.65;color:var(--ink-2);max-width:54ch}
+
+/* ---------------- closing CTA (same card as home) ---------------- */
+.cta-band{background:var(--grey);padding:112px 0}
+.cta-card{
+  position:relative;overflow:hidden;border-radius:26px;border:1px solid var(--line-2);
+  padding:104px 48px 108px;text-align:center;
+  background:
+    radial-gradient(62% 86% at 26% 112%, rgba(79,174,140,.30), transparent 68%),
+    radial-gradient(48% 74% at 74% 116%, rgba(143,200,176,.24), transparent 70%),
+    var(--surface);
+}
+.cta-card h2{font-family:'Gelasio',Georgia,serif;font-size:46px;line-height:1.14;letter-spacing:-1.2px;color:var(--ink);max-width:24ch;margin:0 auto;text-wrap:balance}
+.cta-row{margin-top:38px;display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 30px;border-radius:999px;background:var(--em-800);color:#fff;font:500 15px/1 'Inter',sans-serif;transition:background .15s}
+.btn-cta:hover{background:#0A3B2C}
+.btn-cta svg{width:17px;height:17px}
+.cta-alt{font-size:15px;font-weight:500;color:var(--accent);border-bottom:1px solid rgba(14,74,56,.3)}
+.cta-alt:hover{border-bottom-color:var(--accent)}
+
+/* ---------------- footer (same as home) ---------------- */
+.foot{background:var(--em-800);color:#fff;padding:78px 0 30px}
+.foot-top{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:40px}
+.foot-brand .brand{font-size:24px}
+.foot-brand .tagline{margin-top:16px;font-size:15.5px;color:var(--on-em-soft);max-width:26ch;line-height:1.55}
+.foot-brand .mail{margin-top:20px;display:inline-block;font-size:14px;color:#fff;border-bottom:1px solid rgba(255,255,255,.3)}
+.foot-brand .mail:hover{border-bottom-color:#fff}
+.foot-col h5{margin:0;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--on-card-soft)}
+.foot-col ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:13px}
+.foot-col a{font-size:14.5px;color:rgba(255,255,255,.76);transition:color .15s}
+.foot-col a:hover{color:#fff}
+.foot-rule{margin:56px 0 24px;border-top:1px solid var(--hairline)}
+.foot-base{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-base p{font-size:13px;color:rgba(255,255,255,.55)}
+.foot-base .policies{margin-left:auto;display:flex;gap:26px}
+.foot-base .policies a{font-size:13px;color:rgba(255,255,255,.55);transition:color .15s}
+.foot-base .policies a:hover{color:#fff}
+
+/* ---------------- responsive ---------------- */
+@media (max-width:1180px){
+  .hero{grid-template-columns:minmax(0,1fr);padding:56px 0 72px}
+  .illo{margin:0 auto -72px}
+}
+@media (max-width:900px){
+  .nav{display:none}
+  .h2{font-size:32px;letter-spacing:-.7px}
+  .story,.values,.cta-band{padding:72px 0}
+  .purpose{padding:72px 0}
+  .story-grid,.values-head,.vrow{grid-template-columns:minmax(0,1fr);gap:16px}
+  .values-head{gap:14px;margin-bottom:32px}
+  .vrow{padding:24px 0;gap:10px}
+  .vrow h3{font-size:22px}
+  .purpose-grid{grid-template-columns:1fr}
+  .purpose-item{padding:0}
+  .purpose-item + .purpose-item{padding:40px 0 0;border-left:0;border-top:1px solid var(--hairline);margin-top:40px}
+  .cta-card{padding:60px 24px 64px;border-radius:20px}
+  .cta-card h2{font-size:30px;letter-spacing:-.7px}
+  .foot{padding:56px 0 26px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:38px}
+  .foot-brand{grid-column:1 / -1}
+  .foot-rule{margin:40px 0 20px}
+  .foot-base .policies{margin-left:0;gap:18px;flex-wrap:wrap}
+}
+@media (max-width:620px){
+  .nav-cta .b-plain{display:none}
+  .nav-cta .btn{padding:0 14px}
+  .hero h1{font-size:40px;letter-spacing:-1px}
+  .hero .lede{font-size:16px}
+  .illo{width:100%;margin-bottom:-72px}
+}
+@media (prefers-reduced-motion:reduce){
+  .arc{animation:none;stroke-dashoffset:0}
+  .pl{animation:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
 <div class="band">
   <div class="wrap-wide">
+
     <div class="nav-row">
       <a class="brand" href="index.html">JaliHR</a>
-      <nav class="gnav-links">
+      <nav class="nav" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="resources.html">Resources</a>
-        <a href="about.html">About</a>
-        <a href="careers.html">Careers</a>
+        <a href="about.html" aria-current="page">About</a>
       </nav>
       <div class="nav-cta">
-        <a class="gnav-btn b-plain" href="https://app.jalihr.org">Login</a>
-        <a class="gnav-btn b-white" href="get-started.html">Get started for free</a>
+        <a class="btn b-plain" href="https://app.jalihr.org">Login</a>
+        <a class="btn b-white" href="get-started.html">Get started for free</a>
       </div>
     </div>
+
+    <div class="hero">
+      <div>
+        <h1>We are HR people. We built the HR system we wanted.</h1>
+        <p class="lede">JaliHR was founded in Australia by people who know the job: the onboarding, the payroll run, the leadership report due on Friday. We built the tool we kept wishing for, and HR teams around the world now run on it every day.</p>
+        <div class="cta">
+          <a class="btn b-white btn-lg" href="#story">Read our story</a>
+          <a class="btn b-outline btn-lg" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+        </div>
+      </div>
+
+      <div class="illo" aria-hidden="true">
+        <svg viewBox="0 0 560 540" fill="none" preserveAspectRatio="xMidYMid meet">
+          <g class="dots" fill="#FFFFFF"><circle cx="63" cy="9" r="1.3" fill-opacity="0.02"/><circle cx="81" cy="9" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="9" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="9" r="1.3" fill-opacity="0.06"/><circle cx="135" cy="9" r="1.3" fill-opacity="0.07"/><circle cx="153" cy="9" r="1.3" fill-opacity="0.08"/><circle cx="171" cy="9" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="9" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="9" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="9" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="9" r="1.3" fill-opacity="0.14"/><circle cx="261" cy="9" r="1.3" fill-opacity="0.15"/><circle cx="279" cy="9" r="1.3" fill-opacity="0.16"/><circle cx="297" cy="9" r="1.3" fill-opacity="0.17"/><circle cx="315" cy="9" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="9" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="9" r="1.3" fill-opacity="0.21"/><circle cx="369" cy="9" r="1.3" fill-opacity="0.22"/><circle cx="387" cy="9" r="1.3" fill-opacity="0.23"/><circle cx="405" cy="9" r="1.3" fill-opacity="0.24"/><circle cx="423" cy="9" r="1.3" fill-opacity="0.25"/><circle cx="441" cy="9" r="1.3" fill-opacity="0.26"/><circle cx="459" cy="9" r="1.3" fill-opacity="0.27"/><circle cx="477" cy="9" r="1.3" fill-opacity="0.29"/><circle cx="495" cy="9" r="1.3" fill-opacity="0.30"/><circle cx="513" cy="9" r="1.3" fill-opacity="0.31"/><circle cx="531" cy="9" r="1.3" fill-opacity="0.32"/><circle cx="549" cy="9" r="1.3" fill-opacity="0.33"/><circle cx="81" cy="27" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="27" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="27" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="27" r="1.3" fill-opacity="0.07"/><circle cx="153" cy="27" r="1.3" fill-opacity="0.08"/><circle cx="171" cy="27" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="27" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="27" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="27" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="27" r="1.3" fill-opacity="0.14"/><circle cx="261" cy="27" r="1.3" fill-opacity="0.15"/><circle cx="279" cy="27" r="1.3" fill-opacity="0.16"/><circle cx="297" cy="27" r="1.3" fill-opacity="0.17"/><circle cx="315" cy="27" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="27" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="27" r="1.3" fill-opacity="0.20"/><circle cx="369" cy="27" r="1.3" fill-opacity="0.22"/><circle cx="387" cy="27" r="1.3" fill-opacity="0.23"/><circle cx="405" cy="27" r="1.3" fill-opacity="0.24"/><circle cx="423" cy="27" r="1.3" fill-opacity="0.25"/><circle cx="441" cy="27" r="1.3" fill-opacity="0.26"/><circle cx="459" cy="27" r="1.3" fill-opacity="0.27"/><circle cx="477" cy="27" r="1.3" fill-opacity="0.28"/><circle cx="495" cy="27" r="1.3" fill-opacity="0.29"/><circle cx="513" cy="27" r="1.3" fill-opacity="0.30"/><circle cx="531" cy="27" r="1.3" fill-opacity="0.31"/><circle cx="549" cy="27" r="1.3" fill-opacity="0.32"/><circle cx="81" cy="45" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="45" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="45" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="45" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="45" r="1.3" fill-opacity="0.08"/><circle cx="171" cy="45" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="45" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="45" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="45" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="45" r="1.3" fill-opacity="0.13"/><circle cx="261" cy="45" r="1.3" fill-opacity="0.14"/><circle cx="279" cy="45" r="1.3" fill-opacity="0.16"/><circle cx="297" cy="45" r="1.3" fill-opacity="0.17"/><circle cx="315" cy="45" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="45" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="45" r="1.3" fill-opacity="0.20"/><circle cx="369" cy="45" r="1.3" fill-opacity="0.21"/><circle cx="387" cy="45" r="1.3" fill-opacity="0.22"/><circle cx="405" cy="45" r="1.3" fill-opacity="0.23"/><circle cx="423" cy="45" r="1.3" fill-opacity="0.25"/><circle cx="441" cy="45" r="1.3" fill-opacity="0.26"/><circle cx="459" cy="45" r="1.3" fill-opacity="0.27"/><circle cx="477" cy="45" r="1.3" fill-opacity="0.28"/><circle cx="495" cy="45" r="1.3" fill-opacity="0.29"/><circle cx="513" cy="45" r="1.3" fill-opacity="0.29"/><circle cx="531" cy="45" r="1.3" fill-opacity="0.30"/><circle cx="549" cy="45" r="1.3" fill-opacity="0.30"/><circle cx="81" cy="63" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="63" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="63" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="63" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="63" r="1.3" fill-opacity="0.07"/><circle cx="171" cy="63" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="63" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="63" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="63" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="63" r="1.3" fill-opacity="0.13"/><circle cx="261" cy="63" r="1.3" fill-opacity="0.14"/><circle cx="279" cy="63" r="1.3" fill-opacity="0.15"/><circle cx="297" cy="63" r="1.3" fill-opacity="0.16"/><circle cx="315" cy="63" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="63" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="63" r="1.3" fill-opacity="0.20"/><circle cx="369" cy="63" r="1.3" fill-opacity="0.21"/><circle cx="387" cy="63" r="1.3" fill-opacity="0.22"/><circle cx="405" cy="63" r="1.3" fill-opacity="0.23"/><circle cx="423" cy="63" r="1.3" fill-opacity="0.24"/><circle cx="441" cy="63" r="1.3" fill-opacity="0.25"/><circle cx="459" cy="63" r="1.3" fill-opacity="0.26"/><circle cx="477" cy="63" r="1.3" fill-opacity="0.27"/><circle cx="495" cy="63" r="1.3" fill-opacity="0.28"/><circle cx="513" cy="63" r="1.3" fill-opacity="0.28"/><circle cx="531" cy="63" r="1.3" fill-opacity="0.29"/><circle cx="549" cy="63" r="1.3" fill-opacity="0.29"/><circle cx="81" cy="81" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="81" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="81" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="81" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="81" r="1.3" fill-opacity="0.07"/><circle cx="171" cy="81" r="1.3" fill-opacity="0.08"/><circle cx="189" cy="81" r="1.3" fill-opacity="0.09"/><circle cx="207" cy="81" r="1.3" fill-opacity="0.10"/><circle cx="225" cy="81" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="81" r="1.3" fill-opacity="0.13"/><circle cx="261" cy="81" r="1.3" fill-opacity="0.14"/><circle cx="279" cy="81" r="1.3" fill-opacity="0.15"/><circle cx="297" cy="81" r="1.3" fill-opacity="0.16"/><circle cx="315" cy="81" r="1.3" fill-opacity="0.17"/><circle cx="333" cy="81" r="1.3" fill-opacity="0.18"/><circle cx="351" cy="81" r="1.3" fill-opacity="0.19"/><circle cx="369" cy="81" r="1.3" fill-opacity="0.20"/><circle cx="387" cy="81" r="1.3" fill-opacity="0.21"/><circle cx="405" cy="81" r="1.3" fill-opacity="0.22"/><circle cx="423" cy="81" r="1.3" fill-opacity="0.23"/><circle cx="441" cy="81" r="1.3" fill-opacity="0.24"/><circle cx="459" cy="81" r="1.3" fill-opacity="0.25"/><circle cx="477" cy="81" r="1.3" fill-opacity="0.26"/><circle cx="495" cy="81" r="1.3" fill-opacity="0.27"/><circle cx="513" cy="81" r="1.3" fill-opacity="0.27"/><circle cx="531" cy="81" r="1.3" fill-opacity="0.28"/><circle cx="549" cy="81" r="1.3" fill-opacity="0.28"/><circle cx="81" cy="99" r="1.3" fill-opacity="0.02"/><circle cx="99" cy="99" r="1.3" fill-opacity="0.03"/><circle cx="117" cy="99" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="99" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="99" r="1.3" fill-opacity="0.07"/><circle cx="171" cy="99" r="1.3" fill-opacity="0.08"/><circle cx="189" cy="99" r="1.3" fill-opacity="0.09"/><circle cx="207" cy="99" r="1.3" fill-opacity="0.10"/><circle cx="225" cy="99" r="1.3" fill-opacity="0.11"/><circle cx="243" cy="99" r="1.3" fill-opacity="0.12"/><circle cx="261" cy="99" r="1.3" fill-opacity="0.13"/><circle cx="279" cy="99" r="1.3" fill-opacity="0.14"/><circle cx="297" cy="99" r="1.3" fill-opacity="0.15"/><circle cx="315" cy="99" r="1.3" fill-opacity="0.17"/><circle cx="333" cy="99" r="1.3" fill-opacity="0.18"/><circle cx="351" cy="99" r="1.3" fill-opacity="0.19"/><circle cx="369" cy="99" r="1.3" fill-opacity="0.20"/><circle cx="387" cy="99" r="1.3" fill-opacity="0.21"/><circle cx="405" cy="99" r="1.3" fill-opacity="0.21"/><circle cx="423" cy="99" r="1.3" fill-opacity="0.22"/><circle cx="441" cy="99" r="1.3" fill-opacity="0.23"/><circle cx="459" cy="99" r="1.3" fill-opacity="0.24"/><circle cx="477" cy="99" r="1.3" fill-opacity="0.25"/><circle cx="495" cy="99" r="1.3" fill-opacity="0.25"/><circle cx="513" cy="99" r="1.3" fill-opacity="0.26"/><circle cx="531" cy="99" r="1.3" fill-opacity="0.26"/><circle cx="549" cy="99" r="1.3" fill-opacity="0.26"/><circle cx="99" cy="117" r="1.3" fill-opacity="0.03"/><circle cx="117" cy="117" r="1.3" fill-opacity="0.04"/><circle cx="135" cy="117" r="1.3" fill-opacity="0.05"/><circle cx="153" cy="117" r="1.3" fill-opacity="0.06"/><circle cx="171" cy="117" r="1.3" fill-opacity="0.07"/><circle cx="189" cy="117" r="1.3" fill-opacity="0.09"/><circle cx="207" cy="117" r="1.3" fill-opacity="0.10"/><circle cx="225" cy="117" r="1.3" fill-opacity="0.11"/><circle cx="243" cy="117" r="1.3" fill-opacity="0.12"/><circle cx="261" cy="117" r="1.3" fill-opacity="0.13"/><circle cx="279" cy="117" r="1.3" fill-opacity="0.14"/><circle cx="297" cy="117" r="1.3" fill-opacity="0.15"/><circle cx="315" cy="117" r="1.3" fill-opacity="0.16"/><circle cx="333" cy="117" r="1.3" fill-opacity="0.17"/><circle cx="351" cy="117" r="1.3" fill-opacity="0.18"/><circle cx="369" cy="117" r="1.3" fill-opacity="0.19"/><circle cx="387" cy="117" r="1.3" fill-opacity="0.20"/><circle cx="405" cy="117" r="1.3" fill-opacity="0.21"/><circle cx="423" cy="117" r="1.3" fill-opacity="0.21"/><circle cx="441" cy="117" r="1.3" fill-opacity="0.22"/><circle cx="459" cy="117" r="1.3" fill-opacity="0.23"/><circle cx="477" cy="117" r="1.3" fill-opacity="0.24"/><circle cx="495" cy="117" r="1.3" fill-opacity="0.24"/><circle cx="513" cy="117" r="1.3" fill-opacity="0.25"/><circle cx="531" cy="117" r="1.3" fill-opacity="0.25"/><circle cx="549" cy="117" r="1.3" fill-opacity="0.25"/><circle cx="99" cy="135" r="1.3" fill-opacity="0.03"/><circle cx="117" cy="135" r="1.3" fill-opacity="0.04"/><circle cx="135" cy="135" r="1.3" fill-opacity="0.05"/><circle cx="153" cy="135" r="1.3" fill-opacity="0.06"/><circle cx="171" cy="135" r="1.3" fill-opacity="0.07"/><circle cx="189" cy="135" r="1.3" fill-opacity="0.08"/><circle cx="207" cy="135" r="1.3" fill-opacity="0.09"/><circle cx="225" cy="135" r="1.3" fill-opacity="0.10"/><circle cx="243" cy="135" r="1.3" fill-opacity="0.11"/><circle cx="261" cy="135" r="1.3" fill-opacity="0.12"/><circle cx="279" cy="135" r="1.3" fill-opacity="0.13"/><circle cx="297" cy="135" r="1.3" fill-opacity="0.14"/><circle cx="315" cy="135" r="1.3" fill-opacity="0.15"/><circle cx="333" cy="135" r="1.3" fill-opacity="0.16"/><circle cx="351" cy="135" r="1.3" fill-opacity="0.17"/><circle cx="369" cy="135" r="1.3" fill-opacity="0.18"/><circle cx="387" cy="135" r="1.3" fill-opacity="0.19"/><circle cx="405" cy="135" r="1.3" fill-opacity="0.20"/><circle cx="423" cy="135" r="1.3" fill-opacity="0.20"/><circle cx="441" cy="135" r="1.3" fill-opacity="0.21"/><circle cx="459" cy="135" r="1.3" fill-opacity="0.22"/><circle cx="477" cy="135" r="1.3" fill-opacity="0.22"/><circle cx="495" cy="135" r="1.3" fill-opacity="0.23"/><circle cx="513" cy="135" r="1.3" fill-opacity="0.23"/><circle cx="531" cy="135" r="1.3" fill-opacity="0.23"/><circle cx="549" cy="135" r="1.3" fill-opacity="0.24"/><circle cx="99" cy="153" r="1.3" fill-opacity="0.02"/><circle cx="117" cy="153" r="1.3" fill-opacity="0.03"/><circle cx="135" cy="153" r="1.3" fill-opacity="0.04"/><circle cx="153" cy="153" r="1.3" fill-opacity="0.05"/><circle cx="171" cy="153" r="1.3" fill-opacity="0.06"/><circle cx="189" cy="153" r="1.3" fill-opacity="0.07"/><circle cx="207" cy="153" r="1.3" fill-opacity="0.08"/><circle cx="225" cy="153" r="1.3" fill-opacity="0.09"/><circle cx="243" cy="153" r="1.3" fill-opacity="0.10"/><circle cx="261" cy="153" r="1.3" fill-opacity="0.11"/><circle cx="279" cy="153" r="1.3" fill-opacity="0.12"/><circle cx="297" cy="153" r="1.3" fill-opacity="0.13"/><circle cx="315" cy="153" r="1.3" fill-opacity="0.14"/><circle cx="333" cy="153" r="1.3" fill-opacity="0.15"/><circle cx="351" cy="153" r="1.3" fill-opacity="0.16"/><circle cx="369" cy="153" r="1.3" fill-opacity="0.17"/><circle cx="387" cy="153" r="1.3" fill-opacity="0.18"/><circle cx="405" cy="153" r="1.3" fill-opacity="0.19"/><circle cx="423" cy="153" r="1.3" fill-opacity="0.19"/><circle cx="441" cy="153" r="1.3" fill-opacity="0.20"/><circle cx="459" cy="153" r="1.3" fill-opacity="0.21"/><circle cx="477" cy="153" r="1.3" fill-opacity="0.21"/><circle cx="495" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="513" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="531" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="549" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="117" cy="171" r="1.3" fill-opacity="0.03"/><circle cx="135" cy="171" r="1.3" fill-opacity="0.04"/><circle cx="153" cy="171" r="1.3" fill-opacity="0.05"/><circle cx="171" cy="171" r="1.3" fill-opacity="0.06"/><circle cx="189" cy="171" r="1.3" fill-opacity="0.07"/><circle cx="207" cy="171" r="1.3" fill-opacity="0.08"/><circle cx="225" cy="171" r="1.3" fill-opacity="0.09"/><circle cx="243" cy="171" r="1.3" fill-opacity="0.10"/><circle cx="261" cy="171" r="1.3" fill-opacity="0.11"/><circle cx="279" cy="171" r="1.3" fill-opacity="0.12"/><circle cx="297" cy="171" r="1.3" fill-opacity="0.13"/><circle cx="315" cy="171" r="1.3" fill-opacity="0.14"/><circle cx="333" cy="171" r="1.3" fill-opacity="0.14"/><circle cx="351" cy="171" r="1.3" fill-opacity="0.15"/><circle cx="369" cy="171" r="1.3" fill-opacity="0.16"/><circle cx="387" cy="171" r="1.3" fill-opacity="0.17"/><circle cx="405" cy="171" r="1.3" fill-opacity="0.18"/><circle cx="423" cy="171" r="1.3" fill-opacity="0.18"/><circle cx="441" cy="171" r="1.3" fill-opacity="0.19"/><circle cx="459" cy="171" r="1.3" fill-opacity="0.19"/><circle cx="477" cy="171" r="1.3" fill-opacity="0.20"/><circle cx="495" cy="171" r="1.3" fill-opacity="0.20"/><circle cx="513" cy="171" r="1.3" fill-opacity="0.21"/><circle cx="531" cy="171" r="1.3" fill-opacity="0.21"/><circle cx="549" cy="171" r="1.3" fill-opacity="0.21"/><circle cx="117" cy="189" r="1.3" fill-opacity="0.02"/><circle cx="135" cy="189" r="1.3" fill-opacity="0.03"/><circle cx="153" cy="189" r="1.3" fill-opacity="0.04"/><circle cx="171" cy="189" r="1.3" fill-opacity="0.05"/><circle cx="189" cy="189" r="1.3" fill-opacity="0.06"/><circle cx="207" cy="189" r="1.3" fill-opacity="0.07"/><circle cx="225" cy="189" r="1.3" fill-opacity="0.08"/><circle cx="243" cy="189" r="1.3" fill-opacity="0.09"/><circle cx="261" cy="189" r="1.3" fill-opacity="0.10"/><circle cx="279" cy="189" r="1.3" fill-opacity="0.11"/><circle cx="297" cy="189" r="1.3" fill-opacity="0.12"/><circle cx="315" cy="189" r="1.3" fill-opacity="0.13"/><circle cx="333" cy="189" r="1.3" fill-opacity="0.13"/><circle cx="351" cy="189" r="1.3" fill-opacity="0.14"/><circle cx="369" cy="189" r="1.3" fill-opacity="0.15"/><circle cx="387" cy="189" r="1.3" fill-opacity="0.16"/><circle cx="405" cy="189" r="1.3" fill-opacity="0.16"/><circle cx="423" cy="189" r="1.3" fill-opacity="0.17"/><circle cx="441" cy="189" r="1.3" fill-opacity="0.18"/><circle cx="459" cy="189" r="1.3" fill-opacity="0.18"/><circle cx="477" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="495" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="513" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="531" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="549" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="135" cy="207" r="1.3" fill-opacity="0.02"/><circle cx="153" cy="207" r="1.3" fill-opacity="0.03"/><circle cx="171" cy="207" r="1.3" fill-opacity="0.04"/><circle cx="189" cy="207" r="1.3" fill-opacity="0.05"/><circle cx="207" cy="207" r="1.3" fill-opacity="0.06"/><circle cx="225" cy="207" r="1.3" fill-opacity="0.07"/><circle cx="243" cy="207" r="1.3" fill-opacity="0.08"/><circle cx="261" cy="207" r="1.3" fill-opacity="0.09"/><circle cx="279" cy="207" r="1.3" fill-opacity="0.10"/><circle cx="297" cy="207" r="1.3" fill-opacity="0.11"/><circle cx="315" cy="207" r="1.3" fill-opacity="0.12"/><circle cx="333" cy="207" r="1.3" fill-opacity="0.12"/><circle cx="351" cy="207" r="1.3" fill-opacity="0.13"/><circle cx="369" cy="207" r="1.3" fill-opacity="0.14"/><circle cx="387" cy="207" r="1.3" fill-opacity="0.15"/><circle cx="405" cy="207" r="1.3" fill-opacity="0.15"/><circle cx="423" cy="207" r="1.3" fill-opacity="0.16"/><circle cx="441" cy="207" r="1.3" fill-opacity="0.16"/><circle cx="459" cy="207" r="1.3" fill-opacity="0.17"/><circle cx="477" cy="207" r="1.3" fill-opacity="0.17"/><circle cx="495" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="513" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="531" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="549" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="153" cy="225" r="1.3" fill-opacity="0.03"/><circle cx="171" cy="225" r="1.3" fill-opacity="0.04"/><circle cx="189" cy="225" r="1.3" fill-opacity="0.05"/><circle cx="207" cy="225" r="1.3" fill-opacity="0.05"/><circle cx="225" cy="225" r="1.3" fill-opacity="0.06"/><circle cx="243" cy="225" r="1.3" fill-opacity="0.07"/><circle cx="261" cy="225" r="1.3" fill-opacity="0.08"/><circle cx="279" cy="225" r="1.3" fill-opacity="0.09"/><circle cx="297" cy="225" r="1.3" fill-opacity="0.10"/><circle cx="315" cy="225" r="1.3" fill-opacity="0.11"/><circle cx="333" cy="225" r="1.3" fill-opacity="0.11"/><circle cx="351" cy="225" r="1.3" fill-opacity="0.12"/><circle cx="369" cy="225" r="1.3" fill-opacity="0.13"/><circle cx="387" cy="225" r="1.3" fill-opacity="0.13"/><circle cx="405" cy="225" r="1.3" fill-opacity="0.14"/><circle cx="423" cy="225" r="1.3" fill-opacity="0.15"/><circle cx="441" cy="225" r="1.3" fill-opacity="0.15"/><circle cx="459" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="477" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="495" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="513" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="531" cy="225" r="1.3" fill-opacity="0.17"/><circle cx="549" cy="225" r="1.3" fill-opacity="0.17"/><circle cx="171" cy="243" r="1.3" fill-opacity="0.03"/><circle cx="189" cy="243" r="1.3" fill-opacity="0.04"/><circle cx="207" cy="243" r="1.3" fill-opacity="0.05"/><circle cx="225" cy="243" r="1.3" fill-opacity="0.06"/><circle cx="243" cy="243" r="1.3" fill-opacity="0.06"/><circle cx="261" cy="243" r="1.3" fill-opacity="0.07"/><circle cx="279" cy="243" r="1.3" fill-opacity="0.08"/><circle cx="297" cy="243" r="1.3" fill-opacity="0.09"/><circle cx="315" cy="243" r="1.3" fill-opacity="0.10"/><circle cx="333" cy="243" r="1.3" fill-opacity="0.10"/><circle cx="351" cy="243" r="1.3" fill-opacity="0.11"/><circle cx="369" cy="243" r="1.3" fill-opacity="0.12"/><circle cx="387" cy="243" r="1.3" fill-opacity="0.12"/><circle cx="405" cy="243" r="1.3" fill-opacity="0.13"/><circle cx="423" cy="243" r="1.3" fill-opacity="0.13"/><circle cx="441" cy="243" r="1.3" fill-opacity="0.14"/><circle cx="459" cy="243" r="1.3" fill-opacity="0.14"/><circle cx="477" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="495" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="513" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="531" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="549" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="189" cy="261" r="1.3" fill-opacity="0.03"/><circle cx="207" cy="261" r="1.3" fill-opacity="0.04"/><circle cx="225" cy="261" r="1.3" fill-opacity="0.05"/><circle cx="243" cy="261" r="1.3" fill-opacity="0.05"/><circle cx="261" cy="261" r="1.3" fill-opacity="0.06"/><circle cx="279" cy="261" r="1.3" fill-opacity="0.07"/><circle cx="297" cy="261" r="1.3" fill-opacity="0.08"/><circle cx="315" cy="261" r="1.3" fill-opacity="0.09"/><circle cx="333" cy="261" r="1.3" fill-opacity="0.09"/><circle cx="351" cy="261" r="1.3" fill-opacity="0.10"/><circle cx="369" cy="261" r="1.3" fill-opacity="0.11"/><circle cx="387" cy="261" r="1.3" fill-opacity="0.11"/><circle cx="405" cy="261" r="1.3" fill-opacity="0.12"/><circle cx="423" cy="261" r="1.3" fill-opacity="0.12"/><circle cx="441" cy="261" r="1.3" fill-opacity="0.13"/><circle cx="459" cy="261" r="1.3" fill-opacity="0.13"/><circle cx="477" cy="261" r="1.3" fill-opacity="0.13"/><circle cx="495" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="513" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="531" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="549" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="207" cy="279" r="1.3" fill-opacity="0.03"/><circle cx="225" cy="279" r="1.3" fill-opacity="0.04"/><circle cx="243" cy="279" r="1.3" fill-opacity="0.04"/><circle cx="261" cy="279" r="1.3" fill-opacity="0.05"/><circle cx="279" cy="279" r="1.3" fill-opacity="0.06"/><circle cx="297" cy="279" r="1.3" fill-opacity="0.07"/><circle cx="315" cy="279" r="1.3" fill-opacity="0.07"/><circle cx="333" cy="279" r="1.3" fill-opacity="0.08"/><circle cx="351" cy="279" r="1.3" fill-opacity="0.09"/><circle cx="369" cy="279" r="1.3" fill-opacity="0.09"/><circle cx="387" cy="279" r="1.3" fill-opacity="0.10"/><circle cx="405" cy="279" r="1.3" fill-opacity="0.10"/><circle cx="423" cy="279" r="1.3" fill-opacity="0.11"/><circle cx="441" cy="279" r="1.3" fill-opacity="0.11"/><circle cx="459" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="477" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="495" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="513" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="531" cy="279" r="1.3" fill-opacity="0.13"/><circle cx="549" cy="279" r="1.3" fill-opacity="0.13"/><circle cx="225" cy="297" r="1.3" fill-opacity="0.03"/><circle cx="243" cy="297" r="1.3" fill-opacity="0.03"/><circle cx="261" cy="297" r="1.3" fill-opacity="0.04"/><circle cx="279" cy="297" r="1.3" fill-opacity="0.05"/><circle cx="297" cy="297" r="1.3" fill-opacity="0.06"/><circle cx="315" cy="297" r="1.3" fill-opacity="0.06"/><circle cx="333" cy="297" r="1.3" fill-opacity="0.07"/><circle cx="351" cy="297" r="1.3" fill-opacity="0.08"/><circle cx="369" cy="297" r="1.3" fill-opacity="0.08"/><circle cx="387" cy="297" r="1.3" fill-opacity="0.09"/><circle cx="405" cy="297" r="1.3" fill-opacity="0.09"/><circle cx="423" cy="297" r="1.3" fill-opacity="0.10"/><circle cx="441" cy="297" r="1.3" fill-opacity="0.10"/><circle cx="459" cy="297" r="1.3" fill-opacity="0.10"/><circle cx="477" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="495" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="513" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="531" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="549" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="243" cy="315" r="1.3" fill-opacity="0.02"/><circle cx="261" cy="315" r="1.3" fill-opacity="0.03"/><circle cx="279" cy="315" r="1.3" fill-opacity="0.04"/><circle cx="297" cy="315" r="1.3" fill-opacity="0.05"/><circle cx="315" cy="315" r="1.3" fill-opacity="0.05"/><circle cx="333" cy="315" r="1.3" fill-opacity="0.06"/><circle cx="351" cy="315" r="1.3" fill-opacity="0.06"/><circle cx="369" cy="315" r="1.3" fill-opacity="0.07"/><circle cx="387" cy="315" r="1.3" fill-opacity="0.07"/><circle cx="405" cy="315" r="1.3" fill-opacity="0.08"/><circle cx="423" cy="315" r="1.3" fill-opacity="0.08"/><circle cx="441" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="459" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="477" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="495" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="513" cy="315" r="1.3" fill-opacity="0.10"/><circle cx="531" cy="315" r="1.3" fill-opacity="0.10"/><circle cx="549" cy="315" r="1.3" fill-opacity="0.10"/><circle cx="261" cy="333" r="1.3" fill-opacity="0.02"/><circle cx="279" cy="333" r="1.3" fill-opacity="0.03"/><circle cx="297" cy="333" r="1.3" fill-opacity="0.03"/><circle cx="315" cy="333" r="1.3" fill-opacity="0.04"/><circle cx="333" cy="333" r="1.3" fill-opacity="0.05"/><circle cx="351" cy="333" r="1.3" fill-opacity="0.05"/><circle cx="369" cy="333" r="1.3" fill-opacity="0.06"/><circle cx="387" cy="333" r="1.3" fill-opacity="0.06"/><circle cx="405" cy="333" r="1.3" fill-opacity="0.07"/><circle cx="423" cy="333" r="1.3" fill-opacity="0.07"/><circle cx="441" cy="333" r="1.3" fill-opacity="0.07"/><circle cx="459" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="477" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="495" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="513" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="531" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="549" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="297" cy="351" r="1.3" fill-opacity="0.02"/><circle cx="315" cy="351" r="1.3" fill-opacity="0.03"/><circle cx="333" cy="351" r="1.3" fill-opacity="0.03"/><circle cx="351" cy="351" r="1.3" fill-opacity="0.04"/><circle cx="369" cy="351" r="1.3" fill-opacity="0.04"/><circle cx="387" cy="351" r="1.3" fill-opacity="0.05"/><circle cx="405" cy="351" r="1.3" fill-opacity="0.05"/><circle cx="423" cy="351" r="1.3" fill-opacity="0.06"/><circle cx="441" cy="351" r="1.3" fill-opacity="0.06"/><circle cx="459" cy="351" r="1.3" fill-opacity="0.06"/><circle cx="477" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="495" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="513" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="531" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="549" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="333" cy="369" r="1.3" fill-opacity="0.02"/><circle cx="351" cy="369" r="1.3" fill-opacity="0.03"/><circle cx="369" cy="369" r="1.3" fill-opacity="0.03"/><circle cx="387" cy="369" r="1.3" fill-opacity="0.04"/><circle cx="405" cy="369" r="1.3" fill-opacity="0.04"/><circle cx="423" cy="369" r="1.3" fill-opacity="0.04"/><circle cx="441" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="459" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="477" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="495" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="513" cy="369" r="1.3" fill-opacity="0.06"/><circle cx="531" cy="369" r="1.3" fill-opacity="0.06"/><circle cx="549" cy="369" r="1.3" fill-opacity="0.06"/><circle cx="387" cy="387" r="1.3" fill-opacity="0.02"/><circle cx="405" cy="387" r="1.3" fill-opacity="0.03"/><circle cx="423" cy="387" r="1.3" fill-opacity="0.03"/><circle cx="441" cy="387" r="1.3" fill-opacity="0.03"/><circle cx="459" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="477" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="495" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="513" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="531" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="549" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="441" cy="405" r="1.3" fill-opacity="0.02"/><circle cx="459" cy="405" r="1.3" fill-opacity="0.02"/><circle cx="477" cy="405" r="1.3" fill-opacity="0.02"/><circle cx="495" cy="405" r="1.3" fill-opacity="0.03"/><circle cx="513" cy="405" r="1.3" fill-opacity="0.03"/><circle cx="531" cy="405" r="1.3" fill-opacity="0.03"/><circle cx="549" cy="405" r="1.3" fill-opacity="0.03"/></g>
+          <g class="arcs"><circle class="arc" style="--d:0.10s" cx="40" cy="540" r="110" pathLength="1"/><circle class="arc" style="--d:0.22s" cx="40" cy="540" r="195" pathLength="1"/><circle class="arc" style="--d:0.34s" cx="40" cy="540" r="285" pathLength="1"/><circle class="arc" style="--d:0.46s" cx="40" cy="540" r="375" pathLength="1"/><circle class="arc" style="--d:0.58s" cx="40" cy="540" r="470" pathLength="1"/><circle class="arc" style="--d:0.70s" cx="40" cy="540" r="570" pathLength="1"/><circle class="arc arc-soft" style="--d:.9s" cx="-40" cy="700" r="640" pathLength="1"/></g>
+          <g class="pluses" stroke="#D9A441" stroke-width="1.8" stroke-linecap="round"><path class="pl" style="--d:0.9s" d="M489 45h12M495 39v12"/><path class="pl" style="--d:1.3s" d="M381 117h12M387 111v12"/><path class="pl" style="--d:1.6s" d="M525 171h12M531 165v12"/><path class="pl" style="--d:1.9s" d="M435 243h12M441 237v12"/><path class="pl" style="--d:2.2s" d="M543 297h12M549 291v12"/><path class="pl" style="--d:2.5s" d="M327 63h12M333 57v12"/></g>
+        </svg>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- PAGE HEADER -->
-<header class="page-header" aria-labelledby="page-title">
-  <div class="container">
-    <p class="page-header__eyebrow">Coming soon</p>
-    <h1 class="page-header__title" id="page-title">About JaliHR</h1>
-    <p class="page-header__sub">The story behind JaliHR, and the team building it.</p>
-  </div>
-</header>
 
-<!-- COMING SOON -->
-<section class="section text-center" aria-labelledby="cs-title">
-  <div class="container">
-    <p class="section__sub" id="cs-title">We are building this page. In the meantime, book a call and we will help directly.</p>
-    <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;margin-top:var(--space-6);">
-      <a href="https://meetings-eu1.hubspot.com/vidah" class="btn btn--primary" target="_blank" rel="noopener">Book a call</a>
-      <a href="index.html" class="btn btn--emerald">Back to home</a>
+<!-- ================= Our story ================= -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div>
+        <p class="label">Our story</p>
+        <h2 class="h2">It started at an HR desk, not a whiteboard.</h2>
+      </div>
+      <div class="story-body">
+        <p>Most HR software is designed by people who have never run a payroll or chased a signed contract, and it shows. HR teams end up working around their own system: exporting to spreadsheets, keying the same employee details into three places, waiting weeks for a report that should take a minute.</p>
+        <p>JaliHR began in Australia as the answer to that. We knew where the real HR work happens because we had been doing it, so we designed every screen around those moments. One employee record. Every module reading from it. Analytics that are ready the moment your data is in.</p>
+        <p>It was built to travel from the start. Payroll, leave and labour law change at every border, so JaliHR handles them the way each country actually works. Today HR teams far beyond Australia open it every morning.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <div class="footer__logo">
-          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-            <rect width="32" height="32" rx="7" fill="#1F7A5E"/>
-            <text x="6" y="24" font-size="20" font-family="Georgia,serif" fill="white" font-weight="bold">J</text>
-          </svg>
-          <span class="footer__wordmark">JaliHR</span>
-        </div>
-        <p class="footer__tagline">HR technology, compensation, and negotiation for East African employers.</p>
+
+<!-- ================= Mission and vision ================= -->
+<section class="band purpose">
+  <div class="wrap">
+    <div class="purpose-grid">
+      <div class="purpose-item">
+        <p class="label">Our mission</p>
+        <blockquote>To take the admin off HR's desk, so HR can get back to people.</blockquote>
+        <p>Every feature we ship has to remove work from an HR person's week. If it adds work, it doesn't ship.</p>
       </div>
+      <div class="purpose-item">
+        <p class="label">Our vision</p>
+        <blockquote>Every organisation, in every country, running HR as well as the best-run companies in the world.</blockquote>
+        <p>How big you are and where you operate should not decide how well your people are looked after.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= Values ================= -->
+<section class="values">
+  <div class="wrap">
+    <div class="values-head">
       <div>
-        <p class="footer__col-title">Resources</p>
-        <ul class="footer__links" role="list">
-          <li><a href="index.html">Home</a></li>
+        <p class="label">Our values</p>
+        <h2 class="h2">What we hold ourselves to.</h2>
+      </div>
+      <p>These are how we decide what to build, what to cut and how we treat the people who trust us with their team's data.</p>
+    </div>
+    <ul class="vlist">
+      <li class="vrow">
+        <h3>Start at the HR desk</h3>
+        <p>We design from the task, not the org chart. Every feature begins with something an HR person really does on an ordinary Tuesday afternoon.</p>
+      </li>
+      <li class="vrow">
+        <h3>Pleasant is a requirement</h3>
+        <p>Easy, fast and pleasant is not polish we add at the end. If a screen needs a training session to use, we are not finished with it.</p>
+      </li>
+      <li class="vrow">
+        <h3>Local, everywhere</h3>
+        <p>A global product that respects local rules. Payroll, leave and labour law are handled the way each country actually works, not approximated from somewhere else.</p>
+      </li>
+      <li class="vrow">
+        <h3>Let the data do the lifting</h3>
+        <p>HR should get answers, not another spreadsheet to build them from. We make sure the insight is ready when you walk into the meeting.</p>
+      </li>
+      <li class="vrow">
+        <h3>Handle with care</h3>
+        <p>People data is the most personal data a company holds. We guard it that way, and we are plain with customers about how it is kept and who can see it.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ================= Closing CTA ================= -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-card">
+      <h2>We would love to show you what HRs built for HRs.</h2>
+      <div class="cta-row">
+        <a class="btn-cta" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">
+          Book a demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="wrap-wide">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">JaliHR</a>
+        <p class="tagline">By HRs for HRs.</p>
+        <a class="mail" href="mailto:claire@jalihr.org">claire@jalihr.org</a>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <ul>
           <li><a href="rescue.html">HRIS Rescue</a></li>
-          <li><a href="financial-wellness-report.html">Research</a></li>
           <li><a href="blog.html">Blog</a></li>
         </ul>
       </div>
-      <div>
-        <p class="footer__col-title">Calculators</p>
-        <ul class="footer__links" role="list">
+      <div class="foot-col">
+        <h5>Calculators</h5>
+        <ul>
           <li><a href="calculator.html">Calculators</a></li>
         </ul>
       </div>
-      <div>
-        <p class="footer__col-title">About</p>
-        <ul class="footer__links" role="list">
-          <li><a href="about.html">About</a></li>
-          <li><a href="advisory.html">Advisory</a></li>
-          <li><a href="careers.html">Careers</a></li>
+      <div class="foot-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="about.html" aria-current="page">About</a></li>
         </ul>
       </div>
-      <div>
-        <p class="footer__col-title">Contact</p>
-        <ul class="footer__links" role="list">
-          <li><a href="https://meetings-eu1.hubspot.com/vidah" target="_blank" rel="noopener">Book a call</a></li>
-          <li><a href="mailto:hello@jalihr.org">hello@jalihr.org</a></li>
-          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+      <div class="foot-col">
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="academy.html">JaliHR Academy</a></li>
+          <li><a href="legal.html">Legal</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 JaliHR. Kampala, Uganda.</p>
-      <p class="footer__copy">Built for East Africa.</p>
+    <div class="foot-rule"></div>
+    <div class="foot-base">
+      <p>&copy; 2026 JaliHR</p>
+      <div class="policies">
+        <a href="privacy-policy.html">Privacy policy</a>
+        <a href="whistleblower-policy.html">Whistleblower policy</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js" defer></script>
 </body>
 </html>
