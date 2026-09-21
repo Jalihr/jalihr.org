@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>About JaliHR</title>
-<meta name="description" content="JaliHR was founded in Australia by HR people, for HR people. Read our story, mission, vision and values.">
+<meta name="description" content="JaliHR is an Australian founded, global HR platform, built by HRs for HRs. Our story, mission, vision and values.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Gelasio:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Tokens copied from the home page so the two pages stay in step. */
 :root{
   --em-900:#0A3628;
   --em-800:#0E4A38;
@@ -22,12 +21,20 @@
   --wash:#E8F1EC;
   --grey:#EEF1F3;
   --surface:#FFFFFF;
+  --well:#F7F9FA;
+  --track:#F1F3F4;
+  --line:#EDEFF1;
+  --line-soft:#F2F4F5;
   --line-2:#E3E6E8;
   --line-3:#D8DDE0;
   --ink:#1A1D1F;
   --ink-2:#4A5157;
   --ink-muted:#8D949A;
+  --muted-2:#A8AEB3;
   --accent:#0E4A38;
+  --accent-tint:#EEF4F1;
+  --accent-line:#D6E4DC;
+  --ok-fg:#1F7A5E; --ok-bg:#ECF5F0; --ok-line:#D3E7DC;
 
   --on-em:#FFFFFF;
   --on-em-soft:#C2D9CE;
@@ -36,7 +43,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:#FFFFFF;font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+body{margin:0;background:#FFFFFF;font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink);font-feature-settings:'cv11','ss01'}
 h1,h2,h3,h4,h5{margin:0;font-weight:600}
 p{margin:0}
 a{text-decoration:none;color:inherit}
@@ -47,7 +54,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
 .band{background:var(--em-800);color:var(--on-em)}
 .serif{font-family:'Gelasio',Georgia,serif}
 
-/* ---------------- nav (same as home) ---------------- */
+/* ---------------- nav (same as home; unchanged) ---------------- */
 .nav-row{display:flex;align-items:center;gap:30px;height:76px;border-bottom:1px solid var(--hairline)}
 .brand{font-family:'Gelasio',Georgia,serif;font-weight:700;font-size:21px;letter-spacing:-.2px;color:#fff}
 .nav{display:flex;align-items:center;gap:4px}
@@ -65,74 +72,119 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
 .btn-lg{height:50px;padding:0 26px;font-size:15px}
 
 /* ---------------- hero ---------------- */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:clamp(48px,6vw,96px);align-items:center;padding:74px 0 86px}
-.hero h1{font-family:'Gelasio',Georgia,serif;font-size:clamp(46px,4.3vw,66px);line-height:1.05;letter-spacing:-1.6px;text-wrap:balance;max-width:17ch}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 580px;gap:clamp(48px,6vw,96px);align-items:center;padding:74px 0 86px}
+.eyebrow{font-size:13.5px;font-weight:500;color:var(--accent);margin-bottom:14px}
+.band .eyebrow{color:var(--em-200)}
+.hero h1{font-family:'Gelasio',Georgia,serif;font-size:clamp(48px,4.4vw,68px);line-height:1.04;letter-spacing:-1.7px;text-wrap:balance;max-width:16ch}
 .hero .lede{margin-top:24px;font-size:17.5px;line-height:1.62;color:var(--on-em-soft);max-width:54ch}
 .hero .cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
 
-/* the order form cover, carried onto the site: a dot field in the top right
-   with ochre crosses, and quiet arcs rising from the bottom left */
-.illo{position:relative;width:560px;aspect-ratio:560/540;align-self:end;margin-bottom:-86px;
-  /* arcs rise from the band's bottom edge, as they rise from the page edge on the cover;
-     the left side dissolves so there is no hard box edge beside the headline */
-  -webkit-mask-image:linear-gradient(to right,transparent,#000 22%);
-          mask-image:linear-gradient(to right,transparent,#000 22%)}
-.illo svg{width:100%;height:100%;overflow:hidden}
-.arc{stroke:rgba(255,255,255,.14);stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1;
-     animation:draw 1.6s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:var(--d,0s)}
-.arc-soft{stroke:rgba(255,255,255,.08)}
-.pl{opacity:0;animation:appear .5s ease forwards;animation-delay:var(--d,0s)}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes appear{to{opacity:1}}
+.illo{position:relative;width:580px;height:560px}
+.deco{position:absolute;inset:0;z-index:0}
+.ring-spin{transform-origin:290px 280px;animation:drift 80s linear infinite}
+@keyframes drift{to{transform:rotate(360deg)}}
+.l{position:absolute;z-index:1}
+.ecard{background:var(--em-600);border:1px solid var(--hairline);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.28)}
+
+.runs{left:30px;top:96px;width:392px;padding:6px 16px 16px}
+.chead{display:flex;align-items:center;gap:10px;height:54px}
+.chip{width:28px;height:28px;flex:0 0 28px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.chip svg{width:15px;height:15px}
+.ecard .chip{background:var(--em-500);color:var(--em-200)}
+.chead h4{font-size:14px;letter-spacing:-.15px}
+.chead .ct{margin-left:auto;font-size:11.5px;color:var(--on-card-soft)}
+.ewell{display:flex;align-items:center;gap:12px;height:56px;padding:0 14px;border-radius:12px;background:var(--em-900);border:1px solid rgba(255,255,255,.05)}
+.ewell + .ewell{margin-top:8px}
+.flag{width:22px;height:15px;border-radius:3px;overflow:hidden;display:block;flex:0 0 22px;box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.flag svg{width:22px;height:15px}
+.ewell .nm{font-size:13.5px;font-weight:600;letter-spacing:-.1px}
+.ewell .sb{margin-top:2px;font-size:11.5px;color:var(--on-card-soft)}
+.pill{margin-left:auto;display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:8px;font-size:11.5px;font-weight:500;flex:0 0 auto}
+.pill.mint{background:rgba(79,174,140,.18);color:var(--em-300)}
+.pill.gold{background:rgba(217,164,65,.18);color:var(--ochre)}
+.pill i{width:5px;height:5px;border-radius:99px;background:currentColor;display:block}
+
+.ev{width:238px;padding:12px 14px;min-height:62px;display:flex;align-items:center;gap:11px}
+.ev .chip{width:32px;height:32px;flex-basis:32px;border-radius:9px}
+.ev .chip svg{width:16px;height:16px}
+.ev .chip.gold{background:rgba(217,164,65,.18);color:var(--ochre)}
+.ev h5{font-size:12.5px;line-height:1.25;letter-spacing:-.1px}
+.ev p{margin-top:2px;font-size:11px;color:var(--on-card-soft)}
+
+.pop{animation:popin .6s cubic-bezier(.2,.8,.3,1) both;animation-delay:var(--d,0s)}
+@keyframes popin{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
 
 /* ---------------- shared section type ---------------- */
-.label{font-size:13.5px;font-weight:500;color:var(--accent);margin-bottom:14px}
-.h2{font-family:'Gelasio',Georgia,serif;font-size:44px;line-height:1.1;letter-spacing:-1.1px;text-wrap:balance}
+.h2{font-family:'Gelasio',Georgia,serif;font-size:44px;line-height:1.1;letter-spacing:-1.1px;color:var(--ink);text-wrap:balance}
+.sub{margin-top:16px;font-size:16px;line-height:1.6;color:var(--ink-muted);max-width:46ch}
 
 /* ---------------- story ---------------- */
 .story{background:var(--grey);padding:112px 0}
-.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:start}
-.story .h2{max-width:13ch}
-.story-body p{font-size:16.5px;line-height:1.7;color:var(--ink-2);max-width:56ch}
-.story-body p + p{margin-top:20px}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.story .h2{max-width:14ch}
+.story-body{margin-top:26px}
+.story-body p{font-size:16.5px;line-height:1.7;color:var(--ink-2);max-width:54ch}
+.story-body p + p{margin-top:18px}
+
+.stage{position:relative;height:560px;border-radius:20px;overflow:hidden;
+  --r1:#E4EAE7;--r2:#DAE3DF;--r3:#CEDBD5;--r4:#C1D2CA}
+.stage .rings{position:absolute;inset:0;width:100%;height:100%}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 34px rgba(14,74,56,.10)}
+.rec{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(440px,92%);padding:18px 16px 16px}
+.who{display:flex;align-items:center;gap:14px;padding:0 2px 16px}
+.av{width:48px;height:48px;border-radius:999px;background:var(--track);color:var(--ink-muted);font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:center;flex:0 0 48px}
+.who h4{font-size:17px;letter-spacing:-.3px}
+.who .meta{margin-top:3px;display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-muted)}
+.who .meta .flag{width:18px;height:12px;flex-basis:18px;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.who .meta .flag svg{width:18px;height:12px}
+.who .pill{background:var(--ok-bg);color:var(--ok-fg);box-shadow:inset 0 0 0 1px var(--ok-line)}
+.tier{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin:2px 2px 8px}
+.well{display:flex;align-items:center;gap:12px;height:50px;padding:0 16px;border-radius:12px;background:var(--well);border:1px solid var(--line-soft)}
+.well + .well{margin-top:8px}
+.well .k{font-size:13.5px;color:var(--ink-muted)}
+.well .v{margin-left:auto;font-size:13.5px;font-weight:600;color:var(--ink)}
+.rec-foot{margin-top:14px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-muted);padding:0 2px}
+.rec-foot svg{width:15px;height:15px;color:var(--ok-fg)}
 
 /* ---------------- mission and vision ---------------- */
 .purpose{padding:108px 0 112px}
 .purpose-grid{display:grid;grid-template-columns:1fr 1fr}
-.purpose-item{padding:0 56px 0 0}
+.purpose-item{padding-right:56px}
 .purpose-item + .purpose-item{padding:0 0 0 56px;border-left:1px solid var(--hairline)}
-.purpose-item .label{color:var(--em-200)}
-.purpose-item blockquote{margin:0;font-family:'Gelasio',Georgia,serif;font-size:clamp(28px,2.5vw,36px);line-height:1.2;letter-spacing:-.7px;color:#fff;text-wrap:balance;max-width:24ch}
+.purpose-item blockquote{margin:0;font-family:'Gelasio',Georgia,serif;font-size:clamp(28px,2.6vw,38px);line-height:1.18;letter-spacing:-.8px;color:#fff;text-wrap:balance;max-width:22ch}
 .purpose-item p{margin-top:22px;font-size:16px;line-height:1.66;color:var(--on-em-soft);max-width:44ch}
 
 /* ---------------- values ---------------- */
-.values{background:var(--grey);padding:112px 0}
-.values-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:end;margin-bottom:48px}
-.values-head p{font-size:16px;line-height:1.6;color:var(--ink-muted);max-width:44ch}
-.vlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-3)}
-.vrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;padding:30px 0;border-bottom:1px solid var(--line-3)}
-.vrow h3{font-family:'Gelasio',Georgia,serif;font-size:25px;letter-spacing:-.4px;line-height:1.2;color:var(--ink)}
-.vrow p{font-size:16px;line-height:1.65;color:var(--ink-2);max-width:54ch}
+.values{background:var(--grey);padding:112px 0 104px}
+.values-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:44px}
+.vgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.vcard{grid-column:span 2;box-shadow:0 1px 2px rgba(16,24,40,.04);display:flex;flex-direction:column;padding:6px 16px 16px;transition:border-color .15s,transform .2s}
+.vcard.wide{grid-column:span 3}
+.vcard .chead{height:58px}
+.vcard .chip{background:var(--track);color:var(--ink-muted)}
+.vcard h3{font-size:16px;letter-spacing:-.25px;color:var(--ink)}
+.vcard .body{padding:0 2px 20px;font-size:14.5px;line-height:1.62;color:var(--ink-2);flex:1}
+.vcard .well{height:54px}
+.vcard .well .v{display:flex;align-items:center;gap:8px}
+.flags{display:flex;gap:4px}
+.flags .flag{width:18px;height:12px;flex-basis:18px;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.flags .flag svg{width:18px;height:12px}
+.vcard:hover{border-color:var(--line-2)}
 
 /* ---------------- closing CTA (same card as home) ---------------- */
-.cta-band{background:var(--grey);padding:112px 0}
-.cta-card{
-  position:relative;overflow:hidden;border-radius:26px;border:1px solid var(--line-2);
-  padding:104px 48px 108px;text-align:center;
+.cta-band{background:var(--grey);padding:0 0 112px}
+.cta-card{position:relative;overflow:hidden;border-radius:26px;border:1px solid var(--line-2);padding:112px 48px 116px;text-align:center;
   background:
     radial-gradient(62% 86% at 26% 112%, rgba(79,174,140,.30), transparent 68%),
     radial-gradient(48% 74% at 74% 116%, rgba(143,200,176,.24), transparent 70%),
-    var(--surface);
-}
-.cta-card h2{font-family:'Gelasio',Georgia,serif;font-size:46px;line-height:1.14;letter-spacing:-1.2px;color:var(--ink);max-width:24ch;margin:0 auto;text-wrap:balance}
-.cta-row{margin-top:38px;display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap}
+    var(--surface)}
+.cta-card h2{font-family:'Gelasio',Georgia,serif;font-size:46px;line-height:1.14;letter-spacing:-1.2px;color:var(--ink);max-width:22ch;margin:0 auto;text-wrap:balance}
+.cta-row{margin-top:38px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
 .btn-cta{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 30px;border-radius:999px;background:var(--em-800);color:#fff;font:500 15px/1 'Inter',sans-serif;transition:background .15s}
 .btn-cta:hover{background:#0A3B2C}
 .btn-cta svg{width:17px;height:17px}
-.cta-alt{font-size:15px;font-weight:500;color:var(--accent);border-bottom:1px solid rgba(14,74,56,.3)}
-.cta-alt:hover{border-bottom-color:var(--accent)}
 
-/* ---------------- footer (same as home) ---------------- */
+/* ---------------- footer (same as home; unchanged) ---------------- */
 .foot{background:var(--em-800);color:#fff;padding:78px 0 30px}
 .foot-top{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:40px}
 .foot-brand .brand{font-size:24px}
@@ -153,21 +205,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
 /* ---------------- responsive ---------------- */
 @media (max-width:1180px){
   .hero{grid-template-columns:minmax(0,1fr);padding:56px 0 72px}
-  .illo{margin:0 auto -72px}
+  .illo{margin:0 auto}
+  .vcard,.vcard.wide{grid-column:span 3}
 }
 @media (max-width:900px){
   .nav{display:none}
   .h2{font-size:32px;letter-spacing:-.7px}
-  .story,.values,.cta-band{padding:72px 0}
+  .story,.values{padding:72px 0}
   .purpose{padding:72px 0}
-  .story-grid,.values-head,.vrow{grid-template-columns:minmax(0,1fr);gap:16px}
-  .values-head{gap:14px;margin-bottom:32px}
-  .vrow{padding:24px 0;gap:10px}
-  .vrow h3{font-size:22px}
+  .cta-band{padding:0 0 72px}
+  .story-grid,.values-head{grid-template-columns:minmax(0,1fr);gap:36px}
+  .values-head{gap:0;margin-bottom:32px}
+  .stage{height:520px}
   .purpose-grid{grid-template-columns:1fr}
   .purpose-item{padding:0}
   .purpose-item + .purpose-item{padding:40px 0 0;border-left:0;border-top:1px solid var(--hairline);margin-top:40px}
-  .cta-card{padding:60px 24px 64px;border-radius:20px}
+  .cta-card{padding:64px 24px 68px;border-radius:20px}
   .cta-card h2{font-size:30px;letter-spacing:-.7px}
   .foot{padding:56px 0 26px}
   .foot-top{grid-template-columns:1fr 1fr;gap:38px}
@@ -175,20 +228,69 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
   .foot-rule{margin:40px 0 20px}
   .foot-base .policies{margin-left:0;gap:18px;flex-wrap:wrap}
 }
-@media (max-width:620px){
+@media (max-width:640px){
   .nav-cta .b-plain{display:none}
   .nav-cta .btn{padding:0 14px}
   .hero h1{font-size:40px;letter-spacing:-1px}
   .hero .lede{font-size:16px}
-  .illo{width:100%;margin-bottom:-72px}
+  .illo{width:100%;height:auto;display:flex;flex-direction:column;gap:12px}
+  .deco{display:none}
+  .l{position:static}
+  .runs,.ev{width:100%}
+  .vcard,.vcard.wide{grid-column:1 / -1}
+  .stage{height:auto;padding:28px 0;overflow:visible}
+  .stage .rings{display:none}
+  .rec{position:static;transform:none;width:100%}
 }
 @media (prefers-reduced-motion:reduce){
-  .arc{animation:none;stroke-dashoffset:0}
-  .pl{animation:none;opacity:1}
+  .ring-spin,.pop{animation:none}
 }
 </style>
 </head>
 <body>
+
+<!-- flags -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <symbol id="flag-ke" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#fff"/>
+    <rect width="20" height="4.2" fill="#000"/>
+    <rect y="5" width="20" height="4" fill="#BB0000"/>
+    <rect y="9.8" width="20" height="4.2" fill="#006600"/>
+    <ellipse cx="10" cy="7" rx="2.2" ry="4.4" fill="#fff"/>
+    <ellipse cx="10" cy="7" rx="1.4" ry="3.4" fill="#BB0000"/>
+  </symbol>
+  <symbol id="flag-ao" viewBox="0 0 20 14">
+    <rect width="20" height="7" fill="#CE1126"/>
+    <rect y="7" width="20" height="7" fill="#000"/>
+    <circle cx="10" cy="7" r="3.1" fill="none" stroke="#F9D616" stroke-width="1"/>
+    <path d="M10 4.9l.5 1.5h1.6l-1.3.95.5 1.55L10 8.05 8.7 8.9l.5-1.55L7.9 6.4h1.6z" fill="#F9D616"/>
+  </symbol>
+  <symbol id="flag-ng" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#fff"/>
+    <rect width="6.7" height="14" fill="#008751"/>
+    <rect x="13.3" width="6.7" height="14" fill="#008751"/>
+  </symbol>
+  <symbol id="flag-ug" viewBox="0 0 20 14">
+    <rect width="20" height="14" fill="#000"/>
+    <rect y="2.33" width="20" height="2.33" fill="#FCDC04"/>
+    <rect y="4.66" width="20" height="2.34" fill="#D90000"/>
+    <rect y="9.33" width="20" height="2.33" fill="#FCDC04"/>
+    <rect y="11.66" width="20" height="2.34" fill="#D90000"/>
+    <circle cx="10" cy="7" r="2.3" fill="#fff"/>
+  </symbol>
+  <symbol id="flag-au" viewBox="0 0 120 60" preserveAspectRatio="xMinYMid slice">
+    <rect width="120" height="60" fill="#012169"/>
+    <clipPath id="au-uj"><rect width="60" height="30"/></clipPath>
+    <clipPath id="au-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath>
+    <g clip-path="url(#au-uj)">
+      <path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0L60,30M60,0L0,30" clip-path="url(#au-t)" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/>
+    </g>
+    <circle cx="30" cy="45" r="6" fill="#fff"/><circle cx="90" cy="50" r="3.6" fill="#fff"/><circle cx="75" cy="27" r="3.6" fill="#fff"/><circle cx="90" cy="10" r="3.6" fill="#fff"/><circle cx="103" cy="23" r="3.6" fill="#fff"/><circle cx="96" cy="32" r="2" fill="#fff"/>
+  </symbol>
+</svg>
 
 <div class="band">
   <div class="wrap-wide">
@@ -207,20 +309,65 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
 
     <div class="hero">
       <div>
+        <p class="eyebrow">About JaliHR</p>
         <h1>We are HR people. We built the HR system we wanted.</h1>
         <p class="lede">JaliHR was founded in Australia by people who know the job: the onboarding, the payroll run, the leadership report due on Friday. We built the tool we kept wishing for, and HR teams around the world now run on it every day.</p>
         <div class="cta">
-          <a class="btn b-white btn-lg" href="#story">Read our story</a>
-          <a class="btn b-outline btn-lg" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+          <a class="btn b-white btn-lg" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+          <a class="btn b-outline btn-lg" href="#story">Read our story</a>
         </div>
       </div>
 
-      <div class="illo" aria-hidden="true">
-        <svg viewBox="0 0 560 540" fill="none" preserveAspectRatio="xMidYMid meet">
-          <g class="dots" fill="#FFFFFF"><circle cx="63" cy="9" r="1.3" fill-opacity="0.02"/><circle cx="81" cy="9" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="9" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="9" r="1.3" fill-opacity="0.06"/><circle cx="135" cy="9" r="1.3" fill-opacity="0.07"/><circle cx="153" cy="9" r="1.3" fill-opacity="0.08"/><circle cx="171" cy="9" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="9" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="9" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="9" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="9" r="1.3" fill-opacity="0.14"/><circle cx="261" cy="9" r="1.3" fill-opacity="0.15"/><circle cx="279" cy="9" r="1.3" fill-opacity="0.16"/><circle cx="297" cy="9" r="1.3" fill-opacity="0.17"/><circle cx="315" cy="9" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="9" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="9" r="1.3" fill-opacity="0.21"/><circle cx="369" cy="9" r="1.3" fill-opacity="0.22"/><circle cx="387" cy="9" r="1.3" fill-opacity="0.23"/><circle cx="405" cy="9" r="1.3" fill-opacity="0.24"/><circle cx="423" cy="9" r="1.3" fill-opacity="0.25"/><circle cx="441" cy="9" r="1.3" fill-opacity="0.26"/><circle cx="459" cy="9" r="1.3" fill-opacity="0.27"/><circle cx="477" cy="9" r="1.3" fill-opacity="0.29"/><circle cx="495" cy="9" r="1.3" fill-opacity="0.30"/><circle cx="513" cy="9" r="1.3" fill-opacity="0.31"/><circle cx="531" cy="9" r="1.3" fill-opacity="0.32"/><circle cx="549" cy="9" r="1.3" fill-opacity="0.33"/><circle cx="81" cy="27" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="27" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="27" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="27" r="1.3" fill-opacity="0.07"/><circle cx="153" cy="27" r="1.3" fill-opacity="0.08"/><circle cx="171" cy="27" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="27" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="27" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="27" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="27" r="1.3" fill-opacity="0.14"/><circle cx="261" cy="27" r="1.3" fill-opacity="0.15"/><circle cx="279" cy="27" r="1.3" fill-opacity="0.16"/><circle cx="297" cy="27" r="1.3" fill-opacity="0.17"/><circle cx="315" cy="27" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="27" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="27" r="1.3" fill-opacity="0.20"/><circle cx="369" cy="27" r="1.3" fill-opacity="0.22"/><circle cx="387" cy="27" r="1.3" fill-opacity="0.23"/><circle cx="405" cy="27" r="1.3" fill-opacity="0.24"/><circle cx="423" cy="27" r="1.3" fill-opacity="0.25"/><circle cx="441" cy="27" r="1.3" fill-opacity="0.26"/><circle cx="459" cy="27" r="1.3" fill-opacity="0.27"/><circle cx="477" cy="27" r="1.3" fill-opacity="0.28"/><circle cx="495" cy="27" r="1.3" fill-opacity="0.29"/><circle cx="513" cy="27" r="1.3" fill-opacity="0.30"/><circle cx="531" cy="27" r="1.3" fill-opacity="0.31"/><circle cx="549" cy="27" r="1.3" fill-opacity="0.32"/><circle cx="81" cy="45" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="45" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="45" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="45" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="45" r="1.3" fill-opacity="0.08"/><circle cx="171" cy="45" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="45" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="45" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="45" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="45" r="1.3" fill-opacity="0.13"/><circle cx="261" cy="45" r="1.3" fill-opacity="0.14"/><circle cx="279" cy="45" r="1.3" fill-opacity="0.16"/><circle cx="297" cy="45" r="1.3" fill-opacity="0.17"/><circle cx="315" cy="45" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="45" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="45" r="1.3" fill-opacity="0.20"/><circle cx="369" cy="45" r="1.3" fill-opacity="0.21"/><circle cx="387" cy="45" r="1.3" fill-opacity="0.22"/><circle cx="405" cy="45" r="1.3" fill-opacity="0.23"/><circle cx="423" cy="45" r="1.3" fill-opacity="0.25"/><circle cx="441" cy="45" r="1.3" fill-opacity="0.26"/><circle cx="459" cy="45" r="1.3" fill-opacity="0.27"/><circle cx="477" cy="45" r="1.3" fill-opacity="0.28"/><circle cx="495" cy="45" r="1.3" fill-opacity="0.29"/><circle cx="513" cy="45" r="1.3" fill-opacity="0.29"/><circle cx="531" cy="45" r="1.3" fill-opacity="0.30"/><circle cx="549" cy="45" r="1.3" fill-opacity="0.30"/><circle cx="81" cy="63" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="63" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="63" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="63" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="63" r="1.3" fill-opacity="0.07"/><circle cx="171" cy="63" r="1.3" fill-opacity="0.09"/><circle cx="189" cy="63" r="1.3" fill-opacity="0.10"/><circle cx="207" cy="63" r="1.3" fill-opacity="0.11"/><circle cx="225" cy="63" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="63" r="1.3" fill-opacity="0.13"/><circle cx="261" cy="63" r="1.3" fill-opacity="0.14"/><circle cx="279" cy="63" r="1.3" fill-opacity="0.15"/><circle cx="297" cy="63" r="1.3" fill-opacity="0.16"/><circle cx="315" cy="63" r="1.3" fill-opacity="0.18"/><circle cx="333" cy="63" r="1.3" fill-opacity="0.19"/><circle cx="351" cy="63" r="1.3" fill-opacity="0.20"/><circle cx="369" cy="63" r="1.3" fill-opacity="0.21"/><circle cx="387" cy="63" r="1.3" fill-opacity="0.22"/><circle cx="405" cy="63" r="1.3" fill-opacity="0.23"/><circle cx="423" cy="63" r="1.3" fill-opacity="0.24"/><circle cx="441" cy="63" r="1.3" fill-opacity="0.25"/><circle cx="459" cy="63" r="1.3" fill-opacity="0.26"/><circle cx="477" cy="63" r="1.3" fill-opacity="0.27"/><circle cx="495" cy="63" r="1.3" fill-opacity="0.28"/><circle cx="513" cy="63" r="1.3" fill-opacity="0.28"/><circle cx="531" cy="63" r="1.3" fill-opacity="0.29"/><circle cx="549" cy="63" r="1.3" fill-opacity="0.29"/><circle cx="81" cy="81" r="1.3" fill-opacity="0.03"/><circle cx="99" cy="81" r="1.3" fill-opacity="0.04"/><circle cx="117" cy="81" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="81" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="81" r="1.3" fill-opacity="0.07"/><circle cx="171" cy="81" r="1.3" fill-opacity="0.08"/><circle cx="189" cy="81" r="1.3" fill-opacity="0.09"/><circle cx="207" cy="81" r="1.3" fill-opacity="0.10"/><circle cx="225" cy="81" r="1.3" fill-opacity="0.12"/><circle cx="243" cy="81" r="1.3" fill-opacity="0.13"/><circle cx="261" cy="81" r="1.3" fill-opacity="0.14"/><circle cx="279" cy="81" r="1.3" fill-opacity="0.15"/><circle cx="297" cy="81" r="1.3" fill-opacity="0.16"/><circle cx="315" cy="81" r="1.3" fill-opacity="0.17"/><circle cx="333" cy="81" r="1.3" fill-opacity="0.18"/><circle cx="351" cy="81" r="1.3" fill-opacity="0.19"/><circle cx="369" cy="81" r="1.3" fill-opacity="0.20"/><circle cx="387" cy="81" r="1.3" fill-opacity="0.21"/><circle cx="405" cy="81" r="1.3" fill-opacity="0.22"/><circle cx="423" cy="81" r="1.3" fill-opacity="0.23"/><circle cx="441" cy="81" r="1.3" fill-opacity="0.24"/><circle cx="459" cy="81" r="1.3" fill-opacity="0.25"/><circle cx="477" cy="81" r="1.3" fill-opacity="0.26"/><circle cx="495" cy="81" r="1.3" fill-opacity="0.27"/><circle cx="513" cy="81" r="1.3" fill-opacity="0.27"/><circle cx="531" cy="81" r="1.3" fill-opacity="0.28"/><circle cx="549" cy="81" r="1.3" fill-opacity="0.28"/><circle cx="81" cy="99" r="1.3" fill-opacity="0.02"/><circle cx="99" cy="99" r="1.3" fill-opacity="0.03"/><circle cx="117" cy="99" r="1.3" fill-opacity="0.05"/><circle cx="135" cy="99" r="1.3" fill-opacity="0.06"/><circle cx="153" cy="99" r="1.3" fill-opacity="0.07"/><circle cx="171" cy="99" r="1.3" fill-opacity="0.08"/><circle cx="189" cy="99" r="1.3" fill-opacity="0.09"/><circle cx="207" cy="99" r="1.3" fill-opacity="0.10"/><circle cx="225" cy="99" r="1.3" fill-opacity="0.11"/><circle cx="243" cy="99" r="1.3" fill-opacity="0.12"/><circle cx="261" cy="99" r="1.3" fill-opacity="0.13"/><circle cx="279" cy="99" r="1.3" fill-opacity="0.14"/><circle cx="297" cy="99" r="1.3" fill-opacity="0.15"/><circle cx="315" cy="99" r="1.3" fill-opacity="0.17"/><circle cx="333" cy="99" r="1.3" fill-opacity="0.18"/><circle cx="351" cy="99" r="1.3" fill-opacity="0.19"/><circle cx="369" cy="99" r="1.3" fill-opacity="0.20"/><circle cx="387" cy="99" r="1.3" fill-opacity="0.21"/><circle cx="405" cy="99" r="1.3" fill-opacity="0.21"/><circle cx="423" cy="99" r="1.3" fill-opacity="0.22"/><circle cx="441" cy="99" r="1.3" fill-opacity="0.23"/><circle cx="459" cy="99" r="1.3" fill-opacity="0.24"/><circle cx="477" cy="99" r="1.3" fill-opacity="0.25"/><circle cx="495" cy="99" r="1.3" fill-opacity="0.25"/><circle cx="513" cy="99" r="1.3" fill-opacity="0.26"/><circle cx="531" cy="99" r="1.3" fill-opacity="0.26"/><circle cx="549" cy="99" r="1.3" fill-opacity="0.26"/><circle cx="99" cy="117" r="1.3" fill-opacity="0.03"/><circle cx="117" cy="117" r="1.3" fill-opacity="0.04"/><circle cx="135" cy="117" r="1.3" fill-opacity="0.05"/><circle cx="153" cy="117" r="1.3" fill-opacity="0.06"/><circle cx="171" cy="117" r="1.3" fill-opacity="0.07"/><circle cx="189" cy="117" r="1.3" fill-opacity="0.09"/><circle cx="207" cy="117" r="1.3" fill-opacity="0.10"/><circle cx="225" cy="117" r="1.3" fill-opacity="0.11"/><circle cx="243" cy="117" r="1.3" fill-opacity="0.12"/><circle cx="261" cy="117" r="1.3" fill-opacity="0.13"/><circle cx="279" cy="117" r="1.3" fill-opacity="0.14"/><circle cx="297" cy="117" r="1.3" fill-opacity="0.15"/><circle cx="315" cy="117" r="1.3" fill-opacity="0.16"/><circle cx="333" cy="117" r="1.3" fill-opacity="0.17"/><circle cx="351" cy="117" r="1.3" fill-opacity="0.18"/><circle cx="369" cy="117" r="1.3" fill-opacity="0.19"/><circle cx="387" cy="117" r="1.3" fill-opacity="0.20"/><circle cx="405" cy="117" r="1.3" fill-opacity="0.21"/><circle cx="423" cy="117" r="1.3" fill-opacity="0.21"/><circle cx="441" cy="117" r="1.3" fill-opacity="0.22"/><circle cx="459" cy="117" r="1.3" fill-opacity="0.23"/><circle cx="477" cy="117" r="1.3" fill-opacity="0.24"/><circle cx="495" cy="117" r="1.3" fill-opacity="0.24"/><circle cx="513" cy="117" r="1.3" fill-opacity="0.25"/><circle cx="531" cy="117" r="1.3" fill-opacity="0.25"/><circle cx="549" cy="117" r="1.3" fill-opacity="0.25"/><circle cx="99" cy="135" r="1.3" fill-opacity="0.03"/><circle cx="117" cy="135" r="1.3" fill-opacity="0.04"/><circle cx="135" cy="135" r="1.3" fill-opacity="0.05"/><circle cx="153" cy="135" r="1.3" fill-opacity="0.06"/><circle cx="171" cy="135" r="1.3" fill-opacity="0.07"/><circle cx="189" cy="135" r="1.3" fill-opacity="0.08"/><circle cx="207" cy="135" r="1.3" fill-opacity="0.09"/><circle cx="225" cy="135" r="1.3" fill-opacity="0.10"/><circle cx="243" cy="135" r="1.3" fill-opacity="0.11"/><circle cx="261" cy="135" r="1.3" fill-opacity="0.12"/><circle cx="279" cy="135" r="1.3" fill-opacity="0.13"/><circle cx="297" cy="135" r="1.3" fill-opacity="0.14"/><circle cx="315" cy="135" r="1.3" fill-opacity="0.15"/><circle cx="333" cy="135" r="1.3" fill-opacity="0.16"/><circle cx="351" cy="135" r="1.3" fill-opacity="0.17"/><circle cx="369" cy="135" r="1.3" fill-opacity="0.18"/><circle cx="387" cy="135" r="1.3" fill-opacity="0.19"/><circle cx="405" cy="135" r="1.3" fill-opacity="0.20"/><circle cx="423" cy="135" r="1.3" fill-opacity="0.20"/><circle cx="441" cy="135" r="1.3" fill-opacity="0.21"/><circle cx="459" cy="135" r="1.3" fill-opacity="0.22"/><circle cx="477" cy="135" r="1.3" fill-opacity="0.22"/><circle cx="495" cy="135" r="1.3" fill-opacity="0.23"/><circle cx="513" cy="135" r="1.3" fill-opacity="0.23"/><circle cx="531" cy="135" r="1.3" fill-opacity="0.23"/><circle cx="549" cy="135" r="1.3" fill-opacity="0.24"/><circle cx="99" cy="153" r="1.3" fill-opacity="0.02"/><circle cx="117" cy="153" r="1.3" fill-opacity="0.03"/><circle cx="135" cy="153" r="1.3" fill-opacity="0.04"/><circle cx="153" cy="153" r="1.3" fill-opacity="0.05"/><circle cx="171" cy="153" r="1.3" fill-opacity="0.06"/><circle cx="189" cy="153" r="1.3" fill-opacity="0.07"/><circle cx="207" cy="153" r="1.3" fill-opacity="0.08"/><circle cx="225" cy="153" r="1.3" fill-opacity="0.09"/><circle cx="243" cy="153" r="1.3" fill-opacity="0.10"/><circle cx="261" cy="153" r="1.3" fill-opacity="0.11"/><circle cx="279" cy="153" r="1.3" fill-opacity="0.12"/><circle cx="297" cy="153" r="1.3" fill-opacity="0.13"/><circle cx="315" cy="153" r="1.3" fill-opacity="0.14"/><circle cx="333" cy="153" r="1.3" fill-opacity="0.15"/><circle cx="351" cy="153" r="1.3" fill-opacity="0.16"/><circle cx="369" cy="153" r="1.3" fill-opacity="0.17"/><circle cx="387" cy="153" r="1.3" fill-opacity="0.18"/><circle cx="405" cy="153" r="1.3" fill-opacity="0.19"/><circle cx="423" cy="153" r="1.3" fill-opacity="0.19"/><circle cx="441" cy="153" r="1.3" fill-opacity="0.20"/><circle cx="459" cy="153" r="1.3" fill-opacity="0.21"/><circle cx="477" cy="153" r="1.3" fill-opacity="0.21"/><circle cx="495" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="513" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="531" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="549" cy="153" r="1.3" fill-opacity="0.22"/><circle cx="117" cy="171" r="1.3" fill-opacity="0.03"/><circle cx="135" cy="171" r="1.3" fill-opacity="0.04"/><circle cx="153" cy="171" r="1.3" fill-opacity="0.05"/><circle cx="171" cy="171" r="1.3" fill-opacity="0.06"/><circle cx="189" cy="171" r="1.3" fill-opacity="0.07"/><circle cx="207" cy="171" r="1.3" fill-opacity="0.08"/><circle cx="225" cy="171" r="1.3" fill-opacity="0.09"/><circle cx="243" cy="171" r="1.3" fill-opacity="0.10"/><circle cx="261" cy="171" r="1.3" fill-opacity="0.11"/><circle cx="279" cy="171" r="1.3" fill-opacity="0.12"/><circle cx="297" cy="171" r="1.3" fill-opacity="0.13"/><circle cx="315" cy="171" r="1.3" fill-opacity="0.14"/><circle cx="333" cy="171" r="1.3" fill-opacity="0.14"/><circle cx="351" cy="171" r="1.3" fill-opacity="0.15"/><circle cx="369" cy="171" r="1.3" fill-opacity="0.16"/><circle cx="387" cy="171" r="1.3" fill-opacity="0.17"/><circle cx="405" cy="171" r="1.3" fill-opacity="0.18"/><circle cx="423" cy="171" r="1.3" fill-opacity="0.18"/><circle cx="441" cy="171" r="1.3" fill-opacity="0.19"/><circle cx="459" cy="171" r="1.3" fill-opacity="0.19"/><circle cx="477" cy="171" r="1.3" fill-opacity="0.20"/><circle cx="495" cy="171" r="1.3" fill-opacity="0.20"/><circle cx="513" cy="171" r="1.3" fill-opacity="0.21"/><circle cx="531" cy="171" r="1.3" fill-opacity="0.21"/><circle cx="549" cy="171" r="1.3" fill-opacity="0.21"/><circle cx="117" cy="189" r="1.3" fill-opacity="0.02"/><circle cx="135" cy="189" r="1.3" fill-opacity="0.03"/><circle cx="153" cy="189" r="1.3" fill-opacity="0.04"/><circle cx="171" cy="189" r="1.3" fill-opacity="0.05"/><circle cx="189" cy="189" r="1.3" fill-opacity="0.06"/><circle cx="207" cy="189" r="1.3" fill-opacity="0.07"/><circle cx="225" cy="189" r="1.3" fill-opacity="0.08"/><circle cx="243" cy="189" r="1.3" fill-opacity="0.09"/><circle cx="261" cy="189" r="1.3" fill-opacity="0.10"/><circle cx="279" cy="189" r="1.3" fill-opacity="0.11"/><circle cx="297" cy="189" r="1.3" fill-opacity="0.12"/><circle cx="315" cy="189" r="1.3" fill-opacity="0.13"/><circle cx="333" cy="189" r="1.3" fill-opacity="0.13"/><circle cx="351" cy="189" r="1.3" fill-opacity="0.14"/><circle cx="369" cy="189" r="1.3" fill-opacity="0.15"/><circle cx="387" cy="189" r="1.3" fill-opacity="0.16"/><circle cx="405" cy="189" r="1.3" fill-opacity="0.16"/><circle cx="423" cy="189" r="1.3" fill-opacity="0.17"/><circle cx="441" cy="189" r="1.3" fill-opacity="0.18"/><circle cx="459" cy="189" r="1.3" fill-opacity="0.18"/><circle cx="477" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="495" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="513" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="531" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="549" cy="189" r="1.3" fill-opacity="0.19"/><circle cx="135" cy="207" r="1.3" fill-opacity="0.02"/><circle cx="153" cy="207" r="1.3" fill-opacity="0.03"/><circle cx="171" cy="207" r="1.3" fill-opacity="0.04"/><circle cx="189" cy="207" r="1.3" fill-opacity="0.05"/><circle cx="207" cy="207" r="1.3" fill-opacity="0.06"/><circle cx="225" cy="207" r="1.3" fill-opacity="0.07"/><circle cx="243" cy="207" r="1.3" fill-opacity="0.08"/><circle cx="261" cy="207" r="1.3" fill-opacity="0.09"/><circle cx="279" cy="207" r="1.3" fill-opacity="0.10"/><circle cx="297" cy="207" r="1.3" fill-opacity="0.11"/><circle cx="315" cy="207" r="1.3" fill-opacity="0.12"/><circle cx="333" cy="207" r="1.3" fill-opacity="0.12"/><circle cx="351" cy="207" r="1.3" fill-opacity="0.13"/><circle cx="369" cy="207" r="1.3" fill-opacity="0.14"/><circle cx="387" cy="207" r="1.3" fill-opacity="0.15"/><circle cx="405" cy="207" r="1.3" fill-opacity="0.15"/><circle cx="423" cy="207" r="1.3" fill-opacity="0.16"/><circle cx="441" cy="207" r="1.3" fill-opacity="0.16"/><circle cx="459" cy="207" r="1.3" fill-opacity="0.17"/><circle cx="477" cy="207" r="1.3" fill-opacity="0.17"/><circle cx="495" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="513" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="531" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="549" cy="207" r="1.3" fill-opacity="0.18"/><circle cx="153" cy="225" r="1.3" fill-opacity="0.03"/><circle cx="171" cy="225" r="1.3" fill-opacity="0.04"/><circle cx="189" cy="225" r="1.3" fill-opacity="0.05"/><circle cx="207" cy="225" r="1.3" fill-opacity="0.05"/><circle cx="225" cy="225" r="1.3" fill-opacity="0.06"/><circle cx="243" cy="225" r="1.3" fill-opacity="0.07"/><circle cx="261" cy="225" r="1.3" fill-opacity="0.08"/><circle cx="279" cy="225" r="1.3" fill-opacity="0.09"/><circle cx="297" cy="225" r="1.3" fill-opacity="0.10"/><circle cx="315" cy="225" r="1.3" fill-opacity="0.11"/><circle cx="333" cy="225" r="1.3" fill-opacity="0.11"/><circle cx="351" cy="225" r="1.3" fill-opacity="0.12"/><circle cx="369" cy="225" r="1.3" fill-opacity="0.13"/><circle cx="387" cy="225" r="1.3" fill-opacity="0.13"/><circle cx="405" cy="225" r="1.3" fill-opacity="0.14"/><circle cx="423" cy="225" r="1.3" fill-opacity="0.15"/><circle cx="441" cy="225" r="1.3" fill-opacity="0.15"/><circle cx="459" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="477" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="495" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="513" cy="225" r="1.3" fill-opacity="0.16"/><circle cx="531" cy="225" r="1.3" fill-opacity="0.17"/><circle cx="549" cy="225" r="1.3" fill-opacity="0.17"/><circle cx="171" cy="243" r="1.3" fill-opacity="0.03"/><circle cx="189" cy="243" r="1.3" fill-opacity="0.04"/><circle cx="207" cy="243" r="1.3" fill-opacity="0.05"/><circle cx="225" cy="243" r="1.3" fill-opacity="0.06"/><circle cx="243" cy="243" r="1.3" fill-opacity="0.06"/><circle cx="261" cy="243" r="1.3" fill-opacity="0.07"/><circle cx="279" cy="243" r="1.3" fill-opacity="0.08"/><circle cx="297" cy="243" r="1.3" fill-opacity="0.09"/><circle cx="315" cy="243" r="1.3" fill-opacity="0.10"/><circle cx="333" cy="243" r="1.3" fill-opacity="0.10"/><circle cx="351" cy="243" r="1.3" fill-opacity="0.11"/><circle cx="369" cy="243" r="1.3" fill-opacity="0.12"/><circle cx="387" cy="243" r="1.3" fill-opacity="0.12"/><circle cx="405" cy="243" r="1.3" fill-opacity="0.13"/><circle cx="423" cy="243" r="1.3" fill-opacity="0.13"/><circle cx="441" cy="243" r="1.3" fill-opacity="0.14"/><circle cx="459" cy="243" r="1.3" fill-opacity="0.14"/><circle cx="477" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="495" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="513" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="531" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="549" cy="243" r="1.3" fill-opacity="0.15"/><circle cx="189" cy="261" r="1.3" fill-opacity="0.03"/><circle cx="207" cy="261" r="1.3" fill-opacity="0.04"/><circle cx="225" cy="261" r="1.3" fill-opacity="0.05"/><circle cx="243" cy="261" r="1.3" fill-opacity="0.05"/><circle cx="261" cy="261" r="1.3" fill-opacity="0.06"/><circle cx="279" cy="261" r="1.3" fill-opacity="0.07"/><circle cx="297" cy="261" r="1.3" fill-opacity="0.08"/><circle cx="315" cy="261" r="1.3" fill-opacity="0.09"/><circle cx="333" cy="261" r="1.3" fill-opacity="0.09"/><circle cx="351" cy="261" r="1.3" fill-opacity="0.10"/><circle cx="369" cy="261" r="1.3" fill-opacity="0.11"/><circle cx="387" cy="261" r="1.3" fill-opacity="0.11"/><circle cx="405" cy="261" r="1.3" fill-opacity="0.12"/><circle cx="423" cy="261" r="1.3" fill-opacity="0.12"/><circle cx="441" cy="261" r="1.3" fill-opacity="0.13"/><circle cx="459" cy="261" r="1.3" fill-opacity="0.13"/><circle cx="477" cy="261" r="1.3" fill-opacity="0.13"/><circle cx="495" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="513" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="531" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="549" cy="261" r="1.3" fill-opacity="0.14"/><circle cx="207" cy="279" r="1.3" fill-opacity="0.03"/><circle cx="225" cy="279" r="1.3" fill-opacity="0.04"/><circle cx="243" cy="279" r="1.3" fill-opacity="0.04"/><circle cx="261" cy="279" r="1.3" fill-opacity="0.05"/><circle cx="279" cy="279" r="1.3" fill-opacity="0.06"/><circle cx="297" cy="279" r="1.3" fill-opacity="0.07"/><circle cx="315" cy="279" r="1.3" fill-opacity="0.07"/><circle cx="333" cy="279" r="1.3" fill-opacity="0.08"/><circle cx="351" cy="279" r="1.3" fill-opacity="0.09"/><circle cx="369" cy="279" r="1.3" fill-opacity="0.09"/><circle cx="387" cy="279" r="1.3" fill-opacity="0.10"/><circle cx="405" cy="279" r="1.3" fill-opacity="0.10"/><circle cx="423" cy="279" r="1.3" fill-opacity="0.11"/><circle cx="441" cy="279" r="1.3" fill-opacity="0.11"/><circle cx="459" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="477" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="495" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="513" cy="279" r="1.3" fill-opacity="0.12"/><circle cx="531" cy="279" r="1.3" fill-opacity="0.13"/><circle cx="549" cy="279" r="1.3" fill-opacity="0.13"/><circle cx="225" cy="297" r="1.3" fill-opacity="0.03"/><circle cx="243" cy="297" r="1.3" fill-opacity="0.03"/><circle cx="261" cy="297" r="1.3" fill-opacity="0.04"/><circle cx="279" cy="297" r="1.3" fill-opacity="0.05"/><circle cx="297" cy="297" r="1.3" fill-opacity="0.06"/><circle cx="315" cy="297" r="1.3" fill-opacity="0.06"/><circle cx="333" cy="297" r="1.3" fill-opacity="0.07"/><circle cx="351" cy="297" r="1.3" fill-opacity="0.08"/><circle cx="369" cy="297" r="1.3" fill-opacity="0.08"/><circle cx="387" cy="297" r="1.3" fill-opacity="0.09"/><circle cx="405" cy="297" r="1.3" fill-opacity="0.09"/><circle cx="423" cy="297" r="1.3" fill-opacity="0.10"/><circle cx="441" cy="297" r="1.3" fill-opacity="0.10"/><circle cx="459" cy="297" r="1.3" fill-opacity="0.10"/><circle cx="477" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="495" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="513" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="531" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="549" cy="297" r="1.3" fill-opacity="0.11"/><circle cx="243" cy="315" r="1.3" fill-opacity="0.02"/><circle cx="261" cy="315" r="1.3" fill-opacity="0.03"/><circle cx="279" cy="315" r="1.3" fill-opacity="0.04"/><circle cx="297" cy="315" r="1.3" fill-opacity="0.05"/><circle cx="315" cy="315" r="1.3" fill-opacity="0.05"/><circle cx="333" cy="315" r="1.3" fill-opacity="0.06"/><circle cx="351" cy="315" r="1.3" fill-opacity="0.06"/><circle cx="369" cy="315" r="1.3" fill-opacity="0.07"/><circle cx="387" cy="315" r="1.3" fill-opacity="0.07"/><circle cx="405" cy="315" r="1.3" fill-opacity="0.08"/><circle cx="423" cy="315" r="1.3" fill-opacity="0.08"/><circle cx="441" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="459" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="477" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="495" cy="315" r="1.3" fill-opacity="0.09"/><circle cx="513" cy="315" r="1.3" fill-opacity="0.10"/><circle cx="531" cy="315" r="1.3" fill-opacity="0.10"/><circle cx="549" cy="315" r="1.3" fill-opacity="0.10"/><circle cx="261" cy="333" r="1.3" fill-opacity="0.02"/><circle cx="279" cy="333" r="1.3" fill-opacity="0.03"/><circle cx="297" cy="333" r="1.3" fill-opacity="0.03"/><circle cx="315" cy="333" r="1.3" fill-opacity="0.04"/><circle cx="333" cy="333" r="1.3" fill-opacity="0.05"/><circle cx="351" cy="333" r="1.3" fill-opacity="0.05"/><circle cx="369" cy="333" r="1.3" fill-opacity="0.06"/><circle cx="387" cy="333" r="1.3" fill-opacity="0.06"/><circle cx="405" cy="333" r="1.3" fill-opacity="0.07"/><circle cx="423" cy="333" r="1.3" fill-opacity="0.07"/><circle cx="441" cy="333" r="1.3" fill-opacity="0.07"/><circle cx="459" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="477" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="495" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="513" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="531" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="549" cy="333" r="1.3" fill-opacity="0.08"/><circle cx="297" cy="351" r="1.3" fill-opacity="0.02"/><circle cx="315" cy="351" r="1.3" fill-opacity="0.03"/><circle cx="333" cy="351" r="1.3" fill-opacity="0.03"/><circle cx="351" cy="351" r="1.3" fill-opacity="0.04"/><circle cx="369" cy="351" r="1.3" fill-opacity="0.04"/><circle cx="387" cy="351" r="1.3" fill-opacity="0.05"/><circle cx="405" cy="351" r="1.3" fill-opacity="0.05"/><circle cx="423" cy="351" r="1.3" fill-opacity="0.06"/><circle cx="441" cy="351" r="1.3" fill-opacity="0.06"/><circle cx="459" cy="351" r="1.3" fill-opacity="0.06"/><circle cx="477" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="495" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="513" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="531" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="549" cy="351" r="1.3" fill-opacity="0.07"/><circle cx="333" cy="369" r="1.3" fill-opacity="0.02"/><circle cx="351" cy="369" r="1.3" fill-opacity="0.03"/><circle cx="369" cy="369" r="1.3" fill-opacity="0.03"/><circle cx="387" cy="369" r="1.3" fill-opacity="0.04"/><circle cx="405" cy="369" r="1.3" fill-opacity="0.04"/><circle cx="423" cy="369" r="1.3" fill-opacity="0.04"/><circle cx="441" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="459" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="477" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="495" cy="369" r="1.3" fill-opacity="0.05"/><circle cx="513" cy="369" r="1.3" fill-opacity="0.06"/><circle cx="531" cy="369" r="1.3" fill-opacity="0.06"/><circle cx="549" cy="369" r="1.3" fill-opacity="0.06"/><circle cx="387" cy="387" r="1.3" fill-opacity="0.02"/><circle cx="405" cy="387" r="1.3" fill-opacity="0.03"/><circle cx="423" cy="387" r="1.3" fill-opacity="0.03"/><circle cx="441" cy="387" r="1.3" fill-opacity="0.03"/><circle cx="459" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="477" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="495" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="513" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="531" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="549" cy="387" r="1.3" fill-opacity="0.04"/><circle cx="441" cy="405" r="1.3" fill-opacity="0.02"/><circle cx="459" cy="405" r="1.3" fill-opacity="0.02"/><circle cx="477" cy="405" r="1.3" fill-opacity="0.02"/><circle cx="495" cy="405" r="1.3" fill-opacity="0.03"/><circle cx="513" cy="405" r="1.3" fill-opacity="0.03"/><circle cx="531" cy="405" r="1.3" fill-opacity="0.03"/><circle cx="549" cy="405" r="1.3" fill-opacity="0.03"/></g>
-          <g class="arcs"><circle class="arc" style="--d:0.10s" cx="40" cy="540" r="110" pathLength="1"/><circle class="arc" style="--d:0.22s" cx="40" cy="540" r="195" pathLength="1"/><circle class="arc" style="--d:0.34s" cx="40" cy="540" r="285" pathLength="1"/><circle class="arc" style="--d:0.46s" cx="40" cy="540" r="375" pathLength="1"/><circle class="arc" style="--d:0.58s" cx="40" cy="540" r="470" pathLength="1"/><circle class="arc" style="--d:0.70s" cx="40" cy="540" r="570" pathLength="1"/><circle class="arc arc-soft" style="--d:.9s" cx="-40" cy="700" r="640" pathLength="1"/></g>
-          <g class="pluses" stroke="#D9A441" stroke-width="1.8" stroke-linecap="round"><path class="pl" style="--d:0.9s" d="M489 45h12M495 39v12"/><path class="pl" style="--d:1.3s" d="M381 117h12M387 111v12"/><path class="pl" style="--d:1.6s" d="M525 171h12M531 165v12"/><path class="pl" style="--d:1.9s" d="M435 243h12M441 237v12"/><path class="pl" style="--d:2.2s" d="M543 297h12M549 291v12"/><path class="pl" style="--d:2.5s" d="M327 63h12M333 57v12"/></g>
+      <div class="illo" role="img" aria-label="JaliHR running HR across several countries, starting from Australia where it was founded">
+        <svg class="deco" viewBox="0 0 580 560" fill="none" aria-hidden="true">
+          <circle cx="290" cy="280" r="170" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/>
+          <circle cx="290" cy="280" r="234" stroke="rgba(255,255,255,.06)" stroke-width="1.5"/>
+          <g class="ring-spin">
+            <circle cx="290" cy="280" r="276" stroke="rgba(255,255,255,.08)" stroke-width="1.2" stroke-dasharray="2 9"/>
+            <circle cx="290" cy="4" r="4" fill="#4FAE8C"/>
+          </g>
+          <g stroke="#D9A441" stroke-width="2" stroke-linecap="round" opacity=".9">
+            <path d="M530 70h13M536.5 63.5v13"/>
+            <path d="M40 500h13M46.5 493.5v13"/>
+          </g>
         </svg>
+
+        <div class="l ecard runs pop" style="--d:.1s">
+          <div class="chead">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.2 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.2-3.5-8.5S9.6 5.9 12 3.5z"/></svg></span>
+            <h4>Where JaliHR runs</h4>
+            
+          </div>
+          <div class="ewell pop" style="--d:.45s">
+            <span class="flag"><svg><use href="#flag-au"/></svg></span>
+            <div><p class="nm">Australia</p><p class="sb">Where it started</p></div>
+            <span class="pill gold">Founded here</span>
+          </div>
+          <div class="ewell pop" style="--d:.65s">
+            <span class="flag"><svg><use href="#flag-ke"/></svg></span>
+            <div><p class="nm">Kenya</p><p class="sb">Payroll, leave, contracts</p></div>
+            <span class="pill mint"><i></i>Live</span>
+          </div>
+          <div class="ewell pop" style="--d:.85s">
+            <span class="flag"><svg><use href="#flag-ug"/></svg></span>
+            <div><p class="nm">Uganda</p><p class="sb">Payroll, leave, contracts</p></div>
+            <span class="pill mint"><i></i>Live</span>
+          </div>
+          <div class="ewell pop" style="--d:1.05s">
+            <span class="flag"><svg><use href="#flag-ng"/></svg></span>
+            <div><p class="nm">Nigeria</p><p class="sb">Payroll, leave, contracts</p></div>
+            <span class="pill mint"><i></i>Live</span>
+          </div>
+        </div>
+
+        <div class="l ecard ev pop" style="left:316px;top:18px;--d:1.4s">
+          <span class="chip gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.4 2.4L16 9.8"/></svg></span>
+          <div><h5>Built by HRs</h5><p>for HRs, since day one</p></div>
+        </div>
+        <div class="l ecard ev pop" style="left:300px;top:452px;--d:1.7s">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.5 8.5 4.5-8.5 4.5L3.5 8z"/><path d="m3.5 12 8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5"/></svg></span>
+          <div><h5>One employee record</h5><p>every module reads from it</p></div>
+        </div>
       </div>
     </div>
 
@@ -233,13 +380,44 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
   <div class="wrap">
     <div class="story-grid">
       <div>
-        <p class="label">Our story</p>
+        <p class="eyebrow">Our story</p>
         <h2 class="h2">It started at an HR desk, not a whiteboard.</h2>
+        <div class="story-body">
+          <p>Most HR software is designed by people who have never run a payroll or chased a signed contract, and it shows. HR teams end up working around their own system: exporting to spreadsheets, keying the same employee details into three places, waiting weeks for a report that should take a minute.</p>
+          <p>JaliHR began in Australia as the answer to that. We knew where the real HR work happens because we had been doing it, so we designed every screen around those moments. One employee record. Every module reading from it. Analytics that are ready the moment your data is in.</p>
+          <p>It was built to travel from the start. Payroll, leave and labour law change at every border, so JaliHR handles them the way each country actually works. Today HR teams far beyond Australia open it every morning.</p>
+        </div>
       </div>
-      <div class="story-body">
-        <p>Most HR software is designed by people who have never run a payroll or chased a signed contract, and it shows. HR teams end up working around their own system: exporting to spreadsheets, keying the same employee details into three places, waiting weeks for a report that should take a minute.</p>
-        <p>JaliHR began in Australia as the answer to that. We knew where the real HR work happens because we had been doing it, so we designed every screen around those moments. One employee record. Every module reading from it. Analytics that are ready the moment your data is in.</p>
-        <p>It was built to travel from the start. Payroll, leave and labour law change at every border, so JaliHR handles them the way each country actually works. Today HR teams far beyond Australia open it every morning.</p>
+
+      <div class="stage" role="img" aria-label="One employee record, read by all six JaliHR modules">
+        <svg class="rings" viewBox="0 0 540 560" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+          <circle cx="270" cy="280" r="118" stroke="var(--r1)" stroke-width="1.5"/>
+          <circle cx="270" cy="280" r="192" stroke="var(--r2)" stroke-width="1.5"/>
+          <circle cx="270" cy="280" r="268" stroke="var(--r3)" stroke-width="1.5"/>
+          <circle cx="270" cy="280" r="350" stroke="var(--r4)" stroke-width="1.5"/>
+          <g stroke="#D9A441" stroke-width="2" stroke-linecap="round" opacity=".9">
+            <path d="M28 96h13M34.5 89.5v13"/>
+            <path d="M494 480h13M500.5 473.5v13"/>
+          </g>
+        </svg>
+        <div class="card rec">
+          <div class="who">
+            <span class="av">AN</span>
+            <div>
+              <h4>Amara Nwosu</h4>
+              <p class="meta"><span class="flag"><svg><use href="#flag-ke"/></svg></span>Head of AI Compliance, Kenya</p>
+            </div>
+            <span class="pill">Active</span>
+          </div>
+          <p class="tier">Read by every module</p>
+          <div class="well"><span class="k">Plan</span><span class="v">Headcount and budget</span></div>
+          <div class="well"><span class="k">Manage</span><span class="v">Contract, leave, documents</span></div>
+          <div class="well"><span class="k">Engage</span><span class="v">Kudos and 1:1s</span></div>
+          <div class="well"><span class="k">Grow</span><span class="v">Goals and reviews</span></div>
+          <div class="well"><span class="k">Pay</span><span class="v">Kenya payroll</span></div>
+          <div class="well"><span class="k">Support</span><span class="v">Benefits and wellness</span></div>
+          <p class="rec-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.4 2.4L16 9.8"/></svg>Entered once, used everywhere</p>
+        </div>
       </div>
     </div>
   </div>
@@ -251,12 +429,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
   <div class="wrap">
     <div class="purpose-grid">
       <div class="purpose-item">
-        <p class="label">Our mission</p>
+        <p class="eyebrow">Our mission</p>
         <blockquote>To take the admin off HR's desk, so HR can get back to people.</blockquote>
         <p>Every feature we ship has to remove work from an HR person's week. If it adds work, it doesn't ship.</p>
       </div>
       <div class="purpose-item">
-        <p class="label">Our vision</p>
+        <p class="eyebrow">Our vision</p>
         <blockquote>Every organisation, in every country, running HR as well as the best-run companies in the world.</blockquote>
         <p>How big you are and where you operate should not decide how well your people are looked after.</p>
       </div>
@@ -270,33 +448,40 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
   <div class="wrap">
     <div class="values-head">
       <div>
-        <p class="label">Our values</p>
+        <p class="eyebrow">Our values</p>
         <h2 class="h2">What we hold ourselves to.</h2>
       </div>
-      <p>These are how we decide what to build, what to cut and how we treat the people who trust us with their team's data.</p>
+      <p class="sub">How we decide what to build, what to cut and how we treat the people who trust us with their team's data.</p>
     </div>
-    <ul class="vlist">
-      <li class="vrow">
-        <h3>Start at the HR desk</h3>
-        <p>We design from the task, not the org chart. Every feature begins with something an HR person really does on an ordinary Tuesday afternoon.</p>
-      </li>
-      <li class="vrow">
-        <h3>Pleasant is a requirement</h3>
-        <p>Easy, fast and pleasant is not polish we add at the end. If a screen needs a training session to use, we are not finished with it.</p>
-      </li>
-      <li class="vrow">
-        <h3>Local, everywhere</h3>
-        <p>A global product that respects local rules. Payroll, leave and labour law are handled the way each country actually works, not approximated from somewhere else.</p>
-      </li>
-      <li class="vrow">
-        <h3>Let the data do the lifting</h3>
-        <p>HR should get answers, not another spreadsheet to build them from. We make sure the insight is ready when you walk into the meeting.</p>
-      </li>
-      <li class="vrow">
-        <h3>Handle with care</h3>
-        <p>People data is the most personal data a company holds. We guard it that way, and we are plain with customers about how it is kept and who can see it.</p>
-      </li>
-    </ul>
+
+    <div class="vgrid">
+      
+      <article class="card vcard ">
+        <div class="chead"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 19.5h17M5.5 19.5v-6h13v6M8 13.5V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6.5"/></svg></span><h3>Start at the HR desk</h3></div>
+        <p class="body">We design from the task, not the org chart. Every feature begins with something an HR person really does on an ordinary Tuesday afternoon.</p>
+        <div class="well"><span class="k">Every feature starts as</span><span class="v">An HR task</span></div>
+      </article>
+      <article class="card vcard ">
+        <div class="chead"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14c.9 1.3 2.1 2 3.5 2s2.6-.7 3.5-2M9 9.8h.01M15 9.8h.01"/></svg></span><h3>Pleasant is a requirement</h3></div>
+        <p class="body">Easy, fast and pleasant is not polish we add at the end. If a screen needs a training session to use, we are not finished with it.</p>
+        <div class="well"><span class="k">The test</span><span class="v">No manual needed</span></div>
+      </article>
+      <article class="card vcard ">
+        <div class="chead"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><h3>Local, everywhere</h3></div>
+        <p class="body">A global product that respects local rules. Payroll, leave and labour law are handled the way each country actually works, not approximated from somewhere else.</p>
+        <div class="well"><span class="k">Rules</span><span class="v"><span class="flags"><span class="flag"><svg><use href="#flag-au"/></svg></span><span class="flag"><svg><use href="#flag-ke"/></svg></span><span class="flag"><svg><use href="#flag-ug"/></svg></span><span class="flag"><svg><use href="#flag-ng"/></svg></span></span>Local</span></div>
+      </article>
+      <article class="card vcard wide">
+        <div class="chead"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19.5V13M10 19.5V8M15 19.5v-4.5M20 19.5V5"/></svg></span><h3>Let the data do the lifting</h3></div>
+        <p class="body">HR should get answers, not another spreadsheet to build them from. We make sure the insight is ready when you walk into the meeting.</p>
+        <div class="well"><span class="k">Leadership report</span><span class="v">Ready, not requested</span></div>
+      </article>
+      <article class="card vcard wide">
+        <div class="chead"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 5 6.5v5c0 4.4 3 7.8 7 9 4-1.2 7-4.6 7-9v-5z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span><h3>Handle with care</h3></div>
+        <p class="body">People data is the most personal data a company holds. We guard it that way, and we are plain with customers about how it is kept and who can see it.</p>
+        <div class="well"><span class="k">Who owns the data</span><span class="v">You do</span></div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -315,6 +500,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--em-300);outline-off
     </div>
   </div>
 </section>
+
 
 
 <!-- ================= FOOTER ================= -->
