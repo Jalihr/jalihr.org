@@ -75,6 +75,7 @@
   /* comparison: words, apple-style */
   .cmp{padding:130px 0}
   .cmp .opthead{margin-bottom:64px}
+  .cmpt-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table.cmpt{border-collapse:collapse;width:100%;font-size:1rem}
   table.cmpt th,table.cmpt td{padding:22px 26px;text-align:center;border-bottom:1px solid var(--border);vertical-align:top}
   table.cmpt thead th{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--charcoal);border-bottom:2px solid var(--charcoal);padding-bottom:18px}
@@ -112,7 +113,7 @@
     .hero{padding:90px 0 76px}
     section.opt,.cmp,.hill,.ctaband{padding:80px 0}
     .spec .row{grid-template-columns:1fr;gap:6px;padding:20px 0}
-    table.cmpt{font-size:.9rem}
+    table.cmpt{font-size:.9rem;width:600px}
     table.cmpt th,table.cmpt td{padding:16px 10px}
     table.cmpt tbody th{width:auto}
     .tlink{display:block;margin:22px 0 0}
@@ -216,6 +217,7 @@
       <p class="kicker">Side by side</p>
       <h2 class="name">Compare the three.</h2>
     </div>
+    <div class="cmpt-scroll">
     <table class="cmpt">
       <thead>
         <tr>
@@ -236,6 +238,7 @@
         <tr><th>Grows your existing bank programme</th><td>No</td><td class="ph">Yes</td><td>Ask your provider</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 

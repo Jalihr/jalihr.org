@@ -65,6 +65,14 @@ svg{display:block}
 .b-plain:hover{background:rgba(255,255,255,.08)}
 .btn-lg{height:50px;padding:0 26px;font-size:15px}
 
+@media (max-width:900px){
+  .nav{display:none}
+}
+@media (max-width:640px){
+  .nav-cta .b-plain{display:none}
+  .nav-cta .btn{padding:0 14px}
+}
+
 /* ---------------- hero ---------------- */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) 620px;gap:clamp(48px,6vw,96px);align-items:center;padding:74px 0 82px}
 .hero h1{font-family:'Gelasio',Georgia,serif;font-size:clamp(52px,4.6vw,72px);line-height:1.03;letter-spacing:-1.8px;text-wrap:balance}
@@ -72,6 +80,7 @@ svg{display:block}
 .hero .cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
 
 /* ---------------- illustration ---------------- */
+.illo-frame{width:620px;height:580px;overflow:hidden}
 .illo{position:relative;width:620px;height:580px}
 .deco{position:absolute;inset:0;z-index:0;overflow:visible}
 .scene{position:absolute;inset:0;z-index:1}
@@ -140,6 +149,24 @@ svg{display:block}
 .ring-spin{transform-origin:310px 300px;animation:drift 64s linear infinite}
 .ring-spin-r{transform-origin:310px 300px;animation:drift 88s linear infinite reverse}
 .ring-breathe{transform-origin:310px 300px;animation:breathe 7s ease-in-out infinite}
+
+/* the hero illustration is a fixed 620x580 canvas so its absolutely
+   positioned pieces stay in register; on narrower screens it is scaled
+   down as a whole (not redesigned) inside a frame sized to match, so nothing
+   overflows the viewport and the composition stays identical, just smaller */
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:48px;padding:56px 0 64px}
+  .illo-frame{width:100%;max-width:480px;height:auto;aspect-ratio:620/580;margin:0 auto}
+  .illo{transform:scale(calc(480/620));transform-origin:top left}
+}
+@media (max-width:480px){
+  .illo-frame{max-width:340px}
+  .illo{transform:scale(calc(340/620))}
+}
+@media (max-width:360px){
+  .illo-frame{max-width:290px}
+  .illo{transform:scale(calc(290/620))}
+}
 
 @media (prefers-reduced-motion:reduce){
   .ring-spin,.ring-spin-r,.ring-breathe,.ev .live i{animation:none}
@@ -235,10 +262,14 @@ svg{display:block}
 .art-slot .t{font-size:15px;font-weight:600;color:var(--ink-2)}
 .art-slot .s{font-size:13px;color:var(--ink-muted)}
 
-@media (max-width:900px){
+@media (max-width:1180px){
   .modules{padding:64px 0 72px}
   .mod-grid{grid-template-columns:minmax(0,1fr);gap:36px}
   .mod-head{font-size:32px;letter-spacing:-.7px}
+  /* sticky is a desktop-only trick: on anything tablet-sized or smaller it
+     just pins the illustration while the (now full-width, much taller)
+     accordion list scrolls past beside it, which reads as "the page is
+     stuck" even though it isn't. Normal flow instead. */
   .mod-art{position:static}
   .art-slot{height:340px}
 }
@@ -921,6 +952,7 @@ svg{display:block}
       </div>
 
       <!-- ============ illustration ============ -->
+      <div class="illo-frame">
       <div class="illo" role="img" aria-label="An employee moving through hiring, probation and promotion, each step handled automatically">
 
         <svg class="deco" viewBox="0 0 620 580" fill="none" aria-hidden="true">
@@ -1082,6 +1114,7 @@ svg{display:block}
           </div>
         </div>
 
+      </div>
       </div>
     </div>
 
