@@ -156,16 +156,11 @@ svg{display:block}
    overflows the viewport and the composition stays identical, just smaller */
 @media (max-width:900px){
   .hero{grid-template-columns:minmax(0,1fr);gap:48px;padding:56px 0 64px}
-  .illo-frame{width:100%;max-width:480px;height:auto;aspect-ratio:620/580;margin:0 auto}
-  .illo{transform:scale(calc(480/620));transform-origin:top left}
-}
-@media (max-width:480px){
-  .illo-frame{max-width:340px}
-  .illo{transform:scale(calc(340/620))}
-}
-@media (max-width:360px){
-  .illo-frame{max-width:290px}
-  .illo{transform:scale(calc(290/620))}
+  /* the frame's own width and the illustration's scale factor are both
+     derived from the same --fw custom property, so they can never drift
+     apart and clip the artwork at odd viewport widths */
+  .illo-frame{--fw:min(480px,calc(100vw - 56px));width:var(--fw);height:auto;aspect-ratio:620/580;margin:0 auto}
+  .illo{transform:scale(calc(var(--fw) / 620px));transform-origin:top left}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -394,8 +389,15 @@ svg{display:block}
 .i-state svg{width:12px;height:12px}
 
 @media (max-width:900px){
-  .art-slot.filled{height:420px;overflow:hidden}
-  .i-stage{transform:scale(.68)}
+  /* same fluid-frame technique as the hero illustration: the container's
+     width and the stage's scale factor share one --fw value, capped at
+     the original 367px design size but free to shrink further so it
+     never gets clipped by the frame's overflow:hidden on narrow phones */
+  .art-slot.filled{--fw:min(367px,calc(100vw - 56px));width:var(--fw);height:auto;aspect-ratio:540/600;overflow:hidden;margin:0 auto}
+  /* flex-shrink:0 keeps the stage at its true 540x600 box so the scale
+     transform (not flexbox) is what resizes it — otherwise the flex
+     container squashes its height before the transform is applied */
+  .i-stage{flex-shrink:0;transform:scale(calc(var(--fw) / 540px))}
 }
 
 /* ---- Plan illustration ---- */
