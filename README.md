@@ -26,6 +26,7 @@ documentation/index.html                     Documentation (coming soon)
 financial-wellness-diagnostic/index.html     Financial wellness diagnostic quiz
 get-started/index.html                       Get started (coming soon)
 legal/index.html                             Legal (coming soon)
+pricing/index.html                           Pricing
 privacy-policy/index.html                    Privacy policy (coming soon)
 rescue/index.html                            HRIS Rescue / consultancy (formerly the homepage)
 resources/index.html                         Resources
@@ -34,10 +35,20 @@ workplace-banking-options/index.html         Workplace banking options
 assets/css/style.css                         Main stylesheet
 assets/css/nav.css                           Shared top nav, used by every page but the homepage
 assets/css/calculator.css                    Calculator page layout
+assets/css/promo.css                         Special offer bar shown at the top of every page
 assets/js/main.js                            Mobile nav and scrolled header
+assets/js/promo.js                           Special offer bar: injected first in <body>, closing it
+                                             hides it for the browser session only
 assets/js/calculator.js                      Calculator logic (MISSING, see below)
 CNAME                                        Custom domain for GitHub Pages
 ```
+
+## Special offer bar
+
+Every page loads `/assets/css/promo.css` in `<head>` and
+`<script src="/assets/js/promo.js"></script>` as the first line of `<body>`.
+A new page must include both. To change the offer, edit the markup in
+`promo.js`; to retire it, delete those two lines from every page.
 
 ## Known gaps
 
