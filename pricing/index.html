@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pricing | JaliHR</title>
+<meta name="description" content="Fair pricing designed around your business. Per employee per month, with multi country payroll and applicant tracking available as add-ons, and custom pricing on request.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Gelasio:wght@500;600;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="Pricing | JaliHR">
+<meta property="og:description" content="Fair pricing designed around your business. Per employee per month, with multi country payroll and applicant tracking available as add-ons.">
+<meta property="og:url" content="https://jalihr.org/pricing/">
+<link rel="stylesheet" href="/assets/css/promo.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>">
+<style>
+:root{
+  --em-900:#0A3628; --em-800:#0E4A38; --em-600:#14604A; --em-500:#1B7357;
+  --em-300:#4FAE8C; --em-200:#8FC8B0; --ochre:#D9A441; --sage:#84B59F;
+  --on-em:#FFFFFF; --on-em-soft:#C2D9CE; --hairline:rgba(255,255,255,.12);
+
+  --grey:#EEF1F3; --surface:#FFFFFF; --wash:#E8F1EC;
+  --line:#EDEFF1; --line-2:#E3E6E8; --line-3:#D8DDE0;
+  --ink:#1A1D1F; --ink-2:#4A5157; --ink-muted:#8D949A;
+  --accent:#0E4A38; --accent-soft:#E9F2EE;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--grey);color:var(--ink);
+     font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{margin:0;font-weight:600}
+p{margin:0}
+a{text-decoration:none;color:inherit}
+ul{margin:0;padding:0;list-style:none}
+svg{display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.wrap-wide{max-width:1660px;margin:0 auto;padding:0 clamp(28px,5vw,88px)}
+.wrap-plans{max-width:1540px;margin:0 auto;padding:0 clamp(28px,4vw,60px)}
+
+/* ---------------- nav ---------------- */
+.band{background:var(--em-800);color:var(--on-em)}
+.nav-row{display:flex;align-items:center;gap:30px;height:76px;border-bottom:1px solid var(--hairline)}
+.brand{font-family:'Gelasio',Georgia,serif;font-weight:700;font-size:21px;letter-spacing:-.2px;color:#fff}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{height:40px;display:flex;align-items:center;padding:0 14px;border-radius:9px;font-size:14px;
+       font-weight:500;color:rgba(255,255,255,.72);transition:.15s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav a[aria-current]{color:#fff}
+.nav-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:42px;padding:0 20px;
+     border-radius:11px;font:500 14px/1 'Inter',sans-serif;border:1px solid transparent;cursor:pointer;
+     white-space:nowrap;transition:.15s}
+.b-white{background:#fff;color:var(--em-800)}
+.b-white:hover{background:#EAF3EE}
+.b-plain{color:#fff}
+.b-plain:hover{background:rgba(255,255,255,.08)}
+.b-outline-light{border-color:rgba(255,255,255,.38);color:#fff}
+.b-outline-light:hover{background:rgba(255,255,255,.08)}
+
+/* ---------------- page head ---------------- */
+.phead{padding-top:76px;padding-bottom:180px;text-align:center}
+.phead .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+                color:var(--em-200);margin-bottom:18px}
+.phead h1{font-family:'Gelasio',Georgia,serif;font-size:clamp(38px,4vw,54px);line-height:1.08;
+          letter-spacing:-1.3px;max-width:19ch;margin:0 auto;text-wrap:balance}
+.phead p{margin:20px auto 0;font-size:16.5px;line-height:1.6;color:var(--on-em-soft);max-width:58ch}
+.phead .btn{margin-top:30px}
+
+/* ---------------- plans ---------------- */
+.plans{margin-top:-118px;padding-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;align-items:stretch}
+
+.plan{position:relative;background:var(--surface);border:1px solid var(--line-2);border-radius:16px;
+      padding:34px 30px 36px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(16,24,40,.06)}
+.plan::before{content:"";position:absolute;left:30px;right:30px;top:0;height:4px;border-radius:0 0 3px 3px;
+              background:var(--accent-soft)}
+.plan.pop{border:2px solid var(--ochre);padding:33px 29px 35px;
+          box-shadow:0 18px 46px rgba(217,164,65,.26)}
+.plan.pop::before{display:none}
+.plan.addon::before{background:#F6EBD4}
+
+.tagpop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);height:26px;padding:0 14px;
+        border-radius:8px;background:var(--ochre);color:#3D2B07;font-size:11px;font-weight:600;
+        letter-spacing:.09em;display:flex;align-items:center;white-space:nowrap}
+
+.plan h3{font-size:24px;letter-spacing:-.5px}
+.plan .blurb{margin-top:11px;font-size:14.5px;line-height:1.5;color:var(--ink-muted);min-height:66px}
+.price{display:flex;align-items:baseline;gap:9px;margin-top:10px}
+.price .from{font-size:12px;color:var(--ink-muted);align-self:flex-start;margin-top:6px}
+.price b{font-family:'Inter',sans-serif;font-size:44px;font-weight:600;letter-spacing:-1.6px;color:var(--ink)}
+.price span{font-size:13px;color:var(--ink-muted);line-height:1.35}
+
+.acts{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.b-solid{background:var(--accent);color:#fff;height:50px;border-radius:12px;
+         display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;transition:.15s}
+.b-solid:hover{background:#0A3B2C}
+.b-line{border:1px solid var(--line-3);color:var(--ink-2);height:50px;border-radius:12px;
+        display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;transition:.15s}
+.b-line:hover{border-color:var(--ink-muted);background:#FAFBFB}
+.negotiable{margin-top:12px;text-align:center;font-size:12.5px;line-height:1.45;color:var(--ink-muted)}
+.negotiable a{color:var(--accent);font-weight:500;border-bottom:1px solid rgba(14,74,56,.3);padding-bottom:1px;transition:border-color .15s}
+.negotiable a:hover{border-bottom-color:var(--accent)}
+.plan.pop .negotiable a{color:#8A6113;border-bottom-color:rgba(138,97,19,.35)}
+.plan.pop .negotiable a:hover{border-bottom-color:#8A6113}
+.plan.pop .b-line{border-color:#E8D4A6;color:var(--ink)}
+.plan.pop .b-line:hover{border-color:var(--ochre);background:#FDF8EE}
+
+.incl{margin-top:30px}
+.incl h4{font-size:14px;font-weight:600;color:var(--ink)}
+.incl .pre{margin-top:5px;font-size:13px;color:var(--ink-muted)}
+.incl ul{margin-top:16px;display:flex;flex-direction:column;gap:11px}
+.incl li{display:flex;gap:10px;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.incl li svg{width:15px;height:15px;color:var(--em-300);flex:0 0 15px;margin-top:2px}
+.incl li.lead svg{color:var(--ochre)}
+.incl li.lead{margin-top:2px}
+
+.foot-note{margin-top:30px;text-align:center;font-size:13px;color:var(--ink-muted)}
+
+/* ---------------- footer ---------------- */
+.foot{background:var(--em-800);color:#fff;padding:78px 0 30px;margin-top:96px}
+.foot-top{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:48px}
+.foot-brand .tagline{margin-top:16px;font-size:15.5px;color:var(--on-em-soft);max-width:26ch;line-height:1.55}
+.foot-brand .mail{margin-top:20px;display:inline-block;font-size:14px;color:#fff;
+                  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
+.foot-col h5{margin:0;font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+             color:rgba(255,255,255,.45)}
+.foot-col ul{margin:18px 0 0;display:flex;flex-direction:column;gap:13px}
+.foot-col a{font-size:14.5px;color:rgba(255,255,255,.76);transition:color .15s}
+.foot-col a:hover{color:#fff}
+.foot-rule{margin:56px 0 24px;border-top:1px solid var(--hairline)}
+.foot-base{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.foot-base p{font-size:13px;color:rgba(255,255,255,.55)}
+.foot-base .policies{margin-left:auto;display:flex;gap:26px}
+.foot-base .policies a{font-size:13px;color:rgba(255,255,255,.55)}
+.foot-base .policies a:hover{color:#fff}
+
+@media (max-width:980px){
+  /* the full nav will not fit beside both buttons; keep the brand and the primary action */
+  .nav{display:none}
+  .nav-cta .b-plain{display:none}
+  .nav-row{gap:16px}
+}
+@media (max-width:1100px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .phead{padding-top:60px;padding-bottom:150px}
+}
+@media (max-width:720px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .plans{margin-top:-120px}
+  .plan .blurb{min-height:0}
+  .foot-top{grid-template-columns:1fr 1fr;gap:38px}
+  .foot-brand{grid-column:1 / -1}
+  .foot-base .policies{margin-left:0;gap:18px}
+}
+
+</style>
+</head>
+<body>
+<script src="/assets/js/promo.js"></script>
+
+<div class="band">
+  <div class="wrap-wide">
+    <div class="nav-row">
+      <a class="brand" href="/">JaliHR</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/pricing/" aria-current="page">Pricing</a>
+        <a href="/about/">About</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn b-plain" href="https://app.jalihr.org">Login</a>
+        <a class="btn b-white" href="/get-started/">Get started for free</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap phead">
+    <p class="eyebrow">Pricing</p>
+    <h1>Fair pricing, designed around your business</h1>
+    <p>Start with one system for your whole workforce and add what you need as you grow. Every plan is billed per employee per month, and we are glad to shape it around how your organisation actually works.</p>
+    <a class="btn b-outline-light" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+  </div>
+</div>
+
+<!-- ================= PLANS ================= -->
+<section class="plans">
+  <div class="wrap-plans">
+    <div class="grid">
+
+      <!-- ---------- Core ---------- -->
+      <article class="plan">
+        <h3>Core</h3>
+        <p class="blurb">One system for your whole workforce, with the records and compliance HR runs on.</p>
+        <div class="price"><b>$3</b><span>per employee<br>per month</span></div>
+        <div class="acts">
+          <a class="b-solid" href="https://app.jalihr.org">Start free trial</a>
+          <a class="b-line" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+          <p class="negotiable">Custom pricing available, <a href="mailto:hello@jalihr.org?subject=Custom%20pricing">talk to us</a></p>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Employee profiles and org chart</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Roles and permissions</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Contract management</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Documents</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Time off and approvals</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Time and attendance</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Local payroll</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Job architecture</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anonymous reporting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Compliance</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Analytics and reporting</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ---------- Complete ---------- -->
+      <article class="plan pop">
+        <span class="tagpop">MOST POPULAR</span>
+        <h3>Complete</h3>
+        <p class="blurb">Add performance and growth, and track the equipment your people work on.</p>
+        <div class="price"><b>$6</b><span>per employee<br>per month</span></div>
+        <div class="acts">
+          <a class="b-solid" href="https://app.jalihr.org">Start free trial</a>
+          <a class="b-line" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+          <p class="negotiable">Custom pricing available, <a href="mailto:hello@jalihr.org?subject=Custom%20pricing">talk to us</a></p>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <p class="pre">Includes Core, plus:</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Performance reviews</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Goals and KPIs</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Check-ins and continuous feedback</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Career frameworks</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Development plans</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Learning with external content providers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Engagement surveys</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Recognition</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Equipment management</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ---------- Command ---------- -->
+      <article class="plan">
+        <h3>Command</h3>
+        <p class="blurb">Plan ahead on real data, with pay architecture and an AI agent on top of it.</p>
+        <div class="price"><b>$10</b><span>per employee<br>per month</span></div>
+        <div class="acts">
+          <a class="b-solid" href="https://app.jalihr.org">Start free trial</a>
+          <a class="b-line" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+          <p class="negotiable">Custom pricing available, <a href="mailto:hello@jalihr.org?subject=Custom%20pricing">talk to us</a></p>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <p class="pre">Includes Complete, plus:</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pay bands with markets and sub-markets</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Compensation cycles</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pay review approvals</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Total rewards portal</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Headcount planning</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Scenario modelling</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cost forecasting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>JaliHR AI agent</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ---------- Add-ons ---------- -->
+      <article class="plan addon">
+        <h3>Add-ons</h3>
+        <p class="blurb">Bolt either of these onto any plan. Priced separately, same per employee basis.</p>
+        <div class="price"><b>$14</b><span>per employee<br>per month</span></div>
+        <div class="acts">
+          <a class="b-solid" href="https://app.jalihr.org">Start free trial</a>
+          <a class="b-line" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+          <p class="negotiable">Custom pricing available, <a href="mailto:hello@jalihr.org?subject=Custom%20pricing">talk to us</a></p>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <p class="pre">Available on Core, Complete or Command:</p>
+          <ul>
+            <li class="lead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b style="font-weight:600;color:var(--ink)">Multi country payroll</b></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Run every country in one cycle</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Local tax and statutory packets</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One approval, one disbursement file</li>
+            <li class="lead" style="margin-top:10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b style="font-weight:600;color:var(--ink)">Applicant tracking</b></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Job posting and candidate tracking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interview scheduling and scorecards</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Offer to employee record, no re-entry</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="foot-note">All prices are per employee per month in USD. The free trial needs no card, and you can move between plans at any time.</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="wrap-wide">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="/">JaliHR</a>
+        <p class="tagline">By HRs for HRs.</p>
+        <a class="mail" href="mailto:hello@jalihr.org">hello@jalihr.org</a>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <ul><li><a href="/rescue/">HRIS Rescue</a></li><li><a href="/calculator/">Calculators</a></li><li><a href="/blog/">Blog</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul><li><a href="/about/">About</a></li><li><a href="/pricing/" aria-current="page">Pricing</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>Learn</h5>
+        <ul><li><a href="/documentation/">Documentation</a></li><li><a href="/academy/">JaliHR Academy</a></li><li><a href="/legal/">Legal</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-rule"></div>
+    <div class="foot-base">
+      <p>&copy; 2026 JaliHR</p>
+      <div class="policies">
+        <a href="/privacy-policy/">Privacy policy</a>
+        <a href="/whistleblower-policy/">Whistleblower policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
