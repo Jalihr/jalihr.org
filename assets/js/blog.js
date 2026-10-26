@@ -30,13 +30,18 @@
      it is submitted the modal swaps to the download links for that template.
      The page URL carries ?template=... while the form is open, so HubSpot's
      conversion page shows which template each lead asked for. */
-  var HS = { region: 'eu1', portalId: '149353094', formId: '30c29374-3092-4999-ac90-dd4fc30bd153' };
+  var HS = { region: 'eu1', portalId: '149353094' };
+  // One HubSpot form per template. Leave form: https://2gx5l2.share-eu1.hsforms.com/2MMKTdDCSSZmskN1PwwvRUw
+  // Performance pack form: https://2gx5l2.share-eu1.hsforms.com/2o2xzzwzxRTm1gWbkDzjV7g
+  var FORM_LEAVE = '30c29374-3092-4999-ac90-dd4fc30bd153';
+  var FORM_PERFORMANCE = 'a36c73cf-0cf1-4539-b581-66e40f38d5ee';
   var DRIVE = 'https://drive.google.com/drive/folders/';
   var DOC = function (id) { return 'https://docs.google.com/document/d/' + id + '/copy'; };
   var SHEET = function (id) { return 'https://docs.google.com/spreadsheets/d/' + id + '/copy'; };
   var PACKS = {
     'Performance review pack': {
       slug: 'performance-review-pack',
+      form: FORM_PERFORMANCE,
       zip: '/assets/downloads/jalihr-performance-review-pack.zip',
       folder: DRIVE + '1A270DqExApXcPDfDEhCA45ewg81ueKaP',
       copies: [
@@ -48,6 +53,7 @@
     },
     'Leave form and automated tracker': {
       slug: 'leave-form-and-tracker',
+      form: FORM_LEAVE,
       zip: '/assets/downloads/jalihr-leave-form-and-tracker.zip',
       folder: DRIVE + '1nPVthUUuAPdYxtm5tzwdQHdNW4WQIaop',
       copies: [
@@ -124,7 +130,7 @@
     history.replaceState(null, '', location.pathname + '?template=' + slugOf(name) + location.hash);
     hsBox.innerHTML = '';
     loadHs(function () {
-      window.hbspt.forms.create({ region: HS.region, portalId: HS.portalId, formId: HS.formId, target: '.jb-hs', onFormSubmitted: showDone });
+      window.hbspt.forms.create({ region: HS.region, portalId: HS.portalId, formId: (PACKS[name] && PACKS[name].form) || FORM_LEAVE, target: '.jb-hs', onFormSubmitted: showDone });
     });
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
