@@ -133,7 +133,17 @@ svg{display:block}
 .plan.dark .b-solid{background:#fff;color:var(--em-800)}
 .plan.dark .b-solid:hover{background:var(--wash)}
 .plan .tagman{position:absolute;top:-13px;left:30px;padding:5px 10px;border-radius:8px;background:var(--em-300);color:#06281D;font-size:11px;font-weight:600;letter-spacing:.06em}
-.plan .eg{margin-top:10px;font-size:13px;color:var(--on-em-soft)}
+.plan .calc{margin-top:16px;padding:16px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid var(--hairline)}
+.plan .calc label{display:block;font-size:13px;font-weight:500;color:var(--on-em-soft);margin-bottom:8px}
+.plan .dial{display:flex;align-items:center;gap:8px}
+.plan .dial button{width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:none;color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.plan .dial button:hover{background:rgba(255,255,255,.1)}
+.plan .dial input{width:90px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:#fff;color:var(--em-800);font:inherit;font-size:17px;font-weight:600;text-align:center;-moz-appearance:textfield}
+.plan .dial input::-webkit-inner-spin-button,.plan .dial input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.plan .calc-out{margin-top:12px;font-size:14px;color:var(--on-em-soft)}
+.plan .calc-out b{font-size:22px;font-weight:600;color:#fff;margin-right:2px}
+.plan .calc-out s{margin-left:6px;color:rgba(255,255,255,.5)}
+.plan .calc-note{margin-top:4px;font-size:12.5px;color:var(--em-200)}
 .price b.word{font-family:'Gelasio',Georgia,serif;font-weight:600;letter-spacing:-.5px}
 .who{margin-top:56px}
 .who h2,.faq h2{font-family:'Gelasio',Georgia,serif;font-size:30px;font-weight:600;color:var(--ink);text-align:center}
@@ -371,7 +381,16 @@ svg{display:block}
         <h3>JaliHR Essentials</h3>
         <p class="blurb">For businesses without an HR person. The full system, and we run it with you every month.</p>
         <div class="price"><b>$4</b><span>per employee / month<br>billed annually</span></div>
-        <p class="eg">For example: 50 employees = $2,400 a year</p>
+        <div class="calc">
+          <label for="calc-n">How many employees?</label>
+          <div class="dial">
+            <button type="button" data-step="-1" aria-label="Fewer employees">&minus;</button>
+            <input id="calc-n" type="number" inputmode="numeric" min="1" max="5000" value="50">
+            <button type="button" data-step="1" aria-label="More employees">+</button>
+          </div>
+          <p class="calc-out" aria-live="polite"><b id="calc-total">$2,160</b> a year <s id="calc-was">$2,400</s></p>
+          <p class="calc-note" id="calc-note">Includes a 10% discount</p>
+        </div>
         <div class="acts">
           <a class="b-solid" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a setup call</a>
         </div>
@@ -476,6 +495,31 @@ svg{display:block}
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true);});});
   if(location.hash==='#packages')show('packages',false);
+})();
+</script>
+<script>
+(function(){
+  /* Essentials price calculator. Edit the discount tiers here: from N employees, X% off. */
+  var RATE=4, MIN=30, TIERS=[[50,10]];
+  var inp=document.getElementById('calc-n'); if(!inp) return;
+  var tot=document.getElementById('calc-total'), was=document.getElementById('calc-was'), note=document.getElementById('calc-note');
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function update(){
+    var n=Math.max(1,Math.min(5000,parseInt(inp.value,10)||0)), billed=Math.max(n,MIN), off=0;
+    TIERS.forEach(function(t){if(billed>=t[0])off=t[1];});
+    var full=billed*RATE*12, net=full*(1-off/100);
+    tot.textContent=fmt(net);
+    was.textContent=off?fmt(full):''; was.hidden=!off;
+    var msgs=[];
+    if(off)msgs.push('Includes a '+off+'% discount');
+    if(n<MIN)msgs.push('Billed from '+MIN+' employees');
+    if(!off&&n>=MIN){var next=TIERS.filter(function(t){return t[0]>billed;})[0];if(next)msgs.push('Save '+next[1]+'% from '+next[0]+' employees');}
+    note.textContent=msgs.join(' · ');
+  }
+  inp.addEventListener('input',update);
+  inp.addEventListener('blur',function(){if(!(parseInt(inp.value,10)>0))inp.value=1;update();});
+  [].forEach.call(document.querySelectorAll('.dial [data-step]'),function(b){b.addEventListener('click',function(){inp.value=Math.max(1,(parseInt(inp.value,10)||0)+parseInt(b.getAttribute('data-step'),10));update();});});
+  update();
 })();
 </script>
 </body>
