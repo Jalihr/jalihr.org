@@ -3,14 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pricing | JaliHR</title>
-<meta name="description" content="Fair pricing designed around your business. Per employee per month, with multi country payroll and applicant tracking available as add-ons, and custom pricing on request.">
+<title>Pricing: HR software and managed HR packages | JaliHR</title>
+<meta name="description" content="JaliHR pricing per employee per month, billed annually. Software plans for HR teams, plus packages for businesses without HR: Core free, Essentials $4 managed for you." />
+  <link rel="canonical" href="https://jalihr.org/pricing/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JaliHR" />
+  <meta property="og:title" content="Pricing: HR software and managed HR packages | JaliHR" />
+  <meta property="og:description" content="JaliHR pricing per employee per month, billed annually. Software plans for HR teams, plus packages for businesses without HR: Core free, Essentials $4 managed for you." />
+  <meta property="og:url" content="https://jalihr.org/pricing/" />
+  <meta property="og:image" content="https://jalihr.org/assets/img/blog/team_meeting_og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Gelasio:wght@500;600;700&display=swap" rel="stylesheet">
-<meta property="og:title" content="Pricing | JaliHR">
-<meta property="og:description" content="Fair pricing designed around your business. Per employee per month, with multi country payroll and applicant tracking available as add-ons.">
-<meta property="og:url" content="https://jalihr.org/pricing/">
 <link rel="stylesheet" href="/assets/css/promo.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230E4A38'/><text y='24' x='4' font-size='22' font-family='Georgia,serif' fill='white' font-weight='bold'>J</text></svg>">
 <style>
@@ -115,6 +120,34 @@ svg{display:block}
 
 .foot-note{margin-top:30px;text-align:center;font-size:13px;color:var(--ink-muted)}
 
+/* ---------------- software / packages tabs ---------------- */
+.ptabs{margin:34px auto 0;display:flex;flex-wrap:wrap;justify-content:center;width:max-content;max-width:100%;gap:4px;padding:5px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid var(--hairline)}
+.ptabs button{font:inherit;font-size:14.5px;font-weight:500;color:var(--on-em-soft);padding:11px 20px;border-radius:10px;border:0;background:none;cursor:pointer}
+.ptabs button[aria-selected="true"]{background:#fff;color:var(--em-800)}
+.ptab-note{margin-top:14px !important;font-size:14px !important}
+.pkg .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.plan.dark{background:var(--em-800);border-color:var(--em-800);color:#fff}
+.plan.dark::before{background:var(--em-300)}
+.plan.dark h3,.plan.dark .price b,.plan.dark .incl h4{color:#fff}
+.plan.dark .blurb,.plan.dark .price span,.plan.dark .incl .pre,.plan.dark .incl li{color:var(--on-em-soft)}
+.plan.dark .b-solid{background:#fff;color:var(--em-800)}
+.plan.dark .b-solid:hover{background:var(--wash)}
+.plan .tagman{position:absolute;top:-13px;left:30px;padding:5px 10px;border-radius:8px;background:var(--em-300);color:#06281D;font-size:11px;font-weight:600;letter-spacing:.06em}
+.plan .eg{margin-top:10px;font-size:13px;color:var(--on-em-soft)}
+.price b.word{font-family:'Gelasio',Georgia,serif;font-weight:600;letter-spacing:-.5px}
+.who{margin-top:56px}
+.who h2,.faq h2{font-family:'Gelasio',Georgia,serif;font-size:30px;font-weight:600;color:var(--ink);text-align:center}
+.who .row{margin-top:26px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.who .c{background:var(--surface);border:1px solid var(--line-2);border-radius:14px;padding:22px}
+.who h3{font-size:16px;font-weight:600;color:var(--ink)}
+.who p{margin-top:6px;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.faq{margin:56px auto 0;max-width:760px}
+.faq details{background:var(--surface);border:1px solid var(--line-2);border-radius:12px;padding:18px 22px;margin-top:12px}
+.faq details:first-of-type{margin-top:26px}
+.faq summary{font-size:16px;font-weight:600;color:var(--ink);cursor:pointer}
+.faq details p{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+@media (max-width:980px){.pkg .grid,.who .row{grid-template-columns:1fr}}
+
 /* ---------------- footer ---------------- */
 .foot{background:var(--em-800);color:#fff;padding:78px 0 30px;margin-top:96px}
 .foot-top{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:48px}
@@ -165,6 +198,7 @@ svg{display:block}
         <a href="/">Home</a>
         <a href="/pricing/" aria-current="page">Pricing</a>
         <a href="/about/">About</a>
+        <a href="/blog/">Knowledge hub</a>
       </nav>
       <div class="nav-cta">
         <a class="btn b-plain" href="https://app.jalihr.org">Login</a>
@@ -178,11 +212,16 @@ svg{display:block}
     <h1>Fair pricing, designed around your business</h1>
     <p>Start with one system for your whole workforce and add what you need as you grow. Every plan is billed per employee per month, and we are glad to shape it around how your organisation actually works.</p>
     <a class="btn b-outline-light" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a demo</a>
+    <div class="ptabs" role="tablist" aria-label="How you want to buy">
+      <button type="button" role="tab" id="tab-software" aria-controls="software" aria-selected="true">Software plans</button>
+      <button type="button" role="tab" id="tab-packages" aria-controls="packages" aria-selected="false">Packages: HR done with you</button>
+    </div>
+    <p class="ptab-note">Buying an HR system? See software plans. Looking for HR to be handled, with or without an HR person? See packages.</p>
   </div>
 </div>
 
 <!-- ================= PLANS ================= -->
-<section class="plans">
+<section class="plans" id="software" role="tabpanel" aria-labelledby="tab-software">
   <div class="wrap-plans">
     <div class="grid">
 
@@ -300,6 +339,101 @@ svg{display:block}
   </div>
 </section>
 
+<!-- ================= PACKAGES ================= -->
+<section class="plans pkg" id="packages" role="tabpanel" aria-labelledby="tab-packages" hidden>
+  <div class="wrap-plans">
+    <div class="grid">
+
+      <article class="plan">
+        <h3>JaliHR Core</h3>
+        <p class="blurb">For teams getting started. We help you set it up, then you run it.</p>
+        <div class="price"><b class="word">Free</b></div>
+        <div class="acts">
+          <a class="b-solid" href="/get-started/">Get started free</a>
+          <a class="b-line" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a setup call</a>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>People records</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Contracts, documents and policies</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Leave requests and balances</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Benefits</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Equipment register</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>JaliHR AI Connector</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Setup support</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="plan dark">
+        <span class="tagman">MANAGED FOR YOU</span>
+        <h3>JaliHR Essentials</h3>
+        <p class="blurb">For businesses without an HR person. The full system, and we run it with you every month.</p>
+        <div class="price"><b>$4</b><span>per employee / month<br>billed annually</span></div>
+        <p class="eg">For example: 50 employees = $2,400 a year</p>
+        <div class="acts">
+          <a class="b-solid" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a setup call</a>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <p class="pre">Everything in Core, plus:</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Payroll, paid on the same day every month</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>PAYE, NSSF and LST filing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Finance reconciliation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Performance reviews</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Disciplinary records</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hiring and finding talent</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>We prepare and check payroll and filings every month</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Done-for-you setup, included on annual plans</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="plan">
+        <h3>JaliHR Complete</h3>
+        <p class="blurb">For businesses with an HR team that need order. One system of record, implemented with you.</p>
+        <div class="price"><b class="word">Let’s talk</b></div>
+        <div class="acts">
+          <a class="b-solid" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book an HR diagnostic</a>
+        </div>
+        <div class="incl">
+          <h4>What's included?</h4>
+          <p class="pre">Everything in Essentials, plus:</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Onboarding and offboarding</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Contract tracker</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Competency frameworks and career levels</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Workforce planning and HR budgeting</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Approvals, self-service and HR analytics</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Diagnostic, migration, training and go-live</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+    <p class="foot-note">Essentials is billed annually or quarterly in advance, from 30 employees. Prices in US dollars; local currency on request.</p>
+
+    <div class="who" aria-labelledby="who-h">
+      <h2 id="who-h">Who does the work? You choose.</h2>
+      <div class="row">
+        <div class="c"><h3>You</h3><p>The CEO runs it directly. The system carries the weight.</p></div>
+        <div class="c"><h3>Your finance or admin person</h3><p>No HR training needed. Everything is in one place.</p></div>
+        <div class="c"><h3>Your AI</h3><p>Connect it to JaliHR and ask it to do the task in one sentence.</p></div>
+        <div class="c"><h3>Us</h3><p>On Essentials, we prepare and check it with you every month.</p></div>
+      </div>
+    </div>
+
+    <div class="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Questions</h2>
+      <details open><summary>Is Core really free?</summary><p>Yes. We help you set it up, then your team runs it.</p></details>
+      <details><summary>What does "managed for you" mean?</summary><p>On Essentials, we prepare and check payroll and statutory filings with you every month and flag anything that needs your attention.</p></details>
+      <details><summary>We'll hire an HR person one day. What then?</summary><p>Move to Complete. Your HR person inherits a system that's already running.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- ================= FOOTER ================= -->
 <footer class="foot">
   <div class="wrap-wide">
@@ -311,7 +445,7 @@ svg{display:block}
       </div>
       <div class="foot-col">
         <h5>Resources</h5>
-        <ul><li><a href="/rescue/">HRIS Rescue</a></li><li><a href="/calculator/">Calculators</a></li><li><a href="/blog/">Blog</a></li></ul>
+        <ul><li><a href="/rescue/">HRIS Rescue</a></li><li><a href="/calculator/">Calculators</a></li><li><a href="/blog/">Knowledge hub</a></li></ul>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
@@ -333,5 +467,16 @@ svg{display:block}
   </div>
 </footer>
 
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.ptabs [role=tab]'));
+  function show(id,push){
+    tabs.forEach(function(t){var on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on?'true':'false');document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+    if(push)history.replaceState(null,'',id==='packages'?'#packages':location.pathname);
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true);});});
+  if(location.hash==='#packages')show('packages',false);
+})();
+</script>
 </body>
 </html>
