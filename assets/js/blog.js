@@ -35,10 +35,21 @@
   // Performance pack form: https://2gx5l2.share-eu1.hsforms.com/2o2xzzwzxRTm1gWbkDzjV7g
   var FORM_LEAVE = '30c29374-3092-4999-ac90-dd4fc30bd153';
   var FORM_PERFORMANCE = 'a36c73cf-0cf1-4539-b581-66e40f38d5ee';
+  // Performance review toolkit form: https://2gx5l2.share-eu1.hsforms.com/2a6dHIon8QmmgBrELK81WIA
+  var FORM_TOOLKIT = '6ba74722-89fc-4269-a006-b10b2bcd5620';
   var DRIVE = 'https://drive.google.com/drive/folders/';
   var DOC = function (id) { return 'https://docs.google.com/document/d/' + id + '/copy'; };
   var SHEET = function (id) { return 'https://docs.google.com/spreadsheets/d/' + id + '/copy'; };
   var PACKS = {
+    'Performance review toolkit': {
+      slug: 'performance-review-toolkit',
+      form: FORM_TOOLKIT,
+      folder: DRIVE + '1dcZDmFvOVnpvOalDnxnfv6ms5g0TOdyV',
+      copies: [
+        ['Performance Review Tracker, with the form builder (Google Sheet)', SHEET('1ZrNDRdeRpzSjC3pRddAWEBWvP7GFwHjvcuPDTnmX9Go')],
+        ['Start here guide (Google Doc)', DOC('1bbGHiP9FSaU6j71SOYee33O029RBwsZmc5ys-Al5WDI')]
+      ]
+    },
     'Performance review pack': {
       slug: 'performance-review-pack',
       form: FORM_PERFORMANCE,
@@ -100,12 +111,12 @@
     } else if (!p) {
       h = '<p class="lead">Thank you. We\'re putting the finishing touches on this one and will email it to you as soon as it\'s ready.</p>';
     } else {
-      h = '<p class="lead">Here it is. These files are <b>view only</b>: make your own copy or download them to start using them.</p>' +
+      h = '<p class="lead">Here it is. These files are <b>view only</b>: make your own copy' + (p.zip ? ' or download them' : '') + ' to start using them.</p>' +
         '<div class="jb-dl">' +
           '<p class="t">Use it in Google</p>' +
           p.copies.map(function (c) { return '<a class="jb-copy" href="' + c[1] + '" target="_blank" rel="noopener">Make a copy: ' + esc(c[0]) + '</a>'; }).join('') +
-          '<p class="t">Or</p>' +
-          '<a class="btn" href="' + p.zip + '" download>Download for Excel and Word (.zip)</a>' +
+          (p.zip ? '<p class="t">Or</p>' +
+          '<a class="btn" href="' + p.zip + '" download>Download for Excel and Word (.zip)</a>' : '') +
           '<a class="jb-folder" href="' + p.folder + '" target="_blank" rel="noopener">See the whole folder</a>' +
         '</div>';
     }
