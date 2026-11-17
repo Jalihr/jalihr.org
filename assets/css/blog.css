@@ -1,7 +1,7 @@
 /* JaliHR blog: home, articles and the free-template modal.
    Scoped under .jb so it never touches the rest of the site. */
 
-.jb{--g:Georgia,'Times New Roman',serif;--e:#0E4A38;--em:#1F7A5E;--s:#84B59F;--sm:#5E997E;--sl:#C9DDD0;--svl:#E8F0EB;--c:#F7F5F0;--ink:#2B2F33;--soft:#475056;--line:#E5E7EB;
+.jb{--g:JaliNum,Georgia,'Times New Roman',serif;--e:#0E4A38;--em:#1F7A5E;--s:#84B59F;--sm:#5E997E;--sl:#C9DDD0;--svl:#E8F0EB;--c:#F7F5F0;--ink:#2B2F33;--soft:#475056;--line:#E5E7EB;
   background:#fff;color:var(--ink);font-family:Inter,Calibri,Arial,sans-serif}
 .jb a{color:var(--e)}
 .jb a:hover{color:var(--em)}

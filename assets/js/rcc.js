@@ -4,7 +4,9 @@
 (function () {
   'use strict';
   var card = document.getElementById('rcc-card');
+  var left = document.getElementById('rcc-left');
   if (!card) return;
+  var intro = left.innerHTML;
 
   // HubSpot form in JaliHR's portal. FORM_ID is filled in once the form exists.
   var HS = { region: 'eu1', portalId: '149353094', formId: '' };
@@ -120,18 +122,18 @@
       '&details=' + encodeURIComponent('Last score: ' + score + '/10. https://jalihr.org/calculator/review-complexity-check/') +
       '&dates=' + (function () { var d = addMonths(new Date(), months); var s = d.toISOString().slice(0, 10).replace(/-/g, ''); var e = new Date(d.getTime() + 864e5).toISOString().slice(0, 10).replace(/-/g, ''); return s + '/' + e; })();
 
-    card.innerHTML =
-      '<div class="rcc-res"><div class="top"><div class="rcc-dial"><div><b>' + score + '</b><small>out of 10</small></div></div>' +
-      '<div><p class="eyebrow">Your number · ' + band.key + '</p><h2>' + esc(band.title.split(' ').slice(0, -1).join(' ')) + ' <span>' + esc(band.title.split(' ').slice(-1)[0]) + '</span></h2><p class="sum">' + esc(band.sum) + '</p></div></div>' +
-      '<div class="rcc-scale"><div class="track"><span class="pin" style="left:' + ((score - 1) / 9 * 100) + '%"></span></div><div class="lab"><span>1 · Simple</span><span>Middle</span><span>Complex · 10</span></div></div>' +
-      '<div class="rcc-blocks">' +
-        '<div class="rcc-block"><p class="eyebrow">The review that fits</p><h3>What to run</h3><ul>' + band.what.map(function (w) { return '<li>' + esc(w) + '</li>'; }).join('') + '</ul></div>' +
-        '<div class="rcc-block"><p class="eyebrow">Your template</p><h3>' + esc(tool.name) + '</h3><p>' + esc(band.toolNote) + '</p><ul>' + tool.links.map(function (l) { return '<li><a href="' + l[1] + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul></div>' +
-        (split ? '<div class="rcc-block full"><p class="eyebrow">You’re simple and complex at once</p><h3>One cycle, ' + (ans[11] === 1 ? 'two' : 'several') + ' experiences</h3><p>Run a short check-in for your field or frontline teams and a ' + band.short + ' for your managers and specialists, in the same cycle and on the same timeline. Each one right for the person in it.</p></div>' : '') +
-        '<div class="rcc-block"><p class="eyebrow">' + (months === 3 ? 'Your scale is moving' : 'The scale moves') + '</p><h3>Check again in ' + months + ' months</h3><p class="date">' + again + '</p><a class="rcc-btn" href="' + cal + '" target="_blank" rel="noopener">Add to my calendar</a></div>' +
-        '<div class="rcc-block em"><p class="eyebrow">Where JaliHR fits</p><h3>JaliHR holds the whole scale</h3><p>' + esc(band.jalihr) + '</p><a class="rcc-btn dark" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a setup call</a></div>' +
-      '</div>' +
-      '<div class="rcc-again"><button type="button" class="rcc-btn ghost" id="rcc-redo">Retake the check</button><a class="rcc-btn ghost" href="/blog/start-with-the-scale/">Read the article</a></div></div>';
+    left.innerHTML = '<p class="eyebrow">Your number</p>' +
+      '<p class="rcc-num">' + score + '<small>/ 10</small></p>' +
+      '<p class="desc">' + esc(band.title) + '</p>' +
+      '<p class="lede">' + esc(band.sum) + '</p>' +
+      '<div class="rcc-scale"><div class="track"><span class="pin" style="left:' + ((score - 1) / 9 * 100) + '%"></span></div><div class="lab"><span>1 Simple</span><span>10 Complex</span></div></div>';
+    card.innerHTML = '<div class="rcc-res">' +
+      '<div class="rcc-sec"><h3>What to run</h3><ul>' + band.what.map(function (w) { return '<li>' + esc(w) + '</li>'; }).join('') + '</ul></div>' +
+      (split ? '<div class="rcc-sec"><h3>One cycle, ' + (ans[11] === 1 ? 'two' : 'several') + ' experiences</h3><p>Give your field or frontline teams a short check-in and your managers a ' + band.short + ', in the same cycle.</p></div>' : '') +
+      '<div class="rcc-sec"><h3>Your template</h3><p>' + esc(tool.name) + '. ' + esc(band.toolNote) + '</p><ul>' + tool.links.map(function (l) { return '<li><a href="' + l[1] + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul></div>' +
+      '<div class="rcc-sec"><h3>Check again</h3><p>' + (months === 3 ? 'Your scale is moving. ' : '') + 'Retake this on ' + again + '. <a href="' + cal + '" target="_blank" rel="noopener">Add it to my calendar</a></p></div>' +
+      '<div class="rcc-sec"><h3>Where JaliHR fits</h3><p>' + esc(band.jalihr) + '</p><a class="rcc-btn dark" href="https://meetings-eu1.hubspot.com/cmirembe" target="_blank" rel="noopener">Book a setup call</a></div>' +
+      '<div class="rcc-nav"><button type="button" class="rcc-back" id="rcc-redo">Retake the check</button><a class="rcc-link" href="/blog/start-with-the-scale/">Read the article \u2192</a></div></div>';
     document.getElementById('rcc-redo').addEventListener('click', function () { ans = Q.map(function (q) { return q.multi ? [] : null; }); go(0); });
   }
 
@@ -141,8 +143,9 @@
   }
   function go(s) {
     step = Math.max(0, Math.min(13, s));
+    if (step < 13 && left.innerHTML !== intro) left.innerHTML = intro;
     if (step < 12) renderQ(); else if (step === 12) renderForm(); else renderResult();
-    var top = card.getBoundingClientRect().top + window.scrollY - 120;
+    var top = (step === 13 ? left : card).getBoundingClientRect().top + window.scrollY - 120;
     if (window.scrollY > top) window.scrollTo({ top: top, behavior: 'smooth' });
   }
 
