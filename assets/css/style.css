@@ -1,3 +1,4 @@
+@import url('/assets/css/numbers.css');
 /* ============================================================
    JaliHR.live — Main Stylesheet
    Brand: Emerald #0E4A38 | Sage #84B59F | Cream #F7F5F0
@@ -59,7 +60,7 @@
   --color-accent:    var(--sage);
 
   /* Fonts */
-  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-display: JaliNum, 'Georgia', 'Times New Roman', serif;
   --font-body:    'Inter', 'Helvetica Neue', sans-serif;
 
   /* Layout */

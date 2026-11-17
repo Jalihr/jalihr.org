@@ -41,6 +41,13 @@
   var DOC = function (id) { return 'https://docs.google.com/document/d/' + id + '/copy'; };
   var SHEET = function (id) { return 'https://docs.google.com/spreadsheets/d/' + id + '/copy'; };
   var PACKS = {
+    // Review Complexity Check form: https://2gx5l2.share-eu1.hsforms.com/25rfjaSATS7e5R5qlMsVH1Q
+    // After the form is sent, the reader goes straight to the check.
+    'Review Complexity Check': {
+      slug: 'review-complexity-check',
+      form: 'e6b7e369-2013-4bb7-b947-9aa532c547d5',
+      redirect: '/calculator/review-complexity-check/'
+    },
     'Performance review toolkit': {
       slug: 'performance-review-toolkit',
       form: FORM_TOOLKIT,
@@ -105,6 +112,7 @@
   function showDone() {
     if (!current || !done.hidden) return;
     var p = PACKS[current];
+    if (p && p.redirect) { location.href = p.redirect; return; }
     var h;
     if (current === 'Weekly email') {
       h = '<p class="lead">You\'re on the list. The next one lands in your inbox this week.</p>';
@@ -137,7 +145,7 @@
     title.textContent = name;
     lead.hidden = false; hsBox.hidden = false; done.hidden = true; done.innerHTML = '';
     lead.textContent = leadText || 'Leave your details and your download appears straight away.';
-    modal.querySelector('.eyebrow').textContent = name === 'Weekly email' ? 'Newsletter' : 'Free template';
+    modal.querySelector('.eyebrow').textContent = name === 'Weekly email' ? 'Newsletter' : (PACKS[name] && PACKS[name].redirect) ? 'Free check' : 'Free template';
     history.replaceState(null, '', location.pathname + '?template=' + slugOf(name) + location.hash);
     hsBox.innerHTML = '';
     loadHs(function () {

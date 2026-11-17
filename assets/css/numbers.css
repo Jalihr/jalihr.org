@@ -1,0 +1,7 @@
+/* Numbers are always set in Inter. JaliNum maps digits (and the characters
+   that sit inside numbers) to Inter, so any font stack that starts with
+   JaliNum shows numbers in Inter and everything else in the next font. */
+@font-face{font-family:JaliNum;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-400.woff2) format('woff2');unicode-range:U+0030-0039,U+0025,U+002B,U+0024}
+@font-face{font-family:JaliNum;font-weight:500;font-display:swap;src:url(/assets/fonts/inter-500.woff2) format('woff2');unicode-range:U+0030-0039,U+0025,U+002B,U+0024}
+@font-face{font-family:JaliNum;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-600.woff2) format('woff2');unicode-range:U+0030-0039,U+0025,U+002B,U+0024}
+@font-face{font-family:JaliNum;font-weight:700;font-display:swap;src:url(/assets/fonts/inter-700.woff2) format('woff2');unicode-range:U+0030-0039,U+0025,U+002B,U+0024}

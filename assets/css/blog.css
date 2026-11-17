@@ -1,7 +1,7 @@
 /* JaliHR blog: home, articles and the free-template modal.
    Scoped under .jb so it never touches the rest of the site. */
 
-.jb{--g:Georgia,'Times New Roman',serif;--e:#0E4A38;--em:#1F7A5E;--s:#84B59F;--sm:#5E997E;--sl:#C9DDD0;--svl:#E8F0EB;--c:#F7F5F0;--ink:#2B2F33;--soft:#475056;--line:#E5E7EB;
+.jb{--g:JaliNum,Georgia,'Times New Roman',serif;--e:#0E4A38;--em:#1F7A5E;--s:#84B59F;--sm:#5E997E;--sl:#C9DDD0;--svl:#E8F0EB;--c:#F7F5F0;--ink:#2B2F33;--soft:#475056;--line:#E5E7EB;
   background:#fff;color:var(--ink);font-family:Inter,Calibri,Arial,sans-serif}
 .jb a{color:var(--e)}
 .jb a:hover{color:var(--em)}
@@ -112,8 +112,8 @@ a.jb-post:hover{box-shadow:0 10px 30px rgba(14,74,56,.12);color:var(--ink)}
 .jb-toc{border-left:2px solid var(--sl);padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:15px}
 .jb-toc a{text-decoration:none}
 .jb-sidetools{background:var(--c);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:6px}
-.jb-sidetools button{font:inherit;font-size:15px;font-weight:600;text-align:left;padding:8px 0;border:none;background:none;color:var(--e);cursor:pointer}
-.jb-sidetools button:hover{text-decoration:underline}
+.jb-sidetools button,.jb-sidetools a{text-decoration:none;font:inherit;font-size:15px;font-weight:600;text-align:left;padding:8px 0;border:none;background:none;color:var(--e);cursor:pointer}
+.jb-sidetools button:hover,.jb-sidetools a:hover{text-decoration:underline}
 .jb-share{display:flex;gap:10px;flex-wrap:wrap;font-size:14px}
 .jb-share a,.jb-share button{font:inherit;font-size:14px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;background:#fff;color:var(--e);cursor:pointer}
 
