@@ -13,7 +13,7 @@
 .rcc-prog .bar{flex:1;height:4px;border-radius:2px;background:var(--sw);overflow:hidden}
 .rcc-prog .bar i{display:block;height:100%;background:var(--e);transition:width .3s}
 .rcc-prog .n{font:500 13px Inter;color:var(--im);white-space:nowrap}
-.rcc-q h2,.rcc-form h2{font:700 28px/1.22 var(--serif);color:var(--ink);margin:10px 0 6px}
+.rcc-q h2{font:700 28px/1.22 var(--serif);color:var(--ink);margin:10px 0 6px}
 .rcc-q .hint{color:var(--im);font-size:15px;margin:0 0 20px}
 .rcc-opts{display:grid;gap:10px}
 .rcc-opt{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:16px 18px;border:1px solid var(--ss);border-radius:10px;background:#fff;font:500 16px Inter;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
@@ -58,7 +58,7 @@
   .rcc-left{position:static}
   .rcc-left h1{font-size:34px}
   .rcc-card{padding:24px 20px}
-  .rcc-q h2,.rcc-form h2{font-size:23px}
+  .rcc-q h2{font-size:23px}
   .rcc-num{font-size:96px}
   .rcc-left .desc{font-size:28px}
   .rcc-row{grid-template-columns:1fr}

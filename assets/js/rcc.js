@@ -1,4 +1,5 @@
-/* The Review Complexity Check: 12 questions, a HubSpot form, then the result.
+/* The Review Complexity Check: 12 questions, then the result.
+   Details are collected by the HubSpot form on the article before readers arrive here.
    Questions 1 to 10 score 0 to 3 each. Score = round(points / 3), minimum 1.
    Question 11 sets the check-again date. Question 12 adds the split advice. */
 (function () {
@@ -7,9 +8,6 @@
   var left = document.getElementById('rcc-left');
   if (!card) return;
   var intro = left.innerHTML;
-
-  // HubSpot form in JaliHR's portal. FORM_ID is filled in once the form exists.
-  var HS = { region: 'eu1', portalId: '149353094', formId: '' };
 
   var Q = [
     { g: 'Your roles', q: 'How many different kinds of roles do you have?', o: ['A few similar roles', 'A handful, across a couple of teams', 'Many roles, across departments', 'Many specialist roles, with several levels in each'] },
@@ -52,11 +50,11 @@
   ];
 
   var ans = Q.map(function (q) { return q.multi ? [] : null; });
-  var step = 0; // 0..11 questions, 12 form, 13 result
+  var step = 0; // 0..11 questions, 12 result
 
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function answered(i) { return Q[i].multi ? ans[i].length > 0 : ans[i] !== null; }
-  function prog(n, label) { return '<div class="rcc-prog"><div class="bar"><i style="width:' + Math.round(n / 13 * 100) + '%"></i></div><span class="n">' + label + '</span></div>'; }
+  function prog(n, label) { return '<div class="rcc-prog"><div class="bar"><i style="width:' + Math.round(n / 12 * 100) + '%"></i></div><span class="n">' + label + '</span></div>'; }
 
   function renderQ() {
     var q = Q[step];
@@ -81,29 +79,6 @@
       });
     });
     bindNav();
-  }
-
-  function renderForm() {
-    card.innerHTML = prog(12, 'Almost there') +
-      '<div class="rcc-form"><p class="eyebrow">Your number is ready</p><h2>Where should we send your result?</h2>' +
-      '<p>Your score, the review that fits and your template appear on the next screen. We’ll email you a copy, plus field notes every other week. Unsubscribe any time.</p>' +
-      '<div id="rcc-hs"></div></div>' +
-      '<div class="rcc-nav"><button type="button" class="rcc-back">← Back</button><span></span></div>';
-    bindNav();
-    if (HS.formId) {
-      var s = document.createElement('script');
-      s.src = 'https://js-eu1.hsforms.net/forms/embed/v2.js';
-      s.onload = function () { window.hbspt.forms.create({ region: HS.region, portalId: HS.portalId, formId: HS.formId, target: '#rcc-hs', onFormSubmitted: function () { go(13); } }); };
-      document.head.appendChild(s);
-    } else {
-      // Stand-in until the HubSpot form exists. Same fields as the planned form.
-      document.getElementById('rcc-hs').innerHTML =
-        '<div class="rcc-row"><div class="rcc-field"><label>First name</label><input autocomplete="given-name"></div><div class="rcc-field"><label>Last name</label><input autocomplete="family-name"></div></div>' +
-        '<div class="rcc-field"><label>Work email</label><input type="email" autocomplete="email"></div>' +
-        '<div class="rcc-row"><div class="rcc-field"><label>Company</label><input autocomplete="organization"></div><div class="rcc-field"><label>Your role</label><select><option>HR</option><option>Finance</option><option>CEO or founder</option><option>Other</option></select></div></div>' +
-        '<button type="button" class="rcc-btn dark" id="rcc-see">Show my result →</button><p class="rcc-small">By sending this you agree to hear from JaliHR. Unsubscribe any time.</p>';
-      document.getElementById('rcc-see').addEventListener('click', function () { go(13); });
-    }
   }
 
   function addMonths(d, m) { var x = new Date(d); x.setMonth(x.getMonth() + m); return x; }
@@ -142,19 +117,19 @@
     var n = card.querySelector('.rcc-next'); if (n) n.addEventListener('click', function () { if (answered(step)) go(step + 1); });
   }
   function go(s) {
-    step = Math.max(0, Math.min(13, s));
-    if (step < 13 && left.innerHTML !== intro) left.innerHTML = intro;
-    if (step < 12) renderQ(); else if (step === 12) renderForm(); else renderResult();
-    var top = (step === 13 ? left : card).getBoundingClientRect().top + window.scrollY - 120;
+    step = Math.max(0, Math.min(12, s));
+    if (step < 12 && left.innerHTML !== intro) left.innerHTML = intro;
+    if (step < 12) renderQ(); else renderResult();
+    var top = (step === 12 ? left : card).getBoundingClientRect().top + window.scrollY - 120;
     if (window.scrollY > top) window.scrollTo({ top: top, behavior: 'smooth' });
   }
 
-  // Preview helper for reviews: ?demo=q5, ?demo=form, ?demo=result&a=2,2,1,...
+  // Preview helper for reviews: ?demo=q5, ?demo=result&a=2,2,1,...
   var p = new URLSearchParams(location.search);
   if (p.get('demo')) {
     var a = (p.get('a') || '2,2,2,1,2,1,2,2,1,2,0|1,1').split(',');
     a.forEach(function (v, i) { if (i === 10) ans[10] = v.split('|').map(Number); else if (i < 12) ans[i] = +v; });
     var d = p.get('demo');
-    go(d === 'form' ? 12 : d === 'result' ? 13 : Math.max(0, (+d.replace('q', '') || 1) - 1));
+    go(d === 'result' ? 12 : Math.max(0, (+d.replace('q', '') || 1) - 1));
   } else go(0);
 })();
